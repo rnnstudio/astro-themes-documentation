@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RNN Studio — Astro Themes Documentation</title>
+<meta name="description" content="Documentation for premium Astro themes by RNN Studio.">
+<style>
+  :root{
+    --bg:#f7f7f5;
+    --surface:#fff;
+    --ink:#111;
+    --muted:#707070;
+    --line:#e7e7e2;
+    --soft:#f0f0eb;
+    --accent:#ff5b35;
+    --accent-dark:#d94420;
+    --radius:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:auto;padding:0 28px}
+  header{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.03em}
+  .mark{
+    width:31px;height:31px;border-radius:9px;
+    background:#111;color:#fff;display:grid;place-items:center;
+    font-size:13px;font-weight:800;
+  }
+  nav{display:flex;align-items:center;gap:25px;font-size:14px;color:#666}
+  nav a:hover{color:#111}
+  .nav-cta{
+    color:#fff;background:#111;padding:10px 15px;border-radius:999px;
+  }
+  .hero{
+    padding:92px 0 66px;
+    display:grid;grid-template-columns:1.35fr .65fr;gap:60px;
+    align-items:end;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:#666;font-size:12px;text-transform:uppercase;letter-spacing:.13em;
+    font-weight:750;margin-bottom:22px;
+  }
+  .dot{width:7px;height:7px;background:var(--accent);border-radius:50%}
+  h1{
+    font-size:clamp(48px,7vw,82px);
+    line-height:.93;letter-spacing:-.065em;
+    max-width:850px;margin:0 0 27px;font-weight:780;
+  }
+  .hero p{
+    color:var(--muted);font-size:18px;line-height:1.65;
+    max-width:650px;margin:0;
+  }
+  .hero-side{
+    border-left:1px solid var(--line);
+    padding-left:30px;
+  }
+  .hero-side strong{font-size:15px}
+  .hero-side p{font-size:14px;line-height:1.65;margin-top:9px}
+  .stats{display:flex;gap:30px;margin-top:25px}
+  .stat b{display:block;font-size:27px;letter-spacing:-.04em}
+  .stat span{font-size:12px;color:#888}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:end;
+    padding:22px 0 18px;border-top:1px solid var(--line);
+  }
+  .section-head h2{font-size:20px;letter-spacing:-.035em;margin:0}
+  .section-head span{font-size:13px;color:#888}
+  .grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:16px;padding-bottom:90px;
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:10px;
+    transition:.25s ease;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(0,0,0,.07)}
+  .preview{
+    height:250px;border-radius:16px;background:#f0f0ed;
+    position:relative;overflow:hidden;padding:18px;
+  }
+  .preview:after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,.35),transparent 45%);
+    pointer-events:none;
+  }
+  .browser{height:100%;border-radius:11px;background:white;box-shadow:0 8px 30px rgba(0,0,0,.08);padding:11px}
+  .browser-top{display:flex;gap:5px;margin-bottom:13px}
+  .browser-top i{width:6px;height:6px;background:#d7d7d3;border-radius:50%}
+  .mock-nav{height:8px;width:42%;background:#e9e9e5;border-radius:10px;margin:0 auto 22px}
+  .mock-title{width:72%;height:18px;background:#181818;border-radius:5px;margin:0 auto 10px}
+  .mock-copy{width:48%;height:7px;background:#ddd;border-radius:8px;margin:auto}
+  .mock-button{width:70px;height:22px;background:#111;border-radius:20px;margin:18px auto}
+  .mock-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+  .mock-cards div{height:52px;border-radius:6px;background:#f0f0ed}
+  .card-body{padding:21px 17px 18px}
+  .meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+  .tag{
+    font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--accent-dark);background:#fff0eb;padding:6px 8px;border-radius:999px;
+  }
+  .arrow{font-size:20px;color:#aaa;transition:.2s}
+  .card:hover .arrow{color:#111;transform:translate(3px,-3px)}
+  .card h3{font-size:25px;letter-spacing:-.045em;margin:0 0 7px}
+  .card p{font-size:14px;line-height:1.55;color:#777;margin:0;min-height:43px}
+  .card-link{display:flex;align-items:center;justify-content:space-between;margin-top:18px;font-size:13px;font-weight:700}
+  .guide{
+    border:1px solid #deded8;background:#111;color:#fff;border-radius:26px;
+    padding:38px;display:flex;justify-content:space-between;align-items:center;gap:30px;
+    margin-bottom:90px;
+  }
+  .guide h2{font-size:28px;letter-spacing:-.045em;margin:0 0 8px}
+  .guide p{color:#aaa;margin:0;font-size:14px}
+  .guide a{background:#fff;color:#111;border-radius:999px;padding:12px 17px;font-size:13px;font-weight:750;white-space:nowrap}
+  footer{
+    border-top:1px solid var(--line);padding:26px 0 35px;
+    color:#888;font-size:12px;display:flex;justify-content:space-between;
+  }
+  @media(max-width:760px){
+    .wrap{padding:0 18px}
+    header{height:68px}
+    nav a:not(.nav-cta){display:none}
+    .hero{padding:64px 0 55px;display:block}
+    h1{font-size:54px}
+    .hero-side{border:0;padding:30px 0 0;margin-top:30px;border-top:1px solid var(--line)}
+    .grid{grid-template-columns:1fr}
+    .preview{height:220px}
+    .guide{padding:28px;display:block}
+    .guide a{display:inline-block;margin-top:22px}
+    footer{display:block}
+    footer span{display:block;margin-top:7px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://rnnstudio.com">
+      <span class="mark">R</span><span>RNN Studio</span>
+    </a>
+    <nav>
+      <a href="#themes">Themes</a>
+      <a href="https://rnnstudio.com">Website</a>
+      <a class="nav-cta" href="mailto:hello@rnnstudio.com">Get support</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Astro Themes · Documentation</div>
+        <h1>Build faster.<br>Ship beautifully.</h1>
+        <p>
+          Everything you need to customize, launch, and maintain your RNN Studio
+          Astro themes. Pick a theme below and jump straight into the documentation.
+        </p>
+      </div>
+      <aside class="hero-side">
+        <strong>Premium Astro themes, without the learning curve.</strong>
+        <p>Clean code, thoughtful components, and practical documentation for modern websites.</p>
+        <div class="stats">
+          <div class="stat"><b>02</b><span>THEMES</span></div>
+          <div class="stat"><b>01</b><span>DOCS HUB</span></div>
+          <div class="stat"><b>100%</b><span>ASTRO</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="themes">
+      <div class="section-head">
+        <h2>Theme documentation</h2>
+        <span>Choose a theme to get started →</span>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="./saasdesk/">
+          <div class="preview">
+            <div class="browser">
+              <div class="browser-top"><i></i><i></i><i></i></div>
+              <div class="mock-nav"></div>
+              <div class="mock-title"></div>
+              <div class="mock-copy"></div>
+              <div class="mock-button"></div>
+              <div class="mock-cards"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="meta"><span class="tag">SaaS · HR</span><span class="arrow">↗</span></div>
+            <h3>Saasdesk</h3>
+            <p>SaaS, startup, payroll and HR marketing site built for conversion.</p>
+            <div class="card-link"><span>Read documentation</span><span>→</span></div>
+          </div>
+        </a>
+
+        <a class="card" href="./paytime/">
+          <div class="preview">
+            <div class="browser">
+              <div class="browser-top"><i></i><i></i><i></i></div>
+              <div class="mock-nav"></div>
+              <div class="mock-title" style="width:58%"></div>
+              <div class="mock-copy" style="width:42%"></div>
+              <div class="mock-button"></div>
+              <div class="mock-cards"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="meta"><span class="tag">Fintech · Payments</span><span class="arrow">↗</span></div>
+            <h3>Paytime</h3>
+            <p>Modern fintech and payments landing page for ambitious digital products.</p>
+            <div class="card-link"><span>Read documentation</span><span>→</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="guide">
+      <div>
+        <h2>Need help getting started?</h2>
+        <p>Check the theme docs for setup, customization, components and deployment.</p>
+      </div>
+      <a href="mailto:hello@rnnstudio.com">Contact RNN Studio</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 RNN Studio. Astro themes & documentation.</span>
+    <span>Support: hello@rnnstudio.com</span>
+  </footer>
+</div>
+</body>
+</html>
