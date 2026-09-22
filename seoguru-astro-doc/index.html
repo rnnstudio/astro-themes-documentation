@@ -1081,20 +1081,27 @@ src/pages/case-studies/[slug].astro                      <span class="c-comment"
         <p>Components live in <code>src/components/</code> and encapsulate one piece of UI so it can be reused across pages without copy-pasting markup &mdash; <code>Header.astro</code>, <code>Footer.astro</code>, <code>ServicePage.astro</code> (the shared shell for all three service pages), <code>CaseStudyCard.astro</code>, <code>PricingSection.astro</code>, <code>FaqSection.astro</code>, <code>Testimonial.astro</code>, <code>WhyUs.astro</code>, <code>AuditCta.astro</code>, and <code>ArrowLink.astro</code>. Every component is plain <code>.astro</code> &mdash; there&rsquo;s no <code>.tsx</code>/React in this template.</p>
 
         <h3 id="props">Props &amp; TypeScript Interfaces</h3>
-        <p>Most components just destructure <code>Astro.props</code> directly with no declared type, which is enough for a plain-JavaScript template like this one. Where a component's prop shape benefits from documenting, an optional <code>interface Props</code> works the same way TypeScript interfaces do in a <code>.tsx</code> file &mdash; <code>PricingSection.astro</code> uses one for its single optional <code>class</code> prop, which lets the pricing page apply page-only styling without affecting the same component on the homepage:</p>
+        <p>Most components just destructure <code>Astro.props</code> directly with no declared type, which is enough for a plain-JavaScript template like this one. Where a component's prop shape benefits from documenting, an optional <code>interface Props</code> works the same way TypeScript interfaces do in a <code>.tsx</code> file &mdash; <code>PricingSection.astro</code> uses one for its three optional props (<code>class</code>, <code>title</code>, <code>description</code>), which lets each page that renders it opt into page-only styling and its own heading without affecting the other:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/PricingSection.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">interface</span> Props {
   class?: <span class="c-key">string</span>;
+  title?: <span class="c-key">string</span>;
+  description?: <span class="c-key">string</span>;
 }
 
-<span class="c-key">const</span> { class: className } = Astro.props;
+<span class="c-key">const</span> { class: className, title, description } = Astro.props;
 <span class="c-comment">---</span>
 
-&lt;section id=<span class="c-string">"pricing"</span> class:list={[<span class="c-string">'pricing-section'</span>, className]}&gt;</code></pre>
+&lt;section id=<span class="c-string">"pricing"</span> class:list={[<span class="c-string">'pricing-section'</span>, className]}&gt;
+  &lt;div class=<span class="c-string">"w-layout-blockcontainer main-container w-container"</span>&gt;
+    &lt;slot /&gt;
+    &lt;div class=<span class="c-string">"pricing-container"</span>&gt;
+      {title &amp;&amp; &lt;h3 class=<span class="c-string">"h2"</span>&gt;{title}&lt;/h3&gt;}
+      {description &amp;&amp; &lt;p class=<span class="c-string">"body-medium"</span>&gt;{description}&lt;/p&gt;}</code></pre>
         </div>
-        <p>In plain language: <code>class</code> is optional (the <code>?</code>) &mdash; a page that renders <code>&lt;PricingSection /&gt;</code> with no <code>class</code> prop, like the homepage, gets the component&rsquo;s default styling untouched.</p>
+        <p>In plain language: all three props are optional (the <code>?</code>). The homepage renders <code>&lt;PricingSection title="Membership" description="Become a member today and Grow with SeoGuru" /&gt;</code>, so it gets a centered heading above the pricing tabs; the pricing page passes neither, since it already has its own hero heading above the section (see below), and instead passes <code>class="pricing-section--flat"</code> for page-only background/spacing.</p>
 
         <h3 id="composition">Component Composition</h3>
         <p>Larger sections are composed from smaller components rather than written as one long block of markup &mdash; <code>ServicePage.astro</code> imports and composes <code>ArrowLink</code>, <code>Testimonial</code>, <code>WhyUs</code>, and <code>AuditCta</code> internally. A component can also accept child markup through a <code>&lt;slot /&gt;</code>, the way <code>PricingSection.astro</code> does on the pricing page &mdash; the page&rsquo;s hero heading is passed in as slotted content and rendered inside the pricing section&rsquo;s own wrapper, rather than living in a second, separate hero section:</p>
@@ -1154,12 +1161,12 @@ src/pages/case-studies/[slug].astro                      <span class="c-comment"
         <p>Four plain stylesheets are imported, in order, in <code>Layout.astro</code>: <code>normalize.css</code> (browser reset), <code>framework.css</code> (Webflow-derived layout/utility classes, kept so the converted markup&rsquo;s class names still work), <code>seoguru.css</code> (this template&rsquo;s actual design &mdash; colors, typography, section styling), and <code>custom.css</code> (small additions made after the Webflow-to-Astro conversion). When in doubt about which file to edit, start in <code>seoguru.css</code>.</p>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. SeoGuru mostly keeps styling centralized in <code>src/styles/</code> rather than per component, but <code>src/pages/pricing.astro</code> uses a scoped, page-only <code>&lt;style is:global&gt;</code> block to adjust the shared <code>PricingSection</code> component&rsquo;s look (background and shadow) without touching how it renders on the homepage:</p>
+        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. SeoGuru mostly keeps styling centralized in <code>src/styles/</code> rather than per component, but <code>src/pages/pricing.astro</code> uses a scoped, page-only <code>&lt;style is:global&gt;</code> block to adjust the shared <code>PricingSection</code> component&rsquo;s spacing (and its cards&rsquo; shadow) without touching how it renders on the homepage; the background color still matches the homepage&rsquo;s <code>--green-light</code>, it&rsquo;s just repeated here to keep the page&rsquo;s own padding override self-contained:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/pricing.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style is:global&gt;
   .pricing-section.pricing-section--flat {
-    background-color: #fff;
+    background-color: var(--green-light);
     padding-top: 270px;
   }
 &lt;/style&gt;</code></pre>
@@ -1365,26 +1372,26 @@ heroHeading: <span class="c-string">'Rank Higher with Our Award-Winning SEO Team
         <p class="section-lede">What ships out of the box, and what still needs a backend.</p>
 
         <div class="callout warning">
-          <span class="callout-title">All three forms point at a placeholder endpoint</span>
-          <p>SeoGuru&rsquo;s audit request, contact, and newsletter forms all submit to the same placeholder <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a> endpoint, <code>https://formspree.io/f/your-form-id</code>. They will not deliver anywhere until you replace that ID with your own Formspree form (or swap in a different provider).</p>
+          <span class="callout-title">None of the three forms have an action set</span>
+          <p>SeoGuru&rsquo;s audit request, contact, and newsletter forms are intentionally shipped as UI-only &mdash; no <code>action</code> or <code>method</code> attribute is set on any of them. They will not deliver anywhere until you wire each one to a form handler of your choice.</p>
         </div>
 
         <h3 id="contact-forms">Contact Forms</h3>
-        <p>Forms are plain HTML &mdash; no JavaScript form component or client-side framework is involved. The same placeholder <code>action</code> appears in three files; update all of them:</p>
+        <p>Forms are plain HTML &mdash; no JavaScript form component or client-side framework is involved. All three files just have a bare <code>&lt;form&gt;</code> tag; add your own <code>action</code>/<code>method</code> to each:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/contact.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;form class=<span class="c-string">"contact-form"</span> action=<span class="c-string">"https://formspree.io/f/your-form-id"</span> method=<span class="c-string">"POST"</span>&gt;</code></pre>
+          <pre><code>&lt;form class=<span class="c-string">"contact-form"</span>&gt;</code></pre>
         </div>
         <p>The other two are the audit-request form in <code>src/components/AuditCta.astro</code> and the newsletter signup form in <code>src/components/Footer.astro</code>.</p>
 
         <h3 id="newsletter-forms">Newsletter Forms</h3>
-        <p>The footer newsletter form is not pre-wired to a mailing-list provider (Mailchimp, ConvertKit, etc.) &mdash; it posts to the same placeholder Formspree endpoint as the other two forms, and only collects an email address.</p>
+        <p>The footer newsletter form is not pre-wired to a mailing-list provider (Mailchimp, ConvertKit, etc.) &mdash; like the other two forms, it has no <code>action</code> set and only collects an email address.</p>
 
         <h3 id="form-validation">Form Validation</h3>
         <p>Required fields and email format are checked in the browser using standard HTML attributes (<code>required</code>, <code>type="email"</code>, <code>maxlength</code>) &mdash; there is no custom JavaScript validation logic.</p>
 
         <h3 id="third-party-forms">Third-Party Form Services</h3>
-        <p>All three forms are already wired to Formspree, which accepts submissions directly from static HTML and forwards them to an inbox &mdash; you only need to <a href="https://formspree.io" target="_blank" rel="noopener">create a Formspree form</a> and swap the ID into the <code>action</code> attribute in each of the three files above. Services like Getform or Basin work as drop-in alternatives if you&rsquo;d rather not use Formspree.</p>
+        <p>None of the forms are wired to a provider out of the box. Pick a service that accepts submissions directly from static HTML (Formspree, Getform, Basin, Netlify Forms, etc.), create a form there, and add the resulting <code>action</code> (and <code>method="POST"</code>) to each of the three files above &mdash; or point them at your own API route.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#navigation"><span class="pager-label">Previous</span><span class="pager-title">&larr; Navigation</span></a>
@@ -1542,7 +1549,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
           <li>Run <code>npm run preview</code> and click through the main pages.</li>
           <li>Set <code>site</code> in <code>astro.config.mjs</code> to your real deployed URL (currently the placeholder <code>https://example.com</code>) &mdash; it feeds the sitemap and canonical/OG tags.</li>
-          <li>Replace the placeholder Formspree endpoint (<code>https://formspree.io/f/your-form-id</code>) in <code>src/components/AuditCta.astro</code>, <code>src/components/Footer.astro</code>, and <code>src/pages/contact.astro</code> with your own form ID or provider.</li>
+          <li>Wire the forms in <code>src/components/AuditCta.astro</code>, <code>src/components/Footer.astro</code>, and <code>src/pages/contact.astro</code> to a form handler of your choice &mdash; they currently have no <code>action</code> set.</li>
           <li>Swap the placeholder contact details &mdash; <code>hello@example.com</code>, <code>+1 (555) 010-0123</code>, the Springfield address in <code>contact.astro</code>, and the <code>1234-567-890</code> phone number in <code>Header.astro</code> &mdash; for your real ones.</li>
           <li>Replace the placeholder social links (bare <code>facebook.com</code>/<code>twitter.com</code>/<code>skype.com</code>) in <code>Header.astro</code> and <code>Footer.astro</code> with your real profile URLs.</li>
           <li>Replace the sample case studies in <code>src/content/case-studies/</code> with your own.</li>
