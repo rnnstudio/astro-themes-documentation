@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paytime — Documentation</title>
+<title>Paytime — Astro Documentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -676,7 +676,7 @@
   <!-- ============================= CONTENT ============================= -->
   <div class="content-wrap">
     <main id="main-content">
-      <h1 class="visually-hidden" id="top">Paytime Documentation</h1>
+      <h1 class="visually-hidden" id="top">Template Documentation</h1>
 
       <!-- ======================= 01 INTRODUCTION ======================= -->
       <section class="doc-section" id="introduction" aria-labelledby="introduction-h">
@@ -685,7 +685,7 @@
         <p class="section-lede">Everything you need to know before you open your editor &mdash; what&rsquo;s in the box, what it&rsquo;s built with, and what it expects from your machine.</p>
 
         <h3 id="welcome">Welcome</h3>
-        <p>Thanks for picking up <strong id="welcome-product-name">Paytime</strong>. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Thanks for picking up <strong id="welcome-product-name">Paytime</strong>, a fintech / payments app landing page template built with Astro, plain CSS, and vanilla JavaScript (scroll animations run on GSAP, the testimonial carousel on Swiper). This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
 
         <h3 id="whats-included">What&rsquo;s Included</h3>
         <div class="card-grid">
@@ -694,12 +694,12 @@
             <p>The full, uncompiled project source &mdash; components, pages, styles, and configuration.</p>
           </div>
           <div class="info-card">
-            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Production build script</h4>
-            <p>Run <code>npm run build</code> to generate an optimized, deployable <code>dist/</code> folder &mdash; it isn&rsquo;t pre-built in the source download.</p>
+            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Production build</h4>
+            <p>Running <code>npm run build</code> compiles the source into a deployable <code>dist/</code> folder &mdash; see <a href="#build-production">Build &amp; Production</a>.</p>
           </div>
           <div class="info-card">
-            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Image, video &amp; font credits</h4>
-            <p>Full attribution for the Freepik/Unsplash/Pexels imagery and the Outfit and Satoshi typefaces lives on the bundled <a href="/template-info/license">License page</a>.</p>
+            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Design assets</h4>
+            <p>[Replace with a list of any Figma files, icon sets, or source images bundled with your template.]</p>
           </div>
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>This documentation</h4>
@@ -709,30 +709,28 @@
 
         <h3 id="features">Features</h3>
         <ul>
-          <li>A full fintech/payments landing page &mdash; hero, feature highlights, an app-tour tab section, a testimonial carousel, tabbed monthly/yearly pricing, and an FAQ accordion, all composed in <code>src/pages/index.astro</code></li>
-          <li>Smooth, GSAP-powered interactions: an animated FAQ accordion, animated tab panels, a pricing toggle, and a slide-in mobile navigation drawer</li>
-          <li>A dedicated components/style showcase page at <code>/components</code>, plus License, Changelog, and Style Guide utility pages under <code>/template-info/</code></li>
-          <li>Self-hosted Satoshi font files and the Outfit Google Font, already wired up with <code>@font-face</code> declarations and a <code>&lt;link&gt;</code> tag</li>
-          <li>SEO defaults on every page &mdash; canonical URL, Open Graph and Twitter card meta tags, and an auto-generated sitemap via <code>@astrojs/sitemap</code></li>
+          <li>A one-page fintech / payments marketing site &mdash; hero, app features, USP, tabbed app-points panel, testimonial carousel, pricing (monthly/yearly toggle), and FAQ accordion</li>
+          <li>GSAP-powered scroll-in animations across every section</li>
+          <li>Responsive mobile navigation drawer with a GSAP slide-in animation</li>
+          <li>Swiper-driven testimonial slider</li>
+          <li>A dedicated <code>/components</code> showcase page and a <code>/template-info/style-guide</code> page documenting the type scale and color tokens</li>
         </ul>
 
         <h3 id="tech-stack">Technology Stack</h3>
-        <p>Paytime is built with:</p>
+        <p>Paytime is deliberately framework-light: Astro for routing and templating, plain CSS for styling, and two small JS libraries for motion and the review carousel.</p>
         <div class="pill-row">
           <span class="pill"><span class="dot"></span>Astro</span>
-          <span class="pill"><span class="dot"></span>Vanilla JavaScript</span>
           <span class="pill"><span class="dot"></span>Vanilla CSS</span>
           <span class="pill"><span class="dot"></span>GSAP</span>
           <span class="pill"><span class="dot"></span>Swiper</span>
         </div>
-        <p>No React, TypeScript, or Tailwind CSS &mdash; components are plain <code>.astro</code> files, styling is hand-written CSS, and interactivity is small vanilla-JS modules under <code>src/scripts/</code>.</p>
 
         <h3 id="requirements">Requirements</h3>
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Tool</th><th>Minimum version</th><th>Notes</th></tr></thead>
             <tbody>
-              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Matches the <code>engines.node</code> requirement in <code>package.json</code></td></tr>
+              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Matches the <code>engines.node</code> field in <code>package.json</code></td></tr>
               <tr><td>Package manager</td><td>npm 9+, pnpm 8+, or Yarn 1.22+</td><td>Use whichever you prefer; examples below cover all three</td></tr>
               <tr><td>Code editor</td><td>&mdash;</td><td>VS Code with the Astro and ESLint extensions is a comfortable default</td></tr>
               <tr><td>Git</td><td>2.x</td><td>Only required if you plan to version-control your customized copy</td></tr>
@@ -750,7 +748,7 @@
         </div>
         <div class="callout warning">
           <span class="callout-title">Internet Explorer</span>
-          <p>Internet Explorer 11 is not supported. No additional polyfills are included.</p>
+          <p>Internet Explorer 11 is not supported. This template ships no additional polyfills for older browsers.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -817,7 +815,7 @@ nvm use 22</code></pre>
           <div class="code-block-bar"><span class="code-lang">pnpm</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>pnpm dev</code></pre>
         </div>
-        <p>This starts Astro&rsquo;s local dev server (powered by Vite) with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
+        <p>This starts Astro&rsquo;s local dev server (built on Vite) with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
 
         <h3 id="build-preview">Build for Production &amp; Preview</h3>
         <div class="code-block" data-lang="bash">
@@ -832,7 +830,7 @@ npm run preview</code></pre>
 
         <div class="callout info">
           <span class="callout-title">Which command do I actually need?</span>
-          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it catches issues (like a broken import or a missing file) that the dev server tolerates but production won&rsquo;t.</p>
+          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it catches issues (like a broken import or a typo&rsquo;d file path) that the dev server tolerates but production won&rsquo;t.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -848,35 +846,39 @@ npm run preview</code></pre>
         <p class="section-lede">A tour of the folders you&rsquo;ll actually touch, and the ones you generally shouldn&rsquo;t.</p>
 
         <div class="file-tree" role="img" aria-label="Project directory structure">paytime-astro/
-├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is: favicon, /fonts, /images, /videos</span>
+├── <span class="dir">public/</span>              <span class="cmt"># Every image, font, and video &mdash; copied as-is, unoptimized</span>
+│   ├── <span class="dir">images/</span>
+│   ├── <span class="dir">fonts/</span>             <span class="cmt"># Self-hosted Satoshi .otf files</span>
+│   └── <span class="dir">videos/</span>
 ├── <span class="dir">src/</span>
-│   ├── <span class="dir">components/</span>       <span class="cmt"># One component per page section (Hero, Pricing, FAQ, Navbar, ...)</span>
-│   ├── <span class="dir">layouts/</span>          <span class="cmt"># Layout.astro &mdash; shared &lt;head&gt;, meta tags, global styles</span>
+│   ├── <span class="dir">components/</span>       <span class="cmt"># Navbar, Hero, AppFeatures, USP, AppPointsTabs, ReviewSlider,</span>
+│   │                       <span class="cmt"># Pricing, FAQ, Footer, ComponentsShowcase &mdash; all .astro</span>
+│   ├── <span class="dir">layouts/</span>          <span class="cmt"># Layout.astro &mdash; the shared &lt;head&gt; / document shell</span>
 │   ├── <span class="dir">pages/</span>             <span class="cmt"># File-based routes &mdash; one file per URL</span>
-│   ├── <span class="dir">scripts/</span>           <span class="cmt"># Small vanilla-JS/GSAP interactions (tabs, accordion, slider, nav)</span>
-│   └── <span class="dir">styles/</span>            <span class="cmt"># normalize.css, webflow-base.css, theme.css (colors, type, components)</span>
-├── astro.config.mjs      <span class="cmt"># Astro integrations (sitemap) &amp; the site URL</span>
+│   ├── <span class="dir">scripts/</span>           <span class="cmt"># Vanilla JS: nav-menu, tabs, accordion, smooth-scroll</span>
+│   └── <span class="dir">styles/</span>            <span class="cmt"># normalize.css, webflow-base.css, theme.css</span>
+├── <span class="dir">_starter/_raw_html/</span>  <span class="cmt"># Original Webflow HTML export this template was converted from</span>
+├── astro.config.mjs      <span class="cmt"># Astro build &amp; integration configuration</span>
 ├── package.json          <span class="cmt"># Scripts and dependencies</span>
-├── tsconfig.json         <span class="cmt"># Default Astro strict preset &mdash; no path aliases configured</span>
-└── README.md</div>
+└── tsconfig.json         <span class="cmt"># Astro&rsquo;s strict TS preset &mdash; powers editor type-checking only</span></div>
 
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Holds <code>images/</code> (icons, screenshots, favicon), <code>fonts/</code> (self-hosted Satoshi <code>.otf</code> files), and <code>videos/</code> (the USP section&rsquo;s background clip).</td></tr>
-              <tr><td><code>src/components/</code></td><td>One <code>.astro</code> component per page section &mdash; <code>Navbar</code>, <code>Hero</code>, <code>AppFeatures</code>, <code>USP</code>, <code>AppPointsTabs</code>, <code>ReviewSlider</code>, <code>Pricing</code>, <code>FAQ</code>, <code>Footer</code>, <code>ComponentsShowcase</code>.</td></tr>
-              <tr><td><code>src/layouts/</code></td><td><code>Layout.astro</code> &mdash; the single shared page shell: global <code>&lt;head&gt;</code>/meta/SEO tags and global stylesheet imports. Every page renders through it.</td></tr>
+              <tr><td><code>public/</code></td><td>Every image, font, and video the site uses, plus <code>favicon.ico</code> &mdash; copied to the output root as-is, with no build-time processing. This template has no <code>src/assets/</code> folder; everything static lives here. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
+              <tr><td><code>src/components/</code></td><td>Reusable page sections (<code>Hero</code>, <code>Pricing</code>, <code>FAQ</code>, etc.) &mdash; all plain <code>.astro</code> files, no React.</td></tr>
+              <tr><td><code>src/layouts/</code></td><td><code>Layout.astro</code>, the shared <code>&lt;head&gt;</code>/document shell. It does not include the navbar or footer &mdash; each page imports those itself. See <a href="#layouts">Pages</a>.</td></tr>
               <tr><td><code>src/pages/</code></td><td>Every file here becomes a route automatically. See <a href="#pages">Pages</a> for details.</td></tr>
-              <tr><td><code>src/scripts/</code></td><td>Small vanilla-JS modules (<code>accordion.js</code>, <code>tabs.js</code>, <code>smooth-scroll.js</code>, <code>nav-menu.js</code>), several using GSAP, imported directly into a component&rsquo;s <code>&lt;script&gt;</code> tag.</td></tr>
-              <tr><td><code>src/styles/</code></td><td><code>normalize.css</code>, <code>webflow-base.css</code> (layout utility classes from the original Webflow export), and <code>theme.css</code> (color/type tokens and every component&rsquo;s styles). See <a href="#styling">Styling</a>.</td></tr>
+              <tr><td><code>src/scripts/</code></td><td>Small vanilla-JS files (mobile nav, tab switching, accordion, smooth scroll) imported directly into the components that need them.</td></tr>
+              <tr><td><code>src/styles/</code></td><td><code>normalize.css</code>, <code>webflow-base.css</code>, and <code>theme.css</code> &mdash; all imported globally in <code>Layout.astro</code>. See <a href="#styling">Styling</a>.</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
-          <span class="callout-title">Files not shown above</span>
-          <p><code>_starter/_raw_html/</code> holds the original Webflow HTML/CSS export this template was converted from. It&rsquo;s kept for reference only &mdash; the live site is built entirely from <code>src/</code> and doesn&rsquo;t read from this folder.</p>
+          <span class="callout-title">_starter/_raw_html/</span>
+          <p>The original Webflow HTML export this template was converted from. The build doesn&rsquo;t touch it &mdash; it&rsquo;s kept purely as a reference for the original markup, images, and fonts. You can safely ignore it while customizing the Astro source under <code>src/</code>.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -902,30 +904,31 @@ npm run preview</code></pre>
   <span class="c-key">"scripts"</span>: {
     <span class="c-key">"dev"</span>: <span class="c-string">"astro dev"</span>,
     <span class="c-key">"build"</span>: <span class="c-string">"astro build"</span>,
-    <span class="c-key">"preview"</span>: <span class="c-string">"astro preview"</span>
+    <span class="c-key">"preview"</span>: <span class="c-string">"astro preview"</span>,
+    <span class="c-key">"astro"</span>: <span class="c-string">"astro"</span>
   }
 }</code></pre>
         </div>
 
         <h3 id="config-astro">astro.config.mjs</h3>
-        <p>Controls integrations, the deployed site URL, and build behavior. Paytime registers only the official sitemap integration &mdash; there&rsquo;s no React, Tailwind, or other framework integration to configure.</p>
+        <p>Controls integrations, the deployed site URL, and build behavior. The only integration this template registers is <code>@astrojs/sitemap</code>, which generates <code>sitemap-index.xml</code> at build time.</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">astro.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
 <span class="c-key">import</span> sitemap <span class="c-key">from</span> <span class="c-string">'@astrojs/sitemap'</span>;
 
 <span class="c-key">export default</span> defineConfig({
-  site: <span class="c-string">'https://example.com'</span>, <span class="c-comment">// used to build absolute URLs for SEO tags and the sitemap</span>
+  site: <span class="c-string">'https://example.com'</span>, <span class="c-comment">// used to build absolute URLs for SEO tags</span>
   integrations: [sitemap()],
 });</code></pre>
         </div>
         <div class="callout warning">
           <span class="callout-title">Update the site URL before deploying</span>
-          <p>The template ships with <code>site: 'https://example.com'</code> as a placeholder. Replace it with your real production domain, or canonical URLs, Open Graph tags, and the generated sitemap will all point at the wrong address.</p>
+          <p><code>site</code> still points at the placeholder <code>https://example.com</code>. Change it to your real domain before running <code>npm run build</code> &mdash; the sitemap, canonical URLs, and Open Graph tags all depend on it.</p>
         </div>
 
         <h3 id="config-tsconfig">tsconfig.json</h3>
-        <p>Paytime uses Astro&rsquo;s default <code>strict</code> preset as-is &mdash; there are no custom path aliases configured, so imports use relative paths (e.g. <code>../../layouts/Layout.astro</code>).</p>
+        <p>This template has no <code>.ts</code>/<code>.tsx</code> source files and no path aliases &mdash; every import is a relative path (e.g. <code>../components/Navbar.astro</code>). <code>tsconfig.json</code> still exists because Astro uses it to power editor type-checking and autocomplete inside each component&rsquo;s frontmatter script:</p>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">tsconfig.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
@@ -934,9 +937,10 @@ npm run preview</code></pre>
   <span class="c-key">"exclude"</span>: [<span class="c-string">"dist"</span>]
 }</code></pre>
         </div>
+        <p>There&rsquo;s no <code>astro check</code> script wired into <code>package.json</code>, so type errors won&rsquo;t fail a build or a CI run on their own &mdash; add one (<code>"typecheck": "astro check"</code>) if you want that enforced.</p>
 
         <h3 id="config-env">Environment Variables (.env)</h3>
-        <p>Paytime doesn&rsquo;t read any environment variables out of the box &mdash; there&rsquo;s no <code>.env</code> file and no API keys to configure. If you add a service that needs one (see <a href="#api-data">API &amp; Data</a>), create a <code>.env</code> file in the project root. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
+        <p>Paytime doesn&rsquo;t read any environment variables out of the box &mdash; it&rsquo;s a fully static site with no API calls (see <a href="#api-data">API &amp; Data</a>). If you add one later, create a <code>.env</code> file in the project root for values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Exposed to the browser &mdash; never put secrets here</span>
@@ -960,25 +964,29 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
       <section class="doc-section" id="pages" aria-labelledby="pages-h">
         <span class="section-eyebrow">05 &middot; Guide</span>
         <h2 id="pages-h">Pages</h2>
-        <p class="section-lede">How routes are created, and how each page assembles its section components.</p>
+        <p class="section-lede">How routes are created, and the real routes this template ships.</p>
 
         <h3 id="creating-pages">Creating a New Page</h3>
-        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path (a <code>.tsx</code> page would additionally require adding the <code>@astrojs/react</code> integration, which this template doesn&rsquo;t include).</p>
+        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. This template currently ships four routes:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>src/pages/index.astro       <span class="c-comment">&rarr;  /</span>
-src/pages/about.astro       <span class="c-comment">&rarr;  /about</span>
-src/pages/blog/index.astro  <span class="c-comment">&rarr;  /blog</span>
-src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynamic)</span></code></pre>
+          <pre><code>src/pages/index.astro                       <span class="c-comment">&rarr;  /</span>
+src/pages/components.astro                  <span class="c-comment">&rarr;  /components</span>
+src/pages/template-info/style-guide.astro   <span class="c-comment">&rarr;  /template-info/style-guide</span>
+src/pages/404.astro                         <span class="c-comment">&rarr;  served automatically for unmatched routes</span></code></pre>
         </div>
-        <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point &mdash; e.g. <code>src/pages/template-info/license.astro</code>:</p>
+        <p>To add a page, create a new file in <code>src/pages/</code>, import the shared layout, and (unless it&rsquo;s a bare utility page) add the <code>Navbar</code> and <code>Footer</code> yourself &mdash; <code>Layout.astro</code> only supplies the <code>&lt;head&gt;</code> and document shell, not page chrome:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/services.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> Layout <span class="c-key">from</span> <span class="c-string">'../layouts/Layout.astro'</span>;
+<span class="c-key">import</span> Navbar <span class="c-key">from</span> <span class="c-string">'../components/Navbar.astro'</span>;
+<span class="c-key">import</span> Footer <span class="c-key">from</span> <span class="c-string">'../components/Footer.astro'</span>;
 <span class="c-comment">---</span>
-&lt;Layout title=<span class="c-string">"Services - Paytime"</span> description=<span class="c-string">"What we offer."</span>&gt;
+&lt;Layout title=<span class="c-string">"Services - Paytime"</span> description=<span class="c-string">"..."</span>&gt;
+  &lt;Navbar page=<span class="c-string">"services"</span> /&gt;
   &lt;h1&gt;Our Services&lt;/h1&gt;
+  &lt;Footer page=<span class="c-string">"services"</span> /&gt;
 &lt;/Layout&gt;</code></pre>
         </div>
 
@@ -986,7 +994,11 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p>Open the relevant file under <code>src/pages/</code> and edit the markup directly. Anything imported from <code>src/components/</code> lives elsewhere &mdash; edit the component file itself to change content that repeats across multiple pages (like a shared call-to-action block).</p>
 
         <h3 id="dynamic-routes">Dynamic Routes</h3>
-        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites. Paytime doesn&rsquo;t currently ship any dynamic routes (every route under <code>src/pages/</code> is a fixed, single file), but you can add one the same way in any Astro project:</p>
+        <div class="callout info">
+          <span class="callout-title">Not used in this template</span>
+          <p>Paytime is a single-page marketing site with no blog or product listings, so it ships no <code>[param].astro</code> files. The pattern below is included for reference if you add one (e.g. a blog).</p>
+        </div>
+        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/blog/[slug].astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1000,7 +1012,7 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         </div>
 
         <h3 id="layouts">Layouts</h3>
-        <p>Paytime has a single shared layout, <code>src/layouts/Layout.astro</code>, that wraps every page &mdash; it imports the three global stylesheets and sets up all SEO/meta tags, then renders page content through a <code>&lt;slot /&gt;</code>. Individual pages import their own <code>Navbar</code> and <code>Footer</code> components rather than the layout hard-coding them, so each page controls its own header/footer variant:</p>
+        <p>There is exactly one layout, <code>src/layouts/Layout.astro</code>. It supplies the <code>&lt;html&gt;</code> shell and all <code>&lt;head&gt;</code> metadata (title, description, canonical URL, Open Graph/Twitter tags, favicon, the Google Fonts link), but &mdash; unlike a typical Astro starter &mdash; it does <em>not</em> render a header or footer itself. Every page renders through it via <code>&lt;slot /&gt;</code>:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1009,21 +1021,22 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
 <span class="c-key">import</span> <span class="c-string">"../styles/theme.css"</span>;
 
 <span class="c-key">const</span> {
-  title = <span class="c-string">"Paytime - Astro website template"</span>,
+  title = <span class="c-string">"rnnstudio - Astro website template"</span>,
   description = <span class="c-string">"Fastest way to make payment anywhere."</span>,
+  ogImage = <span class="c-string">"/images/love-paytime.webp"</span>,
   noindex = <span class="c-key">false</span>,
 } = Astro.props;
 <span class="c-comment">---</span>
 &lt;html lang=<span class="c-string">"en"</span>&gt;
-  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt;&lt;!-- + SEO meta tags --&gt;&lt;/head&gt;
+  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt;&lt;/head&gt;
   &lt;body class=<span class="c-string">"main-body"</span>&gt;
-    &lt;slot /&gt; <span class="c-comment">&lt;!-- page supplies its own Navbar / Footer --&gt;</span>
+    &lt;slot /&gt; <span class="c-comment">&lt;!-- page content, including Navbar/Footer if the page wants them, goes here --&gt;</span>
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
         </div>
 
         <h3 id="page-metadata">Page Metadata &amp; the 404 Page</h3>
-        <p>Pass <code>title</code> and <code>description</code> props into <code>&lt;Layout&gt;</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>); pass <code>noindex</code> to keep a utility page like License or Changelog out of search results. <code>src/pages/404.astro</code> is served automatically whenever no route matches.</p>
+        <p>Pass <code>title</code> and <code>description</code> (and optionally <code>ogImage</code> or <code>noindex</code>) into <code>Layout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). <code>src/pages/404.astro</code> is served automatically whenever no route matches, and passes <code>noindex</code> so it&rsquo;s excluded from search engines.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#configuration"><span class="pager-label">Previous</span><span class="pager-title">&larr; Configuration</span></a>
@@ -1038,43 +1051,50 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">The building blocks pages are assembled from, and how data flows into them.</p>
 
         <h3 id="reusable-components">Reusable Components</h3>
-        <p>Components live in <code>src/components/</code>, one per page section &mdash; <code>Hero.astro</code>, <code>AppFeatures.astro</code>, <code>USP.astro</code>, <code>AppPointsTabs.astro</code>, <code>ReviewSlider.astro</code>, <code>Pricing.astro</code>, <code>FAQ.astro</code>, <code>Navbar.astro</code>, <code>Footer.astro</code>, and <code>ComponentsShowcase.astro</code>. Every component is a plain <code>.astro</code> file &mdash; there are no <code>.tsx</code>/React components in this template.</p>
+        <p>Components live in <code>src/components/</code> and encapsulate one page section &mdash; <code>Hero</code>, <code>Pricing</code>, <code>FAQ</code>, <code>Footer</code>, and so on. Every component in this template is a plain <code>.astro</code> file &mdash; there&rsquo;s no React and nothing under <code>src/components/</code> ends in <code>.tsx</code>.</p>
 
         <h3 id="props">Props</h3>
-        <p>Props are the inputs a component accepts, similar to HTML attributes. Paytime doesn&rsquo;t use TypeScript <code>interface</code> declarations for them &mdash; components just destructure <code>Astro.props</code> with a plain default value, which is what most of this template&rsquo;s components (<code>Navbar</code>, <code>Footer</code>) do for their single <code>page</code> prop:</p>
+        <p>Props are the inputs a component accepts, similar to HTML attributes, read inside the component&rsquo;s frontmatter via <code>Astro.props</code>. This template doesn&rsquo;t declare TypeScript interfaces for them &mdash; props are destructured directly with a default value, which is what most of its components (most of which take none at all) look like. <code>Navbar</code> and <code>Footer</code> are the two that do, both taking a single <code>page</code> string used to highlight the current nav link and to scope in-page anchor links:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Navbar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">const</span> { page = <span class="c-string">"home"</span> } = Astro.props;
 <span class="c-comment">---</span></code></pre>
         </div>
-        <p>In plain language: <code>page</code> is optional, and defaults to <code>"home"</code> when the caller doesn&rsquo;t pass it &mdash; used to mark which nav link is <code>aria-current</code> on each page (e.g. <code>&lt;Navbar page="components" /&gt;</code> on <code>/components</code>).</p>
+        <p>In plain language: <code>page</code> is optional and defaults to <code>"home"</code> if the caller doesn&rsquo;t pass it. <code>&lt;Navbar page="components" /&gt;</code> tells the component it&rsquo;s rendering on the <code>/components</code> route, so its nav link builds an absolute <code>/#Feature</code>-style href instead of a same-page <code>#Feature</code> anchor, and marks the &ldquo;Components&rdquo; link current.</p>
 
         <h3 id="composition">Component Composition</h3>
-        <p>Most sections build their repeating markup by mapping over a small array defined right in the component&rsquo;s frontmatter, rather than hand-writing each card:</p>
+        <p>A component can import and render another component directly &mdash; <code>Hero.astro</code> renders <code>Navbar</code> internally so every page that includes <code>Hero</code> gets the nav for free:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/AppFeatures.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">const</span> features = [
-  { icon: <span class="c-string">"/images/Billing.svg"</span>, title: <span class="c-string">"Billing"</span>, text: <span class="c-string">"..."</span> },
-  { icon: <span class="c-string">"/images/Invoice.svg"</span>, title: <span class="c-string">"Invoice"</span>, text: <span class="c-string">"..."</span> },
-];
+<span class="c-key">import</span> Navbar <span class="c-key">from</span> <span class="c-string">'./Navbar.astro'</span>;
 <span class="c-comment">---</span>
-{features.map((feature) =&gt; (
-  &lt;div class=<span class="c-string">"feature-block"</span>&gt;
-    &lt;h3&gt;{feature.title}&lt;/h3&gt;
-  &lt;/div&gt;
-))}</code></pre>
+&lt;section class=<span class="c-string">"hero-section"</span>&gt;
+  &lt;Navbar page=<span class="c-string">"home"</span> /&gt;
+  ...
+&lt;/section&gt;</code></pre>
         </div>
+        <p>Pages that don&rsquo;t use <code>Hero</code> (like <code>/components</code> or the style guide) import and render <code>Navbar</code> themselves instead.</p>
 
         <h3 id="passing-data">Passing Data to Components</h3>
-        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>. Every page in Paytime passes its own <code>Navbar</code>/<code>Footer</code> a <code>page</code> value so the correct nav link is highlighted:</p>
+        <p>In Astro, props are passed the same way as HTML attributes. Content that repeats &mdash; FAQ questions, testimonial quotes, pricing tiers &mdash; isn&rsquo;t passed in as props from a parent, though: each component declares its own array as a local <code>const</code> in its frontmatter (there&rsquo;s no separate <code>src/data/</code> folder in this template):</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/components.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Pricing.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> Navbar <span class="c-key">from</span> <span class="c-string">'../components/Navbar.astro'</span>;
-<span class="c-comment">---</span>
-&lt;Navbar page=<span class="c-string">"components"</span> /&gt;</code></pre>
+<span class="c-key">const</span> plans = {
+  monthly: [
+    { name: <span class="c-string">'Starter'</span>, price: <span class="c-string">'19'</span>, suffix: <span class="c-string">'/mo'</span>, cta: <span class="c-string">'secondary-btn'</span> },
+    { name: <span class="c-string">'Economy'</span>, price: <span class="c-string">'59'</span>, suffix: <span class="c-string">'/mo'</span>, cta: <span class="c-string">'primary-btn'</span> },
+  ],
+};
+<span class="c-comment">---</span></code></pre>
+        </div>
+        <p>See <a href="#edit-cards-testimonials">Content Editing</a> for where to make these changes in practice.</p>
+
+        <div class="callout info">
+          <span class="callout-title">No UI framework, by design</span>
+          <p>Interactivity (the mobile nav drawer, tabs, the FAQ accordion, the testimonial slider) is handled with small vanilla-JS files in <code>src/scripts/</code>, imported via an inline <code>&lt;script&gt;</code> in the component that needs them &mdash; not with React or another client-side framework.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1090,7 +1110,7 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Where to change colors, type, and spacing without fighting the build.</p>
 
         <h3 id="global-styles">Global Styles &amp; CSS Variables</h3>
-        <p>Color palette and heading font are defined once as CSS custom properties at the top of <code>src/styles/theme.css</code> and referenced everywhere else. Change a value here and it updates across the whole site:</p>
+        <p>Three stylesheets are imported globally in <code>Layout.astro</code>, in this order: <code>normalize.css</code> (a browser reset), <code>webflow-base.css</code> (the utility classes and component styles carried over from the original Webflow export &mdash; class names like <code>.hero-section</code> or <code>.primary-btn</code> come from here), and <code>theme.css</code> (this template&rsquo;s own tokens, font declarations, and overrides). The color palette and a few shared values live as CSS custom properties at the top of <code>theme.css</code>:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/theme.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">:root</span> {
@@ -1102,12 +1122,13 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
   <span class="c-key">--orange</span>: <span class="c-string">#ffb459</span>;
 }</code></pre>
         </div>
+        <p>These same swatches are previewed on the <a href="#pages"><code>/template-info/style-guide</code></a> page.</p>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Paytime doesn&rsquo;t use Astro&rsquo;s scoped <code>&lt;style&gt;</code> blocks. All styling instead lives in three global stylesheets imported once by <code>Layout.astro</code> &mdash; <code>normalize.css</code> (browser reset), <code>webflow-base.css</code> (layout utility classes carried over from the original Webflow export), and <code>theme.css</code> (color/type tokens plus every component&rsquo;s actual styles, keyed by class name, e.g. <code>.pricing-card</code>, <code>.faq-item</code>). To restyle a section, find its class in the markup and edit the matching rule in <code>theme.css</code>.</p>
+        <p>No component in this template uses Astro&rsquo;s scoped <code>&lt;style&gt;</code> blocks. Instead, every element is styled through the utility/component classes defined globally in <code>webflow-base.css</code> and <code>theme.css</code> (the Webflow-derived naming convention, e.g. <code>hero-section</code>, <code>nav-container</code>, <code>primary-btn</code>). To restyle something, find its class in <code>webflow-base.css</code> and edit the rule there &mdash; changes apply everywhere that class is used.</p>
 
         <h3 id="responsive-typography">Responsive Design, Typography &amp; Spacing</h3>
-        <p>Layout switches to a mobile drawer nav and stacked sections at <code>991px</code>, with further type-size and spacing adjustments at <code>767px</code> and <code>479px</code> &mdash; all as plain <code>@media (max-width: &hellip;)</code> blocks in <code>theme.css</code>. Body copy uses the <strong>Outfit</strong> Google Font; the self-hosted <strong>Satoshi</strong> font is used for several heading/UI classes (see <a href="#fonts-icons">Fonts &amp; Icons</a>).</p>
+        <p>Type sizes (<code>.h1</code>&ndash;<code>.h6</code>, <code>.body</code> and its variants) and responsive breakpoints are defined in <code>webflow-base.css</code>, with color and font-family tokens layered on top in <code>theme.css</code>. Prefer adjusting these shared classes over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
 
         <div class="callout warning">
           <span class="callout-title">Avoid editing dist/</span>
@@ -1124,40 +1145,46 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
       <section class="doc-section" id="images-assets" aria-labelledby="images-assets-h">
         <span class="section-eyebrow">08 &middot; Guide</span>
         <h2 id="images-assets-h">Images &amp; Assets</h2>
-        <p class="section-lede">Every image lives in one place, referenced as a plain URL.</p>
+        <p class="section-lede">This template keeps everything in one place &mdash; there&rsquo;s no <code>src/assets/</code> folder.</p>
 
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Location</th><th>Use for</th><th>Behavior</th></tr></thead>
             <tbody>
-              <tr><td><code>public/images/</code></td><td>All template imagery &mdash; hero art, icons, screenshots, the favicon</td><td>Copied as-is at a fixed URL; no build-time processing (Paytime doesn&rsquo;t use <code>astro:assets</code>&rsquo;s <code>&lt;Image&gt;</code> component or a <code>src/assets/</code> folder)</td></tr>
-              <tr><td><code>public/videos/</code></td><td>The USP section&rsquo;s background video (<code>.mp4</code>/<code>.webm</code>) and its poster image</td><td>Copied as-is</td></tr>
+              <tr><td><code>public/images/</code></td><td>Every image and icon the site uses (referenced as plain <code>&lt;img src="/images/..."&gt;</code>)</td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>public/fonts/</code></td><td>The self-hosted Satoshi <code>.otf</code> files</td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>public/videos/</code></td><td>The background video used in the components showcase</td><td>Copied as-is, no processing</td></tr>
             </tbody>
           </table>
         </div>
+        <div class="callout info">
+          <span class="callout-title">No <code>astro:assets</code> / <code>&lt;Image&gt;</code> here</span>
+          <p>Nothing in this template imports from <code>astro:assets</code> or the built-in optimized <code>&lt;Image /&gt;</code> component &mdash; every image is a plain <code>&lt;img&gt;</code> tag pointing at a file in <code>public/images/</code>, so nothing is resized, re-encoded, or hashed at build time.</p>
+        </div>
 
         <h3 id="replacing-images">Replacing Images</h3>
-        <p>Swap the file in <code>public/images/</code> in place (keeping the same filename), or add a new file and update the <code>src</code> path in the component that references it:</p>
+        <p>Swap the file in <code>public/images/</code> in place (keeping the same filename), or update the <code>src</code> attribute to point at your new file:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;img
   class=<span class="c-string">"hero-image"</span>
   src=<span class="c-string">"/images/phone.webp"</span>
-  alt=<span class="c-string">"Phone frame showing the Paytime app"</span>
-  srcset=<span class="c-string">"/images/phone-p-500.png 500w, /images/phone.webp 757w"</span>
+  alt=<span class="c-string">"Phone frame showing the app"</span>
+  sizes=<span class="c-string">"(max-width: 479px) 83vw, (max-width: 767px) 47vw, 378px"</span>
   loading=<span class="c-string">"lazy"</span>
+  srcset=<span class="c-string">"/images/phone-p-500.png 500w, /images/phone.webp 757w"</span>
 /&gt;</code></pre>
         </div>
 
         <h3 id="supported-formats">Supported Formats &amp; SVGs</h3>
-        <p>The template ships a mix of <code>.webp</code> photography (with a smaller <code>.png</code> fallback in <code>srcset</code> for narrow viewports) and <code>.svg</code> icons, referenced directly as plain <code>&lt;img&gt;</code> sources. If you add a new photo, exporting both a full-size <code>.webp</code> and a smaller fallback keeps the existing responsive pattern consistent.</p>
+        <p>The template ships WebP, PNG, and JPG photos alongside plain SVG icons and illustrations, all referenced with ordinary <code>&lt;img&gt;</code> tags &mdash; there&rsquo;s no SVG-as-component pattern here.</p>
 
         <h3 id="image-optimization">Image Optimization</h3>
-        <p>There is no build-time image pipeline here &mdash; every image is served exactly as it sits in <code>public/images/</code>. Responsive loading instead comes from hand-written <code>srcset</code>/<code>sizes</code> attributes pointing at pre-exported smaller variants (e.g. <code>phone-p-500.png</code> alongside <code>phone.webp</code>). Compress and resize a replacement image yourself before adding it, and export a smaller variant if you want the same responsive behavior.</p>
+        <p>Because images live in <code>public/</code>, none of them are resized or re-encoded by Astro at build time. Several images (the phone mockup, the review photos) already ship with multiple pre-sized variants &mdash; e.g. <code>phone-p-500.png</code> alongside <code>phone.webp</code> &mdash; wired up manually with native <code>srcset</code>/<code>sizes</code> attributes, as shown above. If you add a new image, either generate your own size variants the same way, or move the file into a new <code>src/assets/</code> folder and switch that reference to Astro&rsquo;s <code>&lt;Image /&gt;</code> component if you want automatic optimization going forward.</p>
 
         <div class="callout">
           <span class="callout-title">Rule of thumb</span>
-          <p>Every image in this template goes in <code>public/images/</code> (or <code>public/videos/</code> for video) and is referenced by its root-relative URL &mdash; e.g. <code>/images/logo.svg</code>. There is no separate optimized-assets folder to choose between.</p>
+          <p>Add every new image to <code>public/images/</code> to match how this template already works. Compress large source photos yourself before adding them &mdash; nothing does it for you at build time.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1173,19 +1200,16 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Swapping typefaces and icon sets without touching every component.</p>
 
         <h3 id="google-fonts">Google Fonts</h3>
-        <p>The <strong>Outfit</strong> font is loaded from Google Fonts via a <code>&lt;link&gt;</code> tag in the shared layout&rsquo;s <code>&lt;head&gt;</code>. Replace it with your chosen font&rsquo;s embed code, then update the <code>font-family</code> on <code>body</code> in <code>theme.css</code>:</p>
+        <p>The body typeface, <strong>Outfit</strong>, loads from Google Fonts via a <code>&lt;link&gt;</code> tag in <code>Layout.astro</code>&rsquo;s <code>&lt;head&gt;</code>. Replace it with your chosen font&rsquo;s embed code, then update the <code>font-family</code> on <code>body</code> in <code>theme.css</code>:</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span> /&gt;
-&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.gstatic.com"</span> crossorigin /&gt;
-&lt;link
-  href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"</span>
-  rel=<span class="c-string">"stylesheet"</span>
-/&gt;</code></pre>
+          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span>&gt;
+&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.gstatic.com"</span> crossorigin&gt;
+&lt;link href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"</span> rel=<span class="c-string">"stylesheet"</span>&gt;</code></pre>
         </div>
 
         <h3 id="local-fonts">Local Fonts</h3>
-        <p>The <strong>Satoshi</strong> family is self-hosted &mdash; five weights of <code>.otf</code> files live in <code>public/fonts/</code> and are declared with <code>@font-face</code> at the top of <code>src/styles/theme.css</code>, pointing at the root-relative file path:</p>
+        <p>The display typeface, <strong>Satoshi</strong>, is self-hosted &mdash; five weights of <code>.otf</code> files in <code>public/fonts/</code>, declared with <code>@font-face</code> at the top of <code>theme.css</code>:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/theme.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">@font-face</span> {
@@ -1194,14 +1218,15 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}</code></pre>
+}
+<span class="c-comment">/* repeated for Black (900), Medium (500), Regular (400), and Light (300) */</span></code></pre>
         </div>
 
         <h3 id="icon-libraries">Icon Libraries</h3>
-        <p>Paytime doesn&rsquo;t use an icon component library or sprite sheet. Every icon is an individual <code>.svg</code> file in <code>public/images/</code> (e.g. <code>check.svg</code>, <code>down-Arrow.svg</code>, the payment-provider marks), referenced directly as a plain <code>&lt;img&gt;</code> source.</p>
+        <p>This template doesn&rsquo;t use an icon library or sprite system. Icons (the rating stars, the accordion arrow, the app store badges, the social links, etc.) are individual SVG files in <code>public/images/</code>, referenced with plain <code>&lt;img&gt;</code> tags.</p>
 
         <h3 id="replacing-icons">Replacing &amp; Adding Icons</h3>
-        <p>Swap the SVG file in <code>public/images/</code> in place (keeping the filename), or add a new SVG there and point a component&rsquo;s <code>src</code> at it &mdash; there&rsquo;s no import step or icon registry to update. A few icons are inlined directly as <code>&lt;svg&gt;</code> markup in components (e.g. the footer&rsquo;s social links in <code>Footer.astro</code>) so they can inherit color via <code>currentColor</code>.</p>
+        <p>To swap an icon, replace the SVG file in <code>public/images/</code> (keeping the same filename) or update the <code>src</code> it&rsquo;s referenced by. To add a new one, drop an SVG into <code>public/images/</code> and reference it the same way &mdash; <code>&lt;img src="/images/your-icon.svg" alt="..." /&gt;</code>. There&rsquo;s no icon component wrapper, so there are no <code>size</code>/<code>color</code>/<code>strokeWidth</code> props to set; size and color come from CSS on the <code>&lt;img&gt;</code> or, for inline social icons, from the SVG&rsquo;s own <code>fill</code>/<code>currentColor</code>.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#images-assets"><span class="pager-label">Previous</span><span class="pager-title">&larr; Images &amp; Assets</span></a>
@@ -1220,32 +1245,39 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         </div>
 
         <h3 id="edit-headings-text">Headings, Paragraphs &amp; Buttons</h3>
-        <p>Find the relevant component in <code>src/components/</code> (page copy lives in the component, not the page file &mdash; see <a href="#pages">Pages</a>), locate the text between the tags, and edit it directly:</p>
+        <p>Find the relevant page in <code>src/pages/</code>, locate the text between the tags, and edit it directly:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
 &lt;h1 class=<span class="c-string">"display-title semi-bold"</span>&gt;Fastest way to make payment anywhere.&lt;/h1&gt;
+...
+&lt;div&gt;Play Store&lt;/div&gt;
 
 <span class="c-comment">&lt;!-- after --&gt;</span>
-&lt;h1 class=<span class="c-string">"display-title semi-bold"</span>&gt;Get paid in seconds, anywhere.&lt;/h1&gt;</code></pre>
+&lt;h1 class=<span class="c-string">"display-title semi-bold"</span>&gt;Get paid in seconds, anywhere.&lt;/h1&gt;
+...
+&lt;div&gt;Download the app&lt;/div&gt;</code></pre>
         </div>
+        <p>There&rsquo;s no separate <code>Button</code> component &mdash; every call-to-action is a plain <code>&lt;a&gt;</code> styled with the <code>primary-btn</code>/<code>secondary-btn</code> classes from <code>webflow-base.css</code>, e.g. <code>&lt;a href="/contact" class="primary-btn w-button"&gt;Get Started&lt;/a&gt;</code>.</p>
 
         <h3 id="edit-nav-footer">Navigation &amp; Footer</h3>
-        <p>Menu links live directly in <code>Navbar.astro</code>&rsquo;s <code>links</code> array; footer copy and social links live directly in <code>Footer.astro</code> &mdash; there&rsquo;s no separate <code>src/data/</code> file to find. See <a href="#navigation">Navigation</a> for the full pattern.</p>
+        <p>Nav links live directly inside <code>Navbar.astro</code>; footer content lives directly inside <code>Footer.astro</code> &mdash; there&rsquo;s no shared <code>src/data/</code> file. See <a href="#navigation">Navigation</a> for the full pattern.</p>
 
         <h3 id="edit-cards-testimonials">Cards, Testimonials &amp; Pricing</h3>
-        <p>Repeating content blocks are driven by a plain array declared right in the component&rsquo;s frontmatter, so adding or removing an item is a matter of editing that list:</p>
+        <p>Repeating content blocks are driven by a local array at the top of the component that renders them, so adding or removing an item is a matter of editing the list in that one file:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/ReviewSlider.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">const</span> reviews = [
-  { image: <span class="c-string">"/images/IMG-2.webp"</span>, name: <span class="c-string">"Smith Grey"</span> },
-  { image: <span class="c-string">"/images/IMG.webp"</span>, name: <span class="c-string">"Smith Grey"</span> },
-];</code></pre>
+          <pre><code><span class="c-comment">---</span>
+<span class="c-key">const</span> reviews = [
+  { image: <span class="c-string">'/images/IMG-2.webp'</span>, name: <span class="c-string">'Smith Grey'</span> },
+  { image: <span class="c-string">'/images/IMG.webp'</span>, name: <span class="c-string">'Smith Grey'</span> },
+];
+<span class="c-comment">---</span></code></pre>
         </div>
-        <p>Pricing tiers follow the same pattern in <code>Pricing.astro</code> (a <code>plans.monthly</code> / <code>plans.yearly</code> object) and FAQ questions in <code>FAQ.astro</code> (a <code>columnOne</code> / <code>columnTwo</code> array).</p>
+        <p><code>Pricing.astro</code> (the <code>plans</code> object), <code>FAQ.astro</code> (the <code>columnOne</code>/<code>columnTwo</code> arrays), and <code>AppPointsTabs.astro</code> (the <code>tabs</code> array) follow the same pattern &mdash; open the relevant component and edit its array.</p>
 
-        <h3 id="edit-blog-contact">Blog Content &amp; Contact Information</h3>
-        <p>Paytime doesn&rsquo;t include a blog or a contact page. The only contact-adjacent content is the footer&rsquo;s social links (LinkedIn, Facebook, Twitter/X &mdash; currently placeholder URLs) and Play Store link in <code>Footer.astro</code> and <code>Hero.astro</code>; update the <code>href</code>s there to point at your real accounts and app listing.</p>
+        <h3 id="edit-blog-contact">Contact &amp; Social Links</h3>
+        <p>This template has no blog. The footer copyright line and the three social icons (LinkedIn, Facebook, Twitter/X) are hardcoded directly in <code>src/components/Footer.astro</code> &mdash; edit the placeholder <code>https://linkedin.com</code> / <code>https://facebook.com</code> / <code>https://twitter.com</code> <code>href</code>s there to point at your real profiles, and update the &ldquo;RNN Studio&rdquo; name in the copyright line.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#fonts-icons"><span class="pager-label">Previous</span><span class="pager-title">&larr; Fonts &amp; Icons</span></a>
@@ -1260,26 +1292,26 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Header, mobile menu, and footer links, in one predictable place.</p>
 
         <h3 id="header-nav">Header Navigation</h3>
-        <p>Primary nav links are defined as a small array right in <code>Navbar.astro</code> and point at anchor IDs on the home page (<code>#Feature</code>, <code>#Pricing</code>, etc.) rather than separate routes &mdash; a helper builds the right <code>href</code> depending on whether you&rsquo;re already on the home page:</p>
+        <p>Nav links live as an array directly inside <code>Navbar.astro</code> itself (not a separate data file), so adding, removing, or relabeling a link is a one-file edit:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Navbar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">const</span> links = [
+          <pre><code><span class="c-comment">---</span>
+<span class="c-key">const</span> links = [
   { hash: <span class="c-string">"Home"</span>, label: <span class="c-string">"Home"</span> },
   { hash: <span class="c-string">"Feature"</span>, label: <span class="c-string">"Features "</span> },
   { hash: <span class="c-string">"Review"</span>, label: <span class="c-string">"Reviews"</span> },
   { hash: <span class="c-string">"Pricing"</span>, label: <span class="c-string">"Pricing"</span> },
   { hash: <span class="c-string">"Faqs"</span>, label: <span class="c-string">"Faqs"</span> },
 ];
-
-<span class="c-key">const</span> linkHref = (hash) =&gt; (page === <span class="c-string">"home"</span> ? <span class="c-string">`#${hash}`</span> : <span class="c-string">`/#${hash}`</span>);</code></pre>
+<span class="c-comment">---</span></code></pre>
         </div>
-        <p>Each target section renders a matching <code>&lt;div id="Feature" class="anchor-link"&gt;&lt;/div&gt;</code>; add a new nav item by adding both the array entry and its anchor <code>id</code> in the target section.</p>
+        <p>Each entry links to an in-page section by its <code>id</code> (e.g. <code>#Feature</code> matches the <code>AppFeatures</code> section&rsquo;s wrapper id). On the homepage the link becomes <code>#Feature</code>; on any other page it becomes <code>/#Feature</code> so it still resolves back to the homepage section. A fixed &ldquo;Components&rdquo; link to <code>/components</code> is appended separately below the array, since it&rsquo;s a real route rather than an in-page anchor.</p>
 
-        <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The mobile menu is a small vanilla-JS module, not a React island: <code>src/scripts/nav-menu.js</code>, imported from a <code>&lt;script&gt;</code> tag in <code>Navbar.astro</code>. It uses GSAP to slide the drawer panel in from the right and cross-fade a backdrop overlay, reversing both on close; the close (X) button and a click on the backdrop both call the same <code>closeMenu()</code>. There are no dropdown submenus in this template.</p>
+        <h3 id="mobile-menu-dropdowns">Mobile Menu</h3>
+        <p>The mobile menu toggle is a small vanilla-JS file, <code>src/scripts/nav-menu.js</code>, imported via an inline <code>&lt;script&gt;</code> at the bottom of <code>Navbar.astro</code> &mdash; not a React island. It toggles the <code>.w-nav-menu</code> panel open/closed and also drives the scroll-spy behavior that highlights the current section&rsquo;s nav link. There are no dropdown submenus in this template.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
-        <p>The footer is simpler than the header &mdash; it&rsquo;s hard-coded directly in <code>Footer.astro</code>, not array-driven: a License/Changelog link pair and three social icon links (LinkedIn, Facebook, Twitter/X).</p>
+        <p><code>Footer.astro</code> doesn&rsquo;t repeat the header&rsquo;s nav links &mdash; it only has the &ldquo;Get Started&rdquo; CTA, the copyright line, and the three social icons. See <a href="#edit-blog-contact">Content Editing</a> for where to change those.</p>
 
         <h3 id="internal-external-links">Internal vs. External Links</h3>
         <p>Internal links should be root-relative (<code>/about</code>, not the full domain) so they keep working across environments. External links should open safely in a new tab:</p>
@@ -1299,31 +1331,31 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
       <section class="doc-section" id="forms" aria-labelledby="forms-h">
         <span class="section-eyebrow">12 &middot; Guide</span>
         <h2 id="forms-h">Forms</h2>
-        <p class="section-lede">Paytime doesn&rsquo;t ship any forms.</p>
+        <p class="section-lede">This template doesn&rsquo;t include any forms.</p>
 
         <div class="callout info">
-          <span class="callout-title">No contact or newsletter form included</span>
-          <p>There is no <code>&lt;form&gt;</code> anywhere in this template &mdash; every call to action (&ldquo;Get Started&rdquo;, &ldquo;Play Store&rdquo;) is a plain link. If your build needs a contact or signup form, you&rsquo;ll be adding one from scratch rather than wiring up an existing component.</p>
+          <span class="callout-title">No contact, newsletter, or search form ships with this template</span>
+          <p>There isn&rsquo;t a single <code>&lt;form&gt;</code> or <code>&lt;input&gt;</code> element anywhere in <code>src/</code>. Every call to action (&ldquo;Get Started&rdquo;, &ldquo;Play Store&rdquo;) is a plain link (<code>&lt;a&gt;</code>), pointing at an app-store URL, an in-page section, or a placeholder <code>href</code> you&rsquo;ll want to fill in &mdash; not a submission endpoint.</p>
         </div>
 
-        <h3 id="contact-forms">Contact Forms</h3>
-        <p>Not included. If you add one, a plain HTML <code>&lt;form&gt;</code> with a submit handler is the simplest fit for this template&rsquo;s vanilla-JS approach (see <a href="#third-party-forms">Third-Party Form Services</a> below for a no-backend option):</p>
+        <h3 id="contact-forms">Adding a Contact Form</h3>
+        <p>If you need one, the simplest approach with this stack is a plain HTML <code>&lt;form&gt;</code> inside an <code>.astro</code> component, posted to a third-party form service so you don&rsquo;t need to run your own backend:</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;form action=<span class="c-string">"[Replace with your form endpoint]"</span> method=<span class="c-string">"POST"</span>&gt;
+          <pre><code>&lt;form action=<span class="c-string">"https://formspree.io/f/your-form-id"</span> method=<span class="c-string">"POST"</span>&gt;
   &lt;input type=<span class="c-string">"email"</span> name=<span class="c-string">"email"</span> required /&gt;
-  &lt;button type=<span class="c-string">"submit"</span>&gt;Submit&lt;/button&gt;
+  &lt;button type=<span class="c-string">"submit"</span> class=<span class="c-string">"primary-btn w-button"</span>&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
         </div>
 
         <h3 id="newsletter-forms">Newsletter Forms</h3>
-        <p>Not included, and not pre-wired to any email provider (Mailchimp, ConvertKit, etc.). Add the provider&rsquo;s own embed form or hand-roll a form and call their API.</p>
+        <p>Not included &mdash; there is no email capture anywhere in this template.</p>
 
         <h3 id="form-validation">Form Validation</h3>
-        <p>N/A &mdash; with no forms in the template, there&rsquo;s no existing validation to be aware of. If you add a form, standard HTML attributes (<code>required</code>, <code>type="email"</code>) cover most cases without writing JavaScript.</p>
+        <p>If you add a form, browser-native validation (<code>required</code>, <code>type="email"</code>, <code>minlength</code>) gives users immediate feedback without any JavaScript. This template doesn&rsquo;t include a validation library.</p>
 
         <h3 id="third-party-forms">Third-Party Form Services</h3>
-        <p>If you&rsquo;d rather not run your own backend, services like Formspree, Getform, or Basin accept form submissions directly from static HTML and forward them to your email &mdash; typically just pointing a form&rsquo;s <code>action</code> attribute at their endpoint.</p>
+        <p>Since there&rsquo;s no backend in this template, services like Formspree, Getform, or Basin are the fastest way to accept a form submission directly from the static HTML &mdash; point the form&rsquo;s <code>action</code> at the endpoint they give you.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#navigation"><span class="pager-label">Previous</span><span class="pager-title">&larr; Navigation</span></a>
@@ -1335,15 +1367,15 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
       <section class="doc-section" id="api-data" aria-labelledby="api-data-h">
         <span class="section-eyebrow">13 &middot; Guide</span>
         <h2 id="api-data-h">API &amp; Data</h2>
-        <p class="section-lede">Paytime doesn&rsquo;t fetch data from any external source.</p>
+        <p class="section-lede">Paytime is fully static and fetches nothing at build or run time.</p>
 
         <div class="callout info">
-          <span class="callout-title">Fully static content</span>
-          <p>Every number, price, name, and review in this template is a hard-coded value in a component&rsquo;s frontmatter array (see <a href="#content-editing">Content Editing</a>) &mdash; there is no <code>fetch()</code> call, API client, or CMS integration anywhere in <code>src/</code>.</p>
+          <span class="callout-title">No API calls in this template</span>
+          <p>There&rsquo;s no <code>fetch()</code>, no external data source, and no <code>.env</code> variable in use anywhere in <code>src/</code> (see <a href="#config-env">Configuration</a>). Every piece of content &mdash; pricing tiers, testimonials, FAQ copy &mdash; is a hardcoded array inside the component that renders it. The reference below is only relevant if you extend the template to pull in real data.</p>
         </div>
 
         <h3 id="api-configuration">API Configuration</h3>
-        <p>N/A. If you wire up a real backend or CMS, read its URL and keys from environment variables rather than hard-coding them (see <a href="#config-env">Configuration</a>):</p>
+        <p>API URLs and keys are read from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coded, so the same code can point at a staging or production API depending on environment:</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>PUBLIC_API_URL=https://example.com/api
@@ -1355,7 +1387,6 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="fetch-requests">Fetch Requests</h3>
-        <p>N/A today. If you add one (e.g. to pull live pricing or reviews), a typical call in an Astro component&rsquo;s frontmatter looks like:</p>
         <div class="code-block" data-lang="typescript">
           <div class="code-block-bar"><span class="code-lang">typescript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> res = <span class="c-key">await</span> fetch(<span class="c-key">`${</span>import.meta.env.PUBLIC_API_URL<span class="c-key">}</span>/products<span class="c-key">`</span>, {
@@ -1365,10 +1396,9 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="data-structures">Data Structures</h3>
-        <p>N/A &mdash; every &ldquo;data structure&rdquo; in this template is just a plain array of object literals (e.g. <code>Pricing.astro</code>&rsquo;s <code>plans</code>, <code>ReviewSlider.astro</code>&rsquo;s <code>reviews</code>) with no TypeScript type declared for their shape.</p>
+        <p>Since this template has no API integration, there&rsquo;s no response shape to document. If you add a data source, the existing hardcoded arrays (e.g. <code>Pricing.astro</code>&rsquo;s <code>plans</code> object, or <code>ReviewSlider.astro</code>&rsquo;s <code>reviews</code> array &mdash; see <a href="#composition">Components</a>) show the field names each component currently expects, which is a reasonable starting shape for a real API response.</p>
 
         <h3 id="error-handling">Error Handling</h3>
-        <p>N/A &mdash; with no network requests, there&rsquo;s nothing to handle errors for. If you add a <code>fetch()</code> call, wrap it so a failed request doesn&rsquo;t leave a blank section:</p>
         <div class="code-block" data-lang="typescript">
           <div class="code-block-bar"><span class="code-lang">typescript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">try</span> {
@@ -1394,17 +1424,17 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <p class="section-lede">Per-page metadata, social previews, and the machine-readable files search engines expect.</p>
 
         <h3 id="page-title-meta">Page Title &amp; Meta Description</h3>
-        <p>Pass a unique <code>title</code> and <code>description</code> into <code>&lt;Layout&gt;</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results:</p>
+        <p>Pass a unique <code>title</code> and <code>description</code> into <code>Layout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/components.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;Layout
-  title=<span class="c-string">"Components - Paytime"</span>
+  title=<span class="c-string">"Components - rnnstudio"</span>
   description=<span class="c-string">"Slightly domed and divided by arches into stiff"</span>
 &gt;</code></pre>
         </div>
 
         <h3 id="canonical-og-twitter">Canonical URL, Open Graph &amp; Twitter/X Cards</h3>
-        <p>Set inside <code>Layout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The Open Graph/Twitter image defaults to <code>/images/love-paytime.webp</code> via the layout&rsquo;s <code>ogImage</code> prop, and can be overridden per page:</p>
+        <p>All handled automatically inside <code>Layout.astro</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs &mdash; you don&rsquo;t need to add these tags per page, only pass <code>title</code>/<code>description</code>/<code>ogImage</code>:</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;link rel=<span class="c-string">"canonical"</span> href={canonicalURL} /&gt;
@@ -1413,9 +1443,10 @@ PUBLIC_API_KEY=your_api_key</code></pre>
 &lt;meta property=<span class="c-string">"og:image"</span> content={ogImageURL} /&gt;
 &lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;</code></pre>
         </div>
+        <p><code>ogImage</code> defaults to <code>/images/love-paytime.webp</code> if a page doesn&rsquo;t override it &mdash; pass your own <code>ogImage="/images/your-image.jpg"</code> prop to <code>Layout</code> per page if you want a different social preview image.</p>
 
         <h3 id="sitemap-robots">Sitemap &amp; Robots.txt</h3>
-        <p>The official <code>@astrojs/sitemap</code> integration is already registered in <code>astro.config.mjs</code> and generates <code>sitemap-index.xml</code> automatically at build time once the <code>site</code> value is set to your real domain. There&rsquo;s no <code>robots.txt</code> in <code>public/</code> yet &mdash; add one pointing at the generated sitemap:</p>
+        <p>The <code>@astrojs/sitemap</code> integration (already registered in <code>astro.config.mjs</code>) generates <code>sitemap-index.xml</code> automatically at build time once the <code>site</code> value is set correctly. This template does not currently include a <code>public/robots.txt</code> file &mdash; add one if you want to control crawler access explicitly and point it at the generated sitemap:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><span class="code-filename">public/robots.txt</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>User-agent: *
@@ -1424,7 +1455,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         </div>
 
         <h3 id="structured-data-semantic">Structured Data &amp; Semantic HTML</h3>
-        <p>Landmark elements are already in place &mdash; each page section is a <code>&lt;section&gt;</code>, the nav bar is a <code>&lt;nav&gt;</code>, and the home page&rsquo;s single <code>&lt;h1&gt;</code> lives in <code>Hero.astro</code>. There is no JSON-LD structured data in the layout; add it there for rich results (e.g. <code>Organization</code> schema) if you need it.</p>
+        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure. Add JSON-LD structured data in the layout&rsquo;s <code>&lt;head&gt;</code> for rich results (e.g. <code>Organization</code> or <code>Article</code> schema) where relevant to your content.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#api-data"><span class="pager-label">Previous</span><span class="pager-title">&larr; API &amp; Data</span></a>
@@ -1439,8 +1470,8 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         <p class="section-lede">Platform-by-platform steps. Confirm your rendering mode first &mdash; it changes the build output you deploy.</p>
 
         <div class="callout info">
-          <span class="callout-title">Paytime builds fully static</span>
-          <p>There&rsquo;s no adapter registered in <code>astro.config.mjs</code>, so <code>npm run build</code> always produces plain static HTML/CSS/JS in <code>dist/</code> &mdash; any static host works, and none of the SSR-specific notes below apply to this template.</p>
+          <span class="callout-title">This template builds static output</span>
+          <p>Paytime uses Astro&rsquo;s default static output &mdash; <code>astro.config.mjs</code> registers no SSR adapter, so <code>npm run build</code> produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve, with no Node process required at runtime.</p>
         </div>
 
         <h3 id="deploy-vercel">Vercel</h3>
@@ -1468,7 +1499,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         <p>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match your repository URL, then build and publish the <code>dist/</code> folder to the <code>gh-pages</code> branch (via the official <code>astro build</code> + a deploy action, or manually). GitHub Pages only serves static output &mdash; it cannot run an SSR adapter.</p>
 
         <h3 id="deploy-traditional">Traditional Hosting</h3>
-        <p>Upload the contents of <code>dist/</code> (after <code>npm run build</code>) to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. Since Paytime builds fully static, any plain web host works &mdash; no Node process needs to run in production.</p>
+        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. For an SSR build or a React/Vite app that needs a Node process, the host must support running <code>node</code> continuously (a VPS or a Node-compatible host) &mdash; plain shared hosting without Node support cannot run it.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#seo"><span class="pager-label">Previous</span><span class="pager-title">&larr; SEO</span></a>
@@ -1489,17 +1520,18 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
 
         <h3 id="build-output">Build Output</h3>
-        <p>The build writes static HTML and hashed CSS/JS bundles to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; it&rsquo;s already excluded from Git via <code>.gitignore</code>.</p>
+        <p>The build writes static HTML, hashed CSS/JS bundles, and optimized images to <code>dist/</code> (or <code>build/</code>, for some Vite/React setups). This folder is disposable and regenerated by every build &mdash; it&rsquo;s conventional to keep it out of Git via <code>.gitignore</code>.</p>
 
         <h3 id="build-env-vars">Environment Variables in Production</h3>
-        <p>N/A for Paytime as shipped &mdash; there&rsquo;s no <code>.env</code> file or environment variable to set (see <a href="#config-env">Configuration</a>). If you add one later, remember each hosting platform requires you to set it again in its own dashboard; a missing production variable is a common cause of a build that works locally but misbehaves once deployed.</p>
+        <p>Variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
 
         <h3 id="production-checklist">Production Checklist</h3>
         <ul>
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
           <li>Run <code>npm run preview</code> and click through the main pages.</li>
-          <li>Confirm the <code>site</code> URL in <code>astro.config.mjs</code> matches your real domain (it ships as <code>https://example.com</code>).</li>
-          <li>Update the placeholder social links in <code>Footer.astro</code> and the Play Store link in <code>Hero.astro</code>/<code>Footer.astro</code>.</li>
+          <li>Confirm the <code>site</code> URL in <code>astro.config.mjs</code> matches your real domain.</li>
+          <li>Set every environment variable from <code>.env</code> in your hosting platform&rsquo;s dashboard.</li>
+          <li>Check that forms, if any, point at a real endpoint rather than a placeholder.</li>
           <li>Verify favicon, Open Graph image, and meta descriptions are your own, not the template defaults.</li>
         </ul>
 
@@ -1527,23 +1559,23 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
         <div class="trouble-item">
           <h4>Module not found</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency, or a typo/casing mismatch in a relative import path (this template has no path aliases configured in <code>tsconfig.json</code>).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the relative import path (e.g. <code>../../layouts/Layout.astro</code>) matches the file&rsquo;s real location and casing exactly.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency, or a typo in a relative import path. This template has no path aliases configured (see <a href="#config-tsconfig">Configuration</a>), so every import must be a correct relative path.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the import path and file casing match exactly, e.g. <code>../components/Navbar.astro</code>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Images not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>An incorrect path in an <code>&lt;img src&gt;</code>. All images in this template live in <code>public/images/</code> (or <code>public/videos/</code>), referenced by root-relative URL &mdash; there&rsquo;s no <code>src/assets/</code> import step to get wrong.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; confirm the file exists under <code>public/images/</code> and the <code>src</code> matches its filename exactly, including case.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A typo in the file path, or the file is missing from <code>public/images/</code>. All images in this template are referenced as root-relative URLs, e.g. <code>/images/logo.svg</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm the file actually exists at that path under <code>public/</code> (case-sensitive on most hosts), and review <a href="#images-assets">Images &amp; Assets</a>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Styles not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>One of the three global stylesheets isn&rsquo;t imported into <code>Layout.astro</code>, or the class name in your markup doesn&rsquo;t match the selector in <code>theme.css</code>.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>normalize.css</code>, <code>webflow-base.css</code>, and <code>theme.css</code> are all imported at the top of <code>Layout.astro</code>; search <code>theme.css</code> for the exact class name you expect to apply.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>One of the three global stylesheets isn&rsquo;t imported, or a class name typo means <code>webflow-base.css</code> has no matching rule.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>normalize.css</code>, <code>webflow-base.css</code>, and <code>theme.css</code> are all still imported at the top of <code>Layout.astro</code>&rsquo;s frontmatter; check the element&rsquo;s class name against <a href="#global-styles">Styling</a>.</dd></dl>
         </div>
         <div class="trouble-item">
-          <h4>TypeScript / build type errors</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Paytime has no <code>.tsx</code> components or declared prop <code>interface</code>s, so this is rare &mdash; it&rsquo;s usually a plain syntax mistake in a component&rsquo;s frontmatter (between the <code>---</code> fences) surfacing under Astro&rsquo;s <code>strict</code> tsconfig preset.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Read the error&rsquo;s file and line number and check the frontmatter syntax there &mdash; a missing comma, an unclosed brace, or a variable used before it&rsquo;s defined are the most common culprits.</dd></dl>
+          <h4>Editor red squiggles in a component&rsquo;s frontmatter</h4>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Astro&rsquo;s strict <code>tsconfig.json</code> preset still type-checks plain JS in the frontmatter script, even though this template writes no explicit types (see <a href="#props">Components</a>).</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Read the error&rsquo;s file and line number and adjust the code it&rsquo;s pointing at. These are editor-only warnings here &mdash; there&rsquo;s no <code>astro check</code> script wired in, so they won&rsquo;t fail <code>npm run build</code>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Build fails (but dev server works)</h4>
@@ -1552,7 +1584,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
         <div class="trouble-item">
           <h4>Environment variables not working</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Paytime doesn&rsquo;t read any <code>.env</code> variables out of the box, so this only applies once you&rsquo;ve added your own (see <a href="#config-env">Configuration</a>). The usual cause is a missing <code>PUBLIC_</code> prefix for a client-side value, or not restarting the dev server after editing <code>.env</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Rename the variable with the <code>PUBLIC_</code> prefix if it&rsquo;s used in browser code, then stop and restart <code>npm run dev</code> &mdash; env changes aren&rsquo;t hot-reloaded.</dd></dl>
         </div>
         <div class="trouble-item">
@@ -1579,11 +1611,11 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Which Node.js version should I use?</summary>
-          <p>Node 22.12.0 or later &mdash; see <a href="#requirements">Requirements</a>. This matches the <code>engines.node</code> field in <code>package.json</code>.</p>
+          <p>Node 22.12.0 or later, matching <code>engines.node</code> in <code>package.json</code> &mdash; see <a href="#requirements">Requirements</a>.</p>
         </details>
         <details class="faq-item">
-          <summary>Does this template use TypeScript or React?</summary>
-          <p>No &mdash; every component is a plain <code>.astro</code> file with vanilla-JS interactivity (some of it GSAP-powered). <code>tsconfig.json</code> is present only because Astro projects ship one by default; see <a href="#tech-stack">Technology Stack</a>.</p>
+          <summary>Does this template use TypeScript?</summary>
+          <p>Not in the sense of written type annotations &mdash; every component is plain <code>.astro</code> with untyped JS in its frontmatter. The <code>tsconfig.json</code> that ships with it only powers editor autocomplete and type-checking; see <a href="#config-tsconfig">Configuration</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change colors?</summary>
@@ -1591,11 +1623,11 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>How do I change fonts?</summary>
-          <p>Swap the Google Fonts <code>&lt;link&gt;</code> in <code>Layout.astro</code> (for Outfit) or the <code>@font-face</code> files in <code>public/fonts/</code> (for Satoshi) &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
+          <p>Swap the font import and update the corresponding <code>--font-*</code> variable &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I replace images?</summary>
-          <p>Swap the file in <code>public/images/</code> or update the <code>src</code> path that points to it &mdash; see <a href="#images-assets">Images &amp; Assets</a>.</p>
+          <p>Swap the file or update the import path &mdash; see <a href="#images-assets">Images &amp; Assets</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I add a new page?</summary>
@@ -1629,7 +1661,9 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <div class="changelog-entry">
           <span class="changelog-version">Version 1.0.0</span><span class="changelog-date">[Release date]</span>
           <ul>
-            <li><span class="tag-added">Added</span>Initial release.</li>
+            <li><span class="tag-added">Added</span>Initial release &mdash; fintech/payments landing page with hero, app features, USP, tabbed app-points panel, testimonial carousel, pricing, and FAQ sections, plus a <code>/components</code> showcase page and a style guide page.</li>
+            <li><span class="tag-added">Added</span>GSAP-powered scroll-in animations and a responsive mobile navigation drawer with a GSAP slide-in animation.</li>
+            <li><span class="tag-fixed">Fixed</span>Testimonial slider layout and card shadow issues.</li>
           </ul>
         </div>
 
@@ -1697,7 +1731,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
 </div>
 
 <footer class="site-footer">
-  <span id="footer-copy">&copy; <span id="footer-year">2026</span> Paytime. All rights reserved.</span>
+  <span id="footer-copy">&copy; <span id="footer-year">2026</span> RNN Studio. All rights reserved.</span>
   <span>Built with Astro &middot; Documentation v<span id="footer-doc-version">1.0.0</span></span>
 </footer>
 
@@ -1725,7 +1759,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
     productName: "Paytime",
     productVersion: "1.0.0",
     framework: "Astro",
-    companyName: "Paytime",
+    companyName: "RNN Studio",
     supportUrl: "#",
     supportEmail: "support@example.com",
     githubUrl: "#"
