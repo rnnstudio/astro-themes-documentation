@@ -849,38 +849,46 @@ npm run preview</code></pre>
         <h2 id="project-structure-h">Project Structure</h2>
         <p class="section-lede">A tour of the folders you&rsquo;ll actually touch, and the ones you generally shouldn&rsquo;t.</p>
 
-        <div class="file-tree" role="img" aria-label="Project directory structure">project/
-├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is (favicon, robots.txt)</span>
+        <div class="file-tree" role="img" aria-label="Project directory structure">johnson-astro/
+├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is (favicon, font, SVG icons)</span>
+│   ├── <span class="dir">fonts/</span>             <span class="cmt"># GeneralSans-Variable.ttf</span>
+│   └── <span class="dir">images/</span>            <span class="cmt"># Logo, arrows, looped text, mail icon</span>
 ├── <span class="dir">src/</span>
-│   ├── <span class="dir">components/</span>       <span class="cmt"># Reusable Astro / React components</span>
-│   ├── <span class="dir">layouts/</span>          <span class="cmt"># Shared page shells (header, footer, &lt;head&gt;)</span>
+│   ├── <span class="dir">assets/</span>            <span class="cmt"># Images processed by astro:assets</span>
+│   │   ├── <span class="dir">images/</span>         <span class="cmt"># Hero, about and process-step images</span>
+│   │   └── <span class="dir">work/</span>           <span class="cmt"># Case-study thumbnails and gallery images</span>
+│   ├── <span class="dir">components/</span>       <span class="cmt"># Page sections and shared UI (each with its own GSAP script)</span>
+│   ├── <span class="dir">content/work/</span>     <span class="cmt"># One JSON file per case study</span>
+│   ├── <span class="dir">data/</span>              <span class="cmt"># site.js (name, nav, socials) and about.js</span>
+│   ├── <span class="dir">layouts/</span>          <span class="cmt"># BaseLayout.astro (head, nav, footer)</span>
 │   ├── <span class="dir">pages/</span>             <span class="cmt"># File-based routes &mdash; one file per URL</span>
-│   ├── <span class="dir">assets/</span>            <span class="cmt"># Images, icons, and fonts processed by the build</span>
-│   ├── <span class="dir">styles/</span>            <span class="cmt"># Global CSS / SCSS and design tokens</span>
-│   └── <span class="dir">data/</span>              <span class="cmt"># JSON/TS content used across pages (nav, pricing, etc.)</span>
-├── astro.config.mjs      <span class="cmt"># Astro build &amp; integration configuration</span>
+│   ├── <span class="dir">styles/</span>            <span class="cmt"># normalize, base framework, design and override CSS</span>
+│   └── content.config.js <span class="cmt"># Schema for the work collection</span>
+├── astro.config.mjs      <span class="cmt"># Site URL and the sitemap integration</span>
 ├── package.json          <span class="cmt"># Scripts and dependencies</span>
-├── tsconfig.json         <span class="cmt"># TypeScript compiler options and path aliases</span>
+├── tsconfig.json         <span class="cmt"># Astro&rsquo;s default editor config (no TypeScript code in the project)</span>
+├── LICENSE
 └── README.md</div>
 
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Use it for <code>favicon.ico</code>, <code>robots.txt</code>, or files an external service needs at a fixed URL.</td></tr>
-              <tr><td><code>src/components/</code></td><td>Small, reusable pieces of UI (buttons, cards, nav bars) shared across multiple pages.</td></tr>
-              <tr><td><code>src/layouts/</code></td><td>Wrapper templates that define the common page shell &mdash; <code>&lt;head&gt;</code> tags, header, footer &mdash; so individual pages only supply their unique content.</td></tr>
+              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Johnson keeps the favicons, the General Sans font file, and small SVG/PNG icons here.</td></tr>
+              <tr><td><code>src/components/</code></td><td>The page sections (<code>Hero</code>, <code>WorkList</code>, <code>AboutMe</code>, <code>ProcessSteps</code>, <code>ContactForm</code>&hellip;) and shared UI (<code>Navbar</code>, <code>Footer</code>, <code>ArrowLink</code>, <code>SocialLinks</code>&hellip;). See <a href="#components">Components</a>.</td></tr>
+              <tr><td><code>src/layouts/</code></td><td><code>BaseLayout.astro</code> &mdash; the single page shell with all <code>&lt;head&gt;</code> tags, the navbar, footer, scroll indicator, and floating mail button.</td></tr>
               <tr><td><code>src/pages/</code></td><td>Every file here becomes a route automatically. See <a href="#pages">Pages</a> for details.</td></tr>
-              <tr><td><code>src/assets/</code></td><td>Images and fonts that should be optimized, hashed, and bundled by the build. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
-              <tr><td><code>src/styles/</code></td><td>Global stylesheets, CSS variables, and any Sass partials. See <a href="#styling">Styling</a>.</td></tr>
-              <tr><td><code>src/data/</code></td><td>Structured content (navigation labels, pricing tiers, testimonials) kept separate from markup so it&rsquo;s easy to edit without touching JSX or Astro templates.</td></tr>
+              <tr><td><code>src/content/work/</code></td><td>Case-study entries for the <code>work</code> content collection &mdash; one JSON file per project. See <a href="#edit-cards-testimonials">Content Editing</a>.</td></tr>
+              <tr><td><code>src/assets/</code></td><td>Images that are optimized, resized, and hashed by the build. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
+              <tr><td><code>src/styles/</code></td><td>Four plain CSS files imported by <code>BaseLayout</code>, including the colour variables in <code>global.css</code>. See <a href="#styling">Styling</a>.</td></tr>
+              <tr><td><code>src/data/</code></td><td>Site-wide content kept separate from markup: <code>site.js</code> (name, email, tagline, nav links, social links) and <code>about.js</code> (experience, certifications, skills, process steps).</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
           <span class="callout-title">Files not shown above</span>
-          <p>[List any template-specific top-level files here &mdash; e.g. <code>content.config.ts</code>, <code>tailwind.config.mjs</code>, or a CMS folder &mdash; and remove this note once done.]</p>
+          <p><code>src/content.config.js</code> defines the <code>work</code> collection and its schema. <code>package-lock.json</code> pins exact dependency versions for npm, and <code>.vscode/</code> recommends the Astro editor extension. Generated folders (<code>node_modules/</code>, <code>dist/</code>, <code>.astro/</code>) appear after you install and build &mdash; never edit them by hand.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -900,43 +908,52 @@ npm run preview</code></pre>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">package.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
-  <span class="c-key">"name"</span>: <span class="c-string">"template-name"</span>,
+  <span class="c-key">"name"</span>: <span class="c-string">"johnson-astro"</span>,
+  <span class="c-key">"type"</span>: <span class="c-string">"module"</span>,
+  <span class="c-key">"version"</span>: <span class="c-string">"0.0.1"</span>,
+  <span class="c-key">"engines"</span>: { <span class="c-key">"node"</span>: <span class="c-string">"&gt;=22.12.0"</span> },
   <span class="c-key">"scripts"</span>: {
     <span class="c-key">"dev"</span>: <span class="c-string">"astro dev"</span>,
     <span class="c-key">"build"</span>: <span class="c-string">"astro build"</span>,
-    <span class="c-key">"preview"</span>: <span class="c-string">"astro preview"</span>
+    <span class="c-key">"preview"</span>: <span class="c-string">"astro preview"</span>,
+    <span class="c-key">"astro"</span>: <span class="c-string">"astro"</span>
+  },
+  <span class="c-key">"dependencies"</span>: {
+    <span class="c-key">"@astrojs/sitemap"</span>: <span class="c-string">"^3.7.4"</span>,
+    <span class="c-key">"astro"</span>: <span class="c-string">"^7.3.4"</span>,
+    <span class="c-key">"gsap"</span>: <span class="c-string">"^3.15.0"</span>
   }
 }</code></pre>
         </div>
 
         <h3 id="config-astro">astro.config.mjs</h3>
-        <p>Controls integrations, the deployed site URL, and build behavior. This is where you&rsquo;d register the React or Tailwind integrations, or switch rendering modes.</p>
+        <p>Controls integrations, the deployed site URL, and build behavior. Johnson registers only the sitemap integration and builds as a fully static site (Astro&rsquo;s default). Set <code>site</code> to your real domain before deploying &mdash; it&rsquo;s used for canonical URLs, Open Graph image URLs, and the sitemap.</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">astro.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
-<span class="c-key">import</span> react <span class="c-key">from</span> <span class="c-string">'@astrojs/react'</span>;
-<span class="c-key">import</span> tailwind <span class="c-key">from</span> <span class="c-string">'@astrojs/tailwind'</span>;
+          <pre><code><span class="c-comment">// @ts-check</span>
+<span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
+<span class="c-key">import</span> sitemap <span class="c-key">from</span> <span class="c-string">'@astrojs/sitemap'</span>;
 
 <span class="c-key">export default</span> defineConfig({
-  site: <span class="c-string">'https://example.com'</span>, <span class="c-comment">// used to build absolute URLs for SEO tags</span>
-  integrations: [react(), tailwind()],
+  <span class="c-comment">// Replace with your deployed URL — used for canonical URLs, OG images and the sitemap.</span>
+  site: <span class="c-string">'https://example.com'</span>,
+  integrations: [sitemap()],
 });</code></pre>
         </div>
 
         <h3 id="config-tsconfig">tsconfig.json</h3>
-        <p>Sets TypeScript strictness and path aliases (e.g. importing <code>@/components/Button</code> instead of <code>../../components/Button</code>).</p>
+        <p>Johnson contains no TypeScript code, but Astro projects keep a <code>tsconfig.json</code> so your editor understands <code>.astro</code> files and the generated content-collection types. It just extends Astro&rsquo;s preset &mdash; no path aliases are defined, so imports use relative paths like <code>../components/Hero.astro</code>.</p>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">tsconfig.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
-  <span class="c-key">"compilerOptions"</span>: {
-    <span class="c-key">"baseUrl"</span>: <span class="c-string">"."</span>,
-    <span class="c-key">"paths"</span>: { <span class="c-key">"@/*"</span>: [<span class="c-string">"src/*"</span>] }
-  }
+  <span class="c-key">"extends"</span>: <span class="c-string">"astro/tsconfigs/strict"</span>,
+  <span class="c-key">"include"</span>: [<span class="c-string">".astro/types.d.ts"</span>, <span class="c-string">"**/*"</span>],
+  <span class="c-key">"exclude"</span>: [<span class="c-string">"dist"</span>]
 }</code></pre>
         </div>
 
         <h3 id="config-env">Environment Variables (.env)</h3>
-        <p>Create a <code>.env</code> file in the project root for values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
+        <p>Johnson doesn&rsquo;t read any environment variables out of the box &mdash; site details live in <code>src/data/site.js</code> instead. If you add an integration that needs one (a form service key, an analytics ID), create a <code>.env</code> file in the project root for values that differ between environments or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Exposed to the browser &mdash; never put secrets here</span>
@@ -960,16 +977,17 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
       <section class="doc-section" id="pages" aria-labelledby="pages-h">
         <span class="section-eyebrow">05 &middot; Guide</span>
         <h2 id="pages-h">Pages</h2>
-        <p class="section-lede">How routes are created, and where Astro pages differ from React components.</p>
+        <p class="section-lede">How routes are created, and how the case-study pages are generated.</p>
 
         <h3 id="creating-pages">Creating a New Page</h3>
-        <p>Astro uses file-based routing: any <code>.astro</code>, <code>.md</code>, or <code>.tsx</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path.</p>
+        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Johnson ships these routes:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>src/pages/index.astro       <span class="c-comment">&rarr;  /</span>
-src/pages/about.astro       <span class="c-comment">&rarr;  /about</span>
-src/pages/blog/index.astro  <span class="c-comment">&rarr;  /blog</span>
-src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynamic)</span></code></pre>
+          <pre><code>src/pages/index.astro          <span class="c-comment">&rarr;  /          (hero + selected work)</span>
+src/pages/about.astro          <span class="c-comment">&rarr;  /about</span>
+src/pages/contact.astro        <span class="c-comment">&rarr;  /contact</span>
+src/pages/project/[slug].astro <span class="c-comment">&rarr;  /project/:slug/  (one per case study)</span>
+src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unknown URL</span></code></pre>
         </div>
         <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point:</p>
         <div class="code-block" data-lang="astro">
@@ -977,56 +995,61 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> BaseLayout <span class="c-key">from</span> <span class="c-string">'../layouts/BaseLayout.astro'</span>;
 <span class="c-comment">---</span>
-&lt;BaseLayout title=<span class="c-string">"Services"</span>&gt;
-  &lt;h1&gt;Our Services&lt;/h1&gt;
+&lt;BaseLayout title=<span class="c-string">"Services"</span> description=<span class="c-string">"What I can help you with."</span>&gt;
+  &lt;section class=<span class="c-string">"hero-section"</span>&gt;
+    &lt;h1 class=<span class="c-string">"display"</span>&gt;Services&lt;/h1&gt;
+  &lt;/section&gt;
 &lt;/BaseLayout&gt;</code></pre>
         </div>
+        <p>If the new page should appear in the menu, add it to <code>navLinks</code> in <code>src/data/site.js</code> (see <a href="#navigation">Navigation</a>).</p>
 
         <h3 id="editing-pages">Editing an Existing Page</h3>
-        <p>Open the relevant file under <code>src/pages/</code> and edit the markup directly. Anything imported from <code>src/components/</code> lives elsewhere &mdash; edit the component file itself to change content that repeats across multiple pages (like a shared call-to-action block).</p>
+        <p>Johnson&rsquo;s page files are short &mdash; they mostly import section components (for example, <code>about.astro</code> renders <code>AboutHero</code>, <code>AboutMe</code>, and <code>ProcessSteps</code>). Most visible copy lives in those components under <code>src/components/</code> or in the data files under <code>src/data/</code>, so edit the component or data file to change it.</p>
 
         <h3 id="dynamic-routes">Dynamic Routes</h3>
-        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
+        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template. Johnson uses <code>src/pages/project/[slug].astro</code> to build one case-study page per entry in the <code>work</code> content collection. Its <code>getStaticPaths()</code> sorts projects by <code>order</code> and passes each page its previous and next project (wrapping around at the ends):</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/blog/[slug].astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/project/[slug].astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
+<span class="c-key">import</span> { getCollection } <span class="c-key">from</span> <span class="c-string">'astro:content'</span>;
+
 <span class="c-key">export async function</span> getStaticPaths() {
-  <span class="c-key">const</span> posts = <span class="c-key">await</span> <span class="c-key">import</span>.meta.glob(<span class="c-string">'./posts/*.md'</span>);
-  <span class="c-key">return</span> Object.keys(posts).map((path) =&gt; ({
-    params: { slug: path.split(<span class="c-string">'/'</span>).pop().replace(<span class="c-string">'.md'</span>, <span class="c-string">''</span>) },
+  <span class="c-key">const</span> projects = (<span class="c-key">await</span> getCollection(<span class="c-string">'work'</span>)).sort((a, b) =&gt; a.data.order - b.data.order);
+  <span class="c-key">return</span> projects.map((project, index) =&gt; ({
+    params: { slug: project.id },
+    props: {
+      project,
+      prev: projects[(index - 1 + projects.length) % projects.length],
+      next: projects[(index + 1) % projects.length],
+    },
   }));
 }
 <span class="c-comment">---</span></code></pre>
         </div>
+        <p>The slug is the JSON file name &mdash; <code>src/content/work/beyond-energy.json</code> becomes <code>/project/beyond-energy/</code>.</p>
 
         <h3 id="layouts">Layouts</h3>
-        <p>Layouts (in <code>src/layouts/</code>) wrap page content with shared structure &mdash; the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> metadata, header, and footer. Every page should render inside a layout via a <code>&lt;slot /&gt;</code>:</p>
+        <p>Layouts (in <code>src/layouts/</code>) wrap page content with shared structure &mdash; the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> metadata, header, and footer. Johnson has a single layout, <code>BaseLayout.astro</code>, and every page renders inside it via a <code>&lt;slot /&gt;</code>. It accepts <code>title</code>, <code>description</code>, <code>image</code> (the Open Graph image), and two booleans: <code>footer</code> (set to <code>false</code> on the contact and 404 pages) and <code>chrome</code> (hides the navbar, footer, scroll indicator, and mail button entirely). Simplified:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">interface</span> Props { title: <span class="c-key">string</span>; }
-<span class="c-key">const</span> { title } = Astro.props;
+<span class="c-key">const</span> { title, description = site.description, image, footer = <span class="c-key">true</span>, chrome = <span class="c-key">true</span> } = Astro.props;
+<span class="c-key">const</span> pageTitle = title ? <span class="c-string">`${title} | ${site.name}`</span> : <span class="c-string">`${site.name} — ${site.tagline}`</span>;
 <span class="c-comment">---</span>
 &lt;html lang=<span class="c-string">"en"</span>&gt;
-  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt;&lt;/head&gt;
+  &lt;head&gt;&lt;title&gt;{pageTitle}&lt;/title&gt; <span class="c-comment">&lt;!-- + meta, OG, Twitter, fonts --&gt;</span>&lt;/head&gt;
   &lt;body&gt;
-    &lt;Header /&gt;
-    &lt;slot /&gt; <span class="c-comment">&lt;!-- page content is injected here --&gt;</span>
-    &lt;Footer /&gt;
+    {chrome &amp;&amp; &lt;Navbar /&gt;}
+    &lt;main&gt;&lt;slot /&gt;&lt;/main&gt; <span class="c-comment">&lt;!-- page content is injected here --&gt;</span>
+    {chrome &amp;&amp; footer &amp;&amp; &lt;Footer /&gt;}
+    {chrome &amp;&amp; &lt;ScrollIndicator /&gt;}
+    {chrome &amp;&amp; &lt;MailButton /&gt;}
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
         </div>
 
         <h3 id="page-metadata">Page Metadata &amp; the 404 Page</h3>
-        <p>Pass a <code>title</code> and description into your layout&rsquo;s props on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). A file named <code>404.astro</code> in <code>src/pages/</code> is served automatically whenever no route matches.</p>
-
-        <h3 id="astro-vs-react">Astro Pages vs. React Components</h3>
-        <p>If the template mixes both: <strong>Astro pages</strong> (<code>.astro</code>) define routes and render to static HTML by default &mdash; no JavaScript ships to the browser unless you ask for it. <strong>React components</strong> (<code>.tsx</code>) are for interactive UI (dropdowns, forms, sliders) and are dropped into an Astro page with a <code>client:</code> directive that controls when their JavaScript loads:</p>
-        <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;ReactCounter client:visible /&gt;
-<span class="c-comment">&lt;!-- ships JS only once this component scrolls into view --&gt;</span></code></pre>
-        </div>
+        <p>Pass a <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). The title is automatically suffixed with the site name (e.g. &ldquo;About | Johnson&rdquo;); the home page omits <code>title</code> and gets &ldquo;Johnson &mdash; Creative Designer&rdquo; from <code>site.js</code>. <code>src/pages/404.astro</code> is served automatically whenever no route matches.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#configuration"><span class="pager-label">Previous</span><span class="pager-title">&larr; Configuration</span></a>
@@ -1041,51 +1064,70 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">The building blocks pages are assembled from, and how data flows into them.</p>
 
         <h3 id="reusable-components">Reusable Components</h3>
-        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a button, a pricing card, a navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Both <code>.astro</code> and <code>.tsx</code> components can live side by side in this folder.</p>
-
-        <h3 id="props">Props &amp; TypeScript Interfaces</h3>
-        <p>Props are the inputs a component accepts, similar to HTML attributes. TypeScript interfaces document exactly what a component expects, and give you autocomplete and compile-time errors if you pass the wrong shape of data.</p>
-        <div class="code-block" data-lang="tsx">
-          <div class="code-block-bar"><span class="code-lang">tsx</span><span class="code-filename">src/components/Button.tsx</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">interface</span> ButtonProps {
-  label: <span class="c-key">string</span>;
-  href?: <span class="c-key">string</span>;
-  variant?: <span class="c-string">'primary'</span> | <span class="c-string">'ghost'</span>;
-}
-
-<span class="c-key">export default function</span> Button({ label, href, variant = <span class="c-string">'primary'</span> }: ButtonProps) {
-  <span class="c-key">return</span> (
-    &lt;a href={href ?? <span class="c-string">'#'</span>} className={<span class="c-string">`btn btn--${variant}`</span>}&gt;
-      {label}
-    &lt;/a&gt;
-  );
-}</code></pre>
+        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI so it can be reused across pages without copy-pasting markup. Johnson&rsquo;s 21 components are all <code>.astro</code> files:</p>
+        <div class="kv-table-wrap">
+          <table class="kv-table">
+            <thead><tr><th>Used on</th><th>Components</th></tr></thead>
+            <tbody>
+              <tr><td>Every page (via <code>BaseLayout</code>)</td><td><code>Navbar</code>, <code>Footer</code>, <code>FooterMeta</code>, <code>ScrollIndicator</code>, <code>MailButton</code></td></tr>
+              <tr><td>Home</td><td><code>Hero</code>, <code>WorkList</code>, <code>WorkCard</code></td></tr>
+              <tr><td>About</td><td><code>AboutHero</code>, <code>AboutMe</code>, <code>AboutTable</code>, <code>SkillMarquee</code>, <code>ProcessSteps</code></td></tr>
+              <tr><td>Contact</td><td><code>ContactForm</code></td></tr>
+              <tr><td>Case studies</td><td><code>ProjectHero</code>, <code>ProjectBody</code>, <code>ProjectNav</code>, <code>Lightbox</code></td></tr>
+              <tr><td>Shared helpers</td><td><code>ArrowLink</code> (text link with animated arrow), <code>SocialLinks</code>, <code>SocialIcon</code></td></tr>
+            </tbody>
+          </table>
         </div>
-        <p>In plain language: <code>label</code> is required and must be text; <code>href</code> is optional (the <code>?</code>) and, if omitted, the button links nowhere in particular; <code>variant</code> is optional and limited to exactly two allowed values, so a typo like <code>"primry"</code> is caught before it ever reaches the browser.</p>
+
+        <h3 id="props">Props</h3>
+        <p>Props are the inputs a component accepts, similar to HTML attributes, and are read from <code>Astro.props</code> in the component&rsquo;s front matter. Johnson uses plain JavaScript, so props aren&rsquo;t type-declared &mdash; check the destructuring line at the top of a component to see what it expects. For example, <code>ArrowLink</code>:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/ArrowLink.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-comment">---</span>
+<span class="c-key">const</span> { href, label } = Astro.props;
+<span class="c-comment">---</span>
+
+&lt;a href={href} class=<span class="c-string">"link w-inline-block"</span> data-arrow-link&gt;
+  &lt;span class=<span class="c-string">"button"</span>&gt;{label}&lt;/span&gt;
+  &lt;span class=<span class="c-string">"link-arrow-wrapper"</span>&gt;
+    &lt;img src=<span class="c-string">"/images/Link-arrow.svg"</span> alt=<span class="c-string">""</span> class=<span class="c-string">"link-arrow"</span> width=<span class="c-string">"7"</span> height=<span class="c-string">"8"</span> /&gt;
+  &lt;/span&gt;
+&lt;/a&gt;</code></pre>
+        </div>
+        <p>In plain language: <code>href</code> is where the link goes and <code>label</code> is the visible text. Both are expected &mdash; there are no defaults, so leaving one out renders an empty link or label rather than raising an error.</p>
 
         <h3 id="composition">Component Composition</h3>
-        <p>Larger sections are usually composed from smaller components rather than written as one long block of markup:</p>
-        <div class="code-block" data-lang="tsx">
-          <div class="code-block-bar"><span class="code-lang">tsx</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;PricingSection&gt;
-  &lt;PricingCard plan=<span class="c-string">"Starter"</span> price={19} /&gt;
-  &lt;PricingCard plan=<span class="c-string">"Pro"</span> price={49} featured /&gt;
-&lt;/PricingSection&gt;</code></pre>
+        <p>Larger sections are composed from smaller components rather than written as one long block of markup. <code>WorkList</code> renders one <code>WorkCard</code> per project (simplified):</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/WorkList.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;div role=<span class="c-string">"list"</span> class=<span class="c-string">"work-blocks-list"</span>&gt;
+  {projects.map((project) =&gt; &lt;WorkCard project={project} /&gt;)}
+&lt;/div&gt;</code></pre>
         </div>
 
         <h3 id="passing-data">Passing Data to Components</h3>
-        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>:</p>
+        <p>In Astro, props are passed the same way as HTML attributes. The home page loads the <code>work</code> collection and hands it to <code>WorkList</code>:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/index.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> Card <span class="c-key">from</span> <span class="c-string">'../components/Card.astro'</span>;
+<span class="c-key">import</span> { getCollection } <span class="c-key">from</span> <span class="c-string">'astro:content'</span>;
+<span class="c-key">import</span> BaseLayout <span class="c-key">from</span> <span class="c-string">'../layouts/BaseLayout.astro'</span>;
+<span class="c-key">import</span> Hero <span class="c-key">from</span> <span class="c-string">'../components/Hero.astro'</span>;
+<span class="c-key">import</span> WorkList <span class="c-key">from</span> <span class="c-string">'../components/WorkList.astro'</span>;
+
+<span class="c-key">const</span> projects = (<span class="c-key">await</span> getCollection(<span class="c-string">'work'</span>)).sort((a, b) =&gt; a.data.order - b.data.order);
 <span class="c-comment">---</span>
-&lt;Card title=<span class="c-string">"Fast by default"</span> icon=<span class="c-string">"bolt"</span> /&gt;</code></pre>
+
+&lt;BaseLayout&gt;
+  &lt;Hero /&gt;
+  &lt;WorkList projects={projects} /&gt;
+&lt;/BaseLayout&gt;</code></pre>
         </div>
+        <p><code>WorkList</code> also accepts optional <code>heading</code> (default &ldquo;Selected work..&rdquo;), <code>headingTag</code>, and <code>moreLink</code> (<code>{ href, label }</code>) props if you reuse it elsewhere.</p>
 
         <div class="callout info">
-          <span class="callout-title">Astro components vs. React components</span>
-          <p>Astro components (<code>.astro</code>) are ideal for static content and layout. React components (<code>.tsx</code>) are for anything that needs client-side state or interactivity &mdash; a mobile menu toggle, a form with validation, a filterable list.</p>
+          <span class="callout-title">Where the interactivity lives</span>
+          <p>There are no framework islands in Johnson. Each animated component carries its own <code>&lt;script&gt;</code> block that imports GSAP (and plugins like <code>ScrollTrigger</code>) &mdash; Astro bundles and loads these automatically on any page that uses the component. To change or remove an animation, edit that component&rsquo;s script.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1101,47 +1143,45 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Where to change colors, type, and spacing without fighting the build.</p>
 
         <h3 id="global-styles">Global Styles &amp; CSS Variables</h3>
-        <p>Site-wide values &mdash; color palette, font families, spacing scale &mdash; are defined once as CSS custom properties in <code>src/styles/global.css</code> and referenced everywhere else. Change a value here and it updates across the whole site.</p>
+        <p>Johnson uses plain CSS split across four files in <code>src/styles/</code>, all imported (in this order) at the top of <code>BaseLayout.astro</code>:</p>
+        <div class="kv-table-wrap">
+          <table class="kv-table">
+            <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>normalize.css</code></td><td>normalize.css v3 browser reset.</td></tr>
+              <tr><td><code>base-framework.css</code></td><td>Base layout/utility classes (the <code>w-*</code> classes such as <code>w-container</code> and <code>w-form</code>) and a small embedded icon font.</td></tr>
+              <tr><td><code>global.css</code></td><td>The design itself: colour variables, the General Sans <code>@font-face</code>, type classes, and every section&rsquo;s styles.</td></tr>
+              <tr><td><code>overrides.css</code></td><td>Small additions on top of <code>global.css</code>, kept separate so the design stylesheet stays intact. A good place for your own overrides.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The colour palette is defined once as CSS custom properties at the top of <code>global.css</code> and referenced throughout. Change a value here and it updates across the whole site:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/global.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">:root</span> {
-  <span class="c-key">--color-primary</span>: <span class="c-string">#2563eb</span>;
-  <span class="c-key">--color-text</span>: <span class="c-string">#1f2937</span>;
-  <span class="c-key">--font-body</span>: <span class="c-string">'Inter', sans-serif</span>;
-  <span class="c-key">--space-md</span>: <span class="c-string">1rem</span>;
+  <span class="c-key">--orange-light</span>: <span class="c-string">#ffe8e7</span>; <span class="c-comment">/* page background */</span>
+  <span class="c-key">--heading</span>: <span class="c-string">#181b2e</span>;      <span class="c-comment">/* headings and default text */</span>
+  <span class="c-key">--body</span>: <span class="c-string">#3a3d53</span>;         <span class="c-comment">/* body copy */</span>
+  <span class="c-key">--white</span>: <span class="c-string">white</span>;
+  <span class="c-key">--orange</span>: <span class="c-string">#fe5621</span>;       <span class="c-comment">/* accent */</span>
 }</code></pre>
         </div>
+        <p>Each case study also has its own <code>accent</code> colour, set in its JSON file (see <a href="#edit-cards-testimonials">Content Editing</a>).</p>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files.</p>
+        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. Most of Johnson&rsquo;s styling lives in <code>global.css</code>; a few components (<code>Lightbox</code>, the 404 page) use a scoped block, and others (<code>Navbar</code>, <code>Hero</code>, <code>AboutHero</code>, <code>SkillMarquee</code>) use <code>&lt;style is:global&gt;</code> for small adjustments that need to reach global classes.</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/404.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style&gt;
-  .card { padding: <span class="c-key">var</span>(<span class="c-key">--space-md</span>); border-radius: 0.5rem; }
+  .utility-page-content {
+    width: min(560px, 100%);
+    padding: 0 20px;
+  }
 &lt;/style&gt;</code></pre>
         </div>
 
-        <h3 id="tailwind">Tailwind CSS, if used</h3>
-        <p>Utility classes are applied directly in markup. Shared design tokens (colors, spacing, fonts) are configured centrally in <code>tailwind.config.mjs</code> rather than hard-coded per component:</p>
-        <div class="code-block" data-lang="javascript">
-          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">tailwind.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">export default</span> {
-  theme: {
-    extend: {
-      colors: { primary: <span class="c-string">'#2563eb'</span> },
-    },
-  },
-};</code></pre>
-        </div>
-
-        <h3 id="scss">SCSS, if used</h3>
-        <p>Sass partials typically live in <code>src/styles/</code> and are imported into a single entry stylesheet, letting you split variables, mixins, and component styles into separate files while shipping one compiled CSS file.</p>
-
         <h3 id="responsive-typography">Responsive Design, Typography &amp; Spacing</h3>
-        <p>Breakpoints and the type scale are defined alongside the other tokens in <code>global.css</code> (or <code>tailwind.config.mjs</code>). Prefer adjusting these shared values over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
-
-        <h3 id="dark-mode-styling">Dark Mode, if supported</h3>
-        <p>[Describe how your template implements dark mode &mdash; e.g. a <code>data-theme</code> attribute toggled by a script, or Tailwind&rsquo;s <code>dark:</code> variant &mdash; or remove this subsection if the template is single-theme.]</p>
+        <p>Typography is set through reusable classes in <code>global.css</code> &mdash; <code>.display</code> (the oversized headline), <code>.h1</code>&ndash;<code>.h6</code>, and <code>.paragraph-big</code>, <code>.paragraph</code>, <code>.paragraph-small</code>, <code>.paragraph-mini</code>. Responsive overrides live in three <code>@media</code> blocks near the end of the file at <code>max-width: 991px</code> (tablet), <code>767px</code> (mobile landscape), and <code>479px</code> (mobile portrait). Prefer adjusting these shared classes over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
 
         <div class="callout warning">
           <span class="callout-title">Avoid editing dist/</span>
@@ -1164,25 +1204,30 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
           <table class="kv-table">
             <thead><tr><th>Location</th><th>Use for</th><th>Behavior</th></tr></thead>
             <tbody>
-              <tr><td><code>src/assets/</code></td><td>Images referenced inside components or pages</td><td>Optimized, resized, and content-hashed automatically by the build</td></tr>
-              <tr><td><code>public/</code></td><td>Files that need a fixed, predictable URL (favicons, downloadable PDFs, <code>og-image.jpg</code>)</td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>src/assets/</code></td><td>Images referenced inside components or pages &mdash; <code>images/</code> holds the hero, about, and process-step pictures; <code>work/</code> holds case-study thumbnails and gallery images</td><td>Optimized, resized, and content-hashed automatically by the build</td></tr>
+              <tr><td><code>public/</code></td><td>Files that need a fixed, predictable URL &mdash; the favicons, <code>fonts/GeneralSans-Variable.ttf</code>, and the small icons in <code>images/</code> (logo, arrows, looped text, mail icon)</td><td>Copied as-is, no processing</td></tr>
             </tbody>
           </table>
         </div>
 
         <h3 id="replacing-images">Replacing Images</h3>
-        <p>Swap the file in place (keeping the same filename) or update the import/path to point at your new file:</p>
+        <p>Swap the file in place (keeping the same filename) or update the import/path to point at your new file. For example, the portrait used in the hero, footer, and contact page is imported like this:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> { Image } <span class="c-key">from</span> <span class="c-string">'astro:assets'</span>;
-<span class="c-key">import</span> hero <span class="c-key">from</span> <span class="c-string">'../assets/hero.jpg'</span>;
+<span class="c-key">import</span> heroImage <span class="c-key">from</span> <span class="c-string">'../assets/images/Hero-Image.webp'</span>;
 <span class="c-comment">---</span>
-&lt;Image src={hero} alt=<span class="c-string">"Product screenshot"</span> width={1200} height={630} /&gt;</code></pre>
+&lt;Image src={heroImage} alt=<span class="c-string">""</span> class=<span class="c-string">"hero-image"</span> width={332} loading=<span class="c-string">"eager"</span> /&gt;</code></pre>
+        </div>
+        <p>Case-study images are referenced by relative path from each project&rsquo;s JSON file (e.g. <code>"thumbnail": "../../assets/work/thumb-2.webp"</code>) &mdash; drop your images into <code>src/assets/work/</code> and update those paths. The default Open Graph image is <code>src/assets/images/About-Me-Image.webp</code>, set in <code>BaseLayout.astro</code>; case-study pages use their own <code>mainImage</code> instead.</p>
+        <div class="callout warning">
+          <span class="callout-title">Sample imagery is placeholder only</span>
+          <p>The bundled photos and case-study images are demo content. Replace them with your own work before publishing.</p>
         </div>
 
         <h3 id="supported-formats">Supported Formats &amp; SVGs</h3>
-        <p>JPEG, PNG, WebP, AVIF, and GIF are supported through the optimized <code>Image</code> component. SVGs are typically imported directly as components for icons that need to inherit color via <code>currentColor</code>, or referenced as plain <code>&lt;img&gt;</code> sources for static illustrations.</p>
+        <p>JPEG, PNG, WebP, AVIF, and GIF are supported through the optimized <code>Image</code> component &mdash; Johnson&rsquo;s photos are mostly WebP. Its decorative SVGs (logo, arrows, looped text) live in <code>public/images/</code> and are referenced as plain <code>&lt;img&gt;</code> sources; the social icons are inline SVG markup in <code>SocialIcon.astro</code> so they can inherit colour via <code>currentColor</code>.</p>
 
         <h3 id="image-optimization">Image Optimization</h3>
         <p>Images imported from <code>src/assets/</code> are automatically resized and re-encoded at build time based on the <code>width</code>/<code>height</code> (or <code>densities</code>/<code>widths</code>) you specify &mdash; you generally don&rsquo;t need a separate compression step before adding an image to the project.</p>
@@ -1205,29 +1250,33 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Swapping typefaces and icon sets without touching every component.</p>
 
         <h3 id="google-fonts">Google Fonts</h3>
-        <p>If the template loads a font from Google Fonts, the <code>&lt;link&gt;</code> tag lives in the shared layout&rsquo;s <code>&lt;head&gt;</code>. Replace it with your chosen font&rsquo;s embed code, then update the matching <code>--font-*</code> variable in <code>global.css</code>:</p>
+        <p>Johnson uses two typefaces: <strong>General Sans</strong> (self-hosted, the body font) and <strong>Outfit</strong> (weight 500, from Google Fonts, used for the display and heading classes, buttons, and navigation links). The Outfit <code>&lt;link&gt;</code> tag lives in <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code>. To swap it, replace the embed code and then update the <code>font-family: Outfit, sans-serif</code> declarations in <code>global.css</code> (there&rsquo;s no shared font variable, so search the file for &ldquo;Outfit&rdquo;):</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span>&gt;
-&lt;link href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap"</span> rel=<span class="c-string">"stylesheet"</span>&gt;</code></pre>
+          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span> /&gt;
+&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.gstatic.com"</span> crossorigin /&gt;
+&lt;link href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Outfit:wght@500&amp;display=swap"</span> rel=<span class="c-string">"stylesheet"</span> /&gt;</code></pre>
         </div>
 
         <h3 id="local-fonts">Local Fonts</h3>
-        <p>Self-hosted fonts live in <code>src/assets/fonts/</code> and are declared with <code>@font-face</code> in <code>global.css</code>, pointing at the file path:</p>
+        <p>General Sans is self-hosted as a single variable font file at <code>public/fonts/GeneralSans-Variable.ttf</code>, preloaded in <code>BaseLayout.astro</code> and declared with <code>@font-face</code> at the top of <code>global.css</code>:</p>
         <div class="code-block" data-lang="css">
-          <div class="code-block-bar"><span class="code-lang">css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/global.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">@font-face</span> {
-  font-family: <span class="c-string">'Custom Sans'</span>;
-  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/custom-sans.woff2'</span>) format(<span class="c-string">'woff2'</span>);
+  font-family: Generalsans Variable;
+  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/GeneralSans-Variable.ttf'</span>) format(<span class="c-string">"truetype"</span>);
+  font-weight: 200 700;
+  font-style: normal;
   font-display: swap;
 }</code></pre>
         </div>
+        <p>To use a different self-hosted font, put the file in <code>public/fonts/</code>, update this rule and the <code>body</code> <code>font-family</code>, and update the <code>&lt;link rel="preload"&gt;</code> path in <code>BaseLayout.astro</code>. General Sans is distributed under the ITF Free Font License; Outfit under the SIL Open Font License.</p>
 
         <h3 id="icon-libraries">Icon Libraries</h3>
-        <p>[Name the icon set your template ships with &mdash; e.g. Lucide, Heroicons, or a custom SVG sprite &mdash; and where its components or files live.]</p>
+        <p>Johnson doesn&rsquo;t use an icon library. Its icons are a small set of hand-picked SVGs: the social icons (Dribbble, Facebook, X, Skype) are inline SVG strings in <code>src/components/SocialIcon.astro</code>, and the logo, arrows, and mail icon are image files in <code>public/images/</code>. The menu and close icons are inline SVGs in <code>Navbar.astro</code>.</p>
 
         <h3 id="replacing-icons">Replacing &amp; Adding Icons</h3>
-        <p>Most icon components accept the same props as a regular SVG (<code>size</code>, <code>color</code>, <code>strokeWidth</code>). To add a new icon not included in the library, drop an SVG into <code>src/assets/icons/</code> and import it like any other component.</p>
+        <p>To add a social icon, paste its SVG markup into the <code>icons</code> object in <code>SocialIcon.astro</code> under a new key (use <code>fill="currentColor"</code> so it picks up the theme colour), then reference that key as the <code>icon</code> value of an entry in <code>socialLinks</code> in <code>src/data/site.js</code>. To replace the logo or arrows, overwrite the matching file in <code>public/images/</code>, keeping the filename.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#images-assets"><span class="pager-label">Previous</span><span class="pager-title">&larr; Images &amp; Assets</span></a>
@@ -1246,35 +1295,62 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         </div>
 
         <h3 id="edit-headings-text">Headings, Paragraphs &amp; Buttons</h3>
-        <p>Find the relevant page in <code>src/pages/</code>, locate the text between the tags, and edit it directly:</p>
+        <p>Start with <code>src/data/site.js</code> &mdash; it holds your name, tagline, meta description, and email, which are reused in the hero, page titles, footer, and mail button:</p>
+        <div class="code-block" data-lang="javascript">
+          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/data/site.js</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-key">export const</span> site = {
+  name: <span class="c-string">'Johnson'</span>,
+  author: <span class="c-string">'Johnson Smith'</span>,
+  tagline: <span class="c-string">'Creative Designer'</span>,
+  description:
+    <span class="c-string">'Hello, I’m Johnson Smith. A creative designer with a passion for crafting visual experiences and creative websites.'</span>,
+  email: <span class="c-string">'hello@example.com'</span>,
+};</code></pre>
+        </div>
+        <p>For text that isn&rsquo;t in a data file, open the matching component in <code>src/components/</code>, find the text between the tags, and edit it directly. For example, the home hero:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
-&lt;h1&gt;Welcome to Our Studio&lt;/h1&gt;
-&lt;p&gt;We build things people love.&lt;/p&gt;
-&lt;Button label=<span class="c-string">"Get in touch"</span> href=<span class="c-string">"/contact"</span> /&gt;
+&lt;p class=<span class="c-string">"paragraph-big"</span>&gt;A creative designer with a passion for crafting visual experiences and creative websites.&lt;/p&gt;
+&lt;ArrowLink href=<span class="c-string">"/about"</span> label=<span class="c-string">"Read More"</span> /&gt;
 
 <span class="c-comment">&lt;!-- after --&gt;</span>
-&lt;h1&gt;Welcome to Riverside Design&lt;/h1&gt;
-&lt;p&gt;We design and build small-business websites.&lt;/p&gt;
-&lt;Button label=<span class="c-string">"Book a call"</span> href=<span class="c-string">"/contact"</span> /&gt;</code></pre>
+&lt;p class=<span class="c-string">"paragraph-big"</span>&gt;A brand and product designer helping small teams launch with confidence.&lt;/p&gt;
+&lt;ArrowLink href=<span class="c-string">"/about"</span> label=<span class="c-string">"About me"</span> /&gt;</code></pre>
         </div>
+        <p>The two halves of the big hero headline (&ldquo;Creative&rdquo; / &ldquo;&mdash; Designer&rdquo;) are the two <code>&lt;span class="display"&gt;</code> elements just above that paragraph.</p>
 
         <h3 id="edit-nav-footer">Navigation &amp; Footer</h3>
-        <p>Menu links and footer content are usually kept in one place &mdash; either directly in the <code>Header</code>/<code>Footer</code> component, or as a list in <code>src/data/</code> &mdash; so you edit the label and URL once rather than hunting through every page. See <a href="#navigation">Navigation</a> for the full pattern.</p>
+        <p>Menu links and social links are kept as lists in <code>src/data/site.js</code> (<code>navLinks</code> and <code>socialLinks</code>), so you edit the label and URL once rather than hunting through every page. The footer&rsquo;s copyright line and its About/Contact links are in <code>src/components/FooterMeta.astro</code>. See <a href="#navigation">Navigation</a> for the full pattern.</p>
 
-        <h3 id="edit-cards-testimonials">Cards, Testimonials &amp; Pricing</h3>
-        <p>Repeating content blocks are typically driven by a data array rather than hand-written per card, so adding or removing an item is a matter of editing the list:</p>
-        <div class="code-block" data-lang="typescript">
-          <div class="code-block-bar"><span class="code-lang">typescript</span><span class="code-filename">src/data/testimonials.ts</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">export const</span> testimonials = [
-  { name: <span class="c-string">'Amara Okafor'</span>, quote: <span class="c-string">'They delivered ahead of schedule.'</span>, role: <span class="c-string">'Founder, Loop Goods'</span> },
-  { name: <span class="c-string">'Devon Marsh'</span>, quote: <span class="c-string">'Exactly the redesign we needed.'</span>, role: <span class="c-string">'Marketing Lead'</span> },
-];</code></pre>
+        <h3 id="edit-cards-testimonials">Case Studies &amp; About-Page Lists</h3>
+        <p>Repeating content blocks are driven by data rather than hand-written per card, so adding or removing an item is a matter of editing a file. Each case study is one JSON file in <code>src/content/work/</code>; its fields are validated against the schema in <code>src/content.config.js</code>:</p>
+        <div class="code-block" data-lang="json">
+          <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">src/content/work/beyond-energy.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>{
+  <span class="c-key">"title"</span>: <span class="c-string">"Beyond Energy"</span>,
+  <span class="c-key">"order"</span>: 2,
+  <span class="c-key">"summary"</span>: <span class="c-string">"A web project that brings together luxury, elegance, and sophistication."</span>,
+  <span class="c-key">"category"</span>: <span class="c-string">"Branding"</span>,
+  <span class="c-key">"role"</span>: <span class="c-string">"Development"</span>,
+  <span class="c-key">"year"</span>: <span class="c-string">"2023"</span>,
+  <span class="c-key">"accent"</span>: <span class="c-string">"#d6f0ff"</span>,
+  <span class="c-key">"liveUrl"</span>: <span class="c-string">"https://example.com"</span>,
+  <span class="c-key">"thumbnail"</span>: <span class="c-string">"../../assets/work/thumb-2.webp"</span>,
+  <span class="c-key">"mainImage"</span>: <span class="c-string">"../../assets/work/main.webp"</span>,
+  <span class="c-key">"overview"</span>: <span class="c-string">"…"</span>,
+  <span class="c-key">"problem"</span>: <span class="c-string">"…"</span>,
+  <span class="c-key">"solution"</span>: <span class="c-string">"…"</span>,
+  <span class="c-key">"dividerImages"</span>: [<span class="c-string">"../../assets/work/divider-1.webp"</span>, <span class="c-string">"../../assets/work/divider-2.webp"</span>],
+  <span class="c-key">"problemImages"</span>: [<span class="c-string">"../../assets/work/problem-1.webp"</span>, <span class="c-string">"../../assets/work/problem-2.webp"</span>],
+  <span class="c-key">"solutionImages"</span>: [<span class="c-string">"../../assets/work/solution-1.webp"</span>, <span class="c-string">"…"</span>]
+}</code></pre>
         </div>
+        <p>To add a project, copy one of the JSON files, rename it (the file name becomes the URL slug), change the fields, and point the image paths at your own files. <code>order</code> controls its position in the list and the prev/next sequence; <code>dividerImages</code> must contain exactly two images. To remove a project, delete its JSON file.</p>
+        <p>The About page&rsquo;s experience, certifications, skills marquee rows, and process steps are arrays in <code>src/data/about.js</code> &mdash; add, remove, or reorder entries there.</p>
 
         <h3 id="edit-blog-contact">Blog Content &amp; Contact Information</h3>
-        <p>Blog posts, if included, are typically Markdown files in <code>src/pages/blog/</code> or <code>src/content/</code> &mdash; edit the front matter (title, date) and body directly. Contact details (address, phone, email) usually live in a single shared component or data file so they only need updating once. [Point to the exact file for your template.]</p>
+        <p>Johnson doesn&rsquo;t include a blog. Contact details live in one place: the email address in <code>site.email</code> (<code>src/data/site.js</code>) is used by the floating mail button and the email link in the footer and on the contact page, and the social profile URLs are the <code>socialLinks</code> array in the same file. The bundled values (<code>hello@example.com</code>, root-domain social URLs) are placeholders &mdash; replace them with your own.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#fonts-icons"><span class="pager-label">Previous</span><span class="pager-title">&larr; Fonts &amp; Icons</span></a>
@@ -1289,24 +1365,26 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <p class="section-lede">Header, mobile menu, and footer links, in one predictable place.</p>
 
         <h3 id="header-nav">Header Navigation</h3>
-        <p>Primary nav links are usually defined as a small array so adding, removing, or reordering a link doesn&rsquo;t require touching markup:</p>
-        <div class="code-block" data-lang="typescript">
-          <div class="code-block-bar"><span class="code-lang">typescript</span><span class="code-filename">src/data/navigation.ts</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+        <p>Primary nav links are defined as a small array in <code>src/data/site.js</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. <code>Navbar.astro</code> renders them and marks the current page with <code>aria-current</code>:</p>
+        <div class="code-block" data-lang="javascript">
+          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/data/site.js</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">export const</span> navLinks = [
-  { label: <span class="c-string">'Home'</span>, href: <span class="c-string">'/'</span> },
+  { label: <span class="c-string">'Home'</span>, href: <span class="c-string">'/'</span>, mobileOnly: <span class="c-key">true</span> },
+  { label: <span class="c-string">'Work'</span>, href: <span class="c-string">'/#work'</span> },
   { label: <span class="c-string">'About'</span>, href: <span class="c-string">'/about'</span> },
   { label: <span class="c-string">'Contact'</span>, href: <span class="c-string">'/contact'</span> },
 ];</code></pre>
         </div>
+        <p>Links with <code>mobileOnly: true</code> appear only in the overlay menu, not in the inline desktop links (the logo already links home). &ldquo;Work&rdquo; points at the <code>#work</code> anchor in the home page&rsquo;s work section; on the home page itself, same-page hash links scroll there with an eased GSAP scroll instead of an instant jump.</p>
 
         <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The mobile menu toggle and any dropdown behavior require client-side JavaScript, so this piece is typically a React component (or a small inline <code>&lt;script&gt;</code> in Astro) rather than a static <code>.astro</code> file. [Note here whether your template&rsquo;s mobile menu is a React island or vanilla script, and its file path.]</p>
+        <p>The menu is vanilla JavaScript &mdash; a <code>&lt;script&gt;</code> block inside <code>src/components/Navbar.astro</code> using GSAP. Below 992px the round menu button opens a full-screen overlay menu that slides in from the right; on desktop the inline links shrink away once you scroll and the same round button takes over. The menu closes with its close button or the Esc key, and focus is managed for keyboard users. There are no dropdown menus.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
-        <p>Footer link groups typically follow the same data-driven pattern as the header, defined alongside or near <code>navLinks</code>.</p>
+        <p>The footer doesn&rsquo;t reuse <code>navLinks</code>. Its About and Contact links (and the copyright line) are written directly in <code>src/components/FooterMeta.astro</code>, which is shared by the site footer and the contact page; the email and social icons come from <code>SocialLinks.astro</code>, which reads <code>site.email</code> and <code>socialLinks</code>.</p>
 
         <h3 id="internal-external-links">Internal vs. External Links</h3>
-        <p>Internal links should be root-relative (<code>/about</code>, not the full domain) so they keep working across environments. External links should open safely in a new tab:</p>
+        <p>Internal links should be root-relative (<code>/about</code>, not the full domain) so they keep working across environments. External links should open safely in a new tab &mdash; the social links in <code>SocialLinks.astro</code> already use <code>target="_blank" rel="noopener"</code>:</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;a href=<span class="c-string">"/about"</span>&gt;About&lt;/a&gt;
@@ -1327,26 +1405,26 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
 
         <div class="callout warning">
           <span class="callout-title">Forms need somewhere to go</span>
-          <p>A contact or newsletter form in this template captures input in the browser, but submitting it to an email inbox, database, or mailing list requires a backend endpoint or a third-party service &mdash; this is not included by default. [State plainly whether your template wires up a specific service.]</p>
+          <p>The contact form in this template captures input in the browser, but submitting it to an email inbox, database, or mailing list requires a backend endpoint or a third-party service &mdash; this is not included by default. Johnson&rsquo;s form is not wired to any service: its <code>action</code> is <code>"#"</code>, and a small demo script just shows the success message instead of sending anything.</p>
         </div>
 
         <h3 id="contact-forms">Contact Forms</h3>
-        <p>The contact form component collects and client-side validates fields before submission. Wire the <code>action</code> or submit handler up to your chosen endpoint:</p>
-        <div class="code-block" data-lang="tsx">
-          <div class="code-block-bar"><span class="code-lang">tsx</span><span class="code-filename">src/components/ContactForm.tsx</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">async function</span> handleSubmit(data: FormData) {
-  <span class="c-key">await</span> fetch(<span class="c-string">'[Replace with your form endpoint]'</span>, {
-    method: <span class="c-string">'POST'</span>,
-    body: data,
-  });
-}</code></pre>
+        <p>The contact form lives in <code>src/components/ContactForm.astro</code> (rendered on <code>/contact</code>) and has three fields: <code>name</code>, <code>email</code>, and <code>message</code>. To make it send real submissions, point the form&rsquo;s <code>action</code> at your endpoint:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/ContactForm.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
+&lt;form name=<span class="c-string">"contact"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"#"</span> class=<span class="c-string">"contact-form"</span> data-contact-form&gt;
+
+<span class="c-comment">&lt;!-- after (example: Formspree) --&gt;</span>
+&lt;form name=<span class="c-string">"contact"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"https://formspree.io/f/your-form-id"</span> class=<span class="c-string">"contact-form"</span> data-contact-form&gt;</code></pre>
         </div>
+        <p>Then delete the demo <code>&lt;script&gt;</code> at the bottom of the same file. (It already stops intercepting submissions once <code>action</code> is anything other than <code>"#"</code>, but it&rsquo;s demo-only code.)</p>
 
         <h3 id="newsletter-forms">Newsletter Forms</h3>
-        <p>[State which, if any, email provider the newsletter form is pre-wired for &mdash; e.g. Mailchimp, ConvertKit &mdash; or that it requires configuration.]</p>
+        <p>Johnson doesn&rsquo;t include a newsletter form, and no email-marketing provider is pre-wired. If you add one, follow the same pattern as the contact form &mdash; a plain HTML form posting to your provider&rsquo;s embed URL.</p>
 
         <h3 id="form-validation">Form Validation</h3>
-        <p>Required fields, email format, and minimum lengths are checked in the browser before submission using standard HTML attributes (<code>required</code>, <code>type="email"</code>) and/or a small validation function, giving users immediate feedback without a round trip to a server.</p>
+        <p>Validation uses standard HTML attributes only, checked by the browser before submission: <code>name</code> and <code>email</code> are <code>required</code>, <code>email</code> uses <code>type="email"</code>, and fields have <code>maxlength</code> limits (256 for name/email, 5000 for message). The message field is optional as shipped &mdash; add <code>required</code> to its <code>&lt;textarea&gt;</code> if you want it mandatory. Each field has a visually hidden <code>&lt;label&gt;</code> for screen readers.</p>
 
         <h3 id="third-party-forms">Third-Party Form Services</h3>
         <p>If you&rsquo;d rather not run your own backend, services like Formspree, Getform, or Basin accept form submissions directly from static HTML and forward them to your email &mdash; typically a one-line change to the form&rsquo;s <code>action</code> attribute.</p>
@@ -1363,8 +1441,13 @@ src/pages/blog/[slug].astro <span class="c-comment">&rarr;  /blog/:slug  (dynami
         <h2 id="api-data-h">API &amp; Data</h2>
         <p class="section-lede">Only relevant if your template fetches data from an external source &mdash; skip this section otherwise.</p>
 
+        <div class="callout info">
+          <span class="callout-title">Johnson fetches no external data</span>
+          <p>Johnson makes no API calls and needs no keys. All content comes from local files &mdash; <code>src/data/site.js</code>, <code>src/data/about.js</code>, and the <code>work</code> content collection &mdash; and is baked into static HTML at build time. The rest of this section is only a reference in case you add an external source yourself.</p>
+        </div>
+
         <h3 id="api-configuration">API Configuration</h3>
-        <p>API URLs and keys are read from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coded, so the same code can point at a staging or production API depending on environment:</p>
+        <p>If you add an API, read its URL and keys from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coding them, so the same code can point at a staging or production API depending on environment:</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>PUBLIC_API_URL=https://example.com/api
@@ -1376,8 +1459,8 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="fetch-requests">Fetch Requests</h3>
-        <div class="code-block" data-lang="typescript">
-          <div class="code-block-bar"><span class="code-lang">typescript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+        <div class="code-block" data-lang="javascript">
+          <div class="code-block-bar"><span class="code-lang">javascript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> res = <span class="c-key">await</span> fetch(<span class="c-key">`${</span>import.meta.env.PUBLIC_API_URL<span class="c-key">}</span>/products<span class="c-key">`</span>, {
   headers: { Authorization: <span class="c-key">`Bearer ${</span>import.meta.env.PUBLIC_API_KEY<span class="c-key">}</span><span class="c-key">`</span> },
 });
@@ -1385,11 +1468,37 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="data-structures">Data Structures</h3>
-        <p>[Document the shape of data your template expects back from an API &mdash; e.g. a TypeScript interface for a &ldquo;Product&rdquo; or &ldquo;Post&rdquo; &mdash; so consumers know what fields are available.]</p>
+        <p>Johnson&rsquo;s only structured data is local. The <code>work</code> collection&rsquo;s shape is enforced by a Zod schema in <code>src/content.config.js</code>; a JSON file that doesn&rsquo;t match it fails the build with an error naming the bad field:</p>
+        <div class="code-block" data-lang="javascript">
+          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/content.config.js</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-key">const</span> work = defineCollection({
+  loader: glob({ pattern: <span class="c-string">'**/*.json'</span>, base: <span class="c-string">'./src/content/work'</span> }),
+  schema: ({ image }) =&gt;
+    z.object({
+      title: z.string(),
+      order: z.number(),
+      summary: z.string(),
+      category: z.string(),
+      role: z.string(),
+      year: z.string(),
+      accent: z.string().default(<span class="c-string">'#d6f0ff'</span>),
+      liveUrl: z.string().default(<span class="c-string">'https://example.com'</span>),
+      thumbnail: image(),
+      mainImage: image(),
+      overview: z.string(),
+      problem: z.string(),
+      solution: z.string(),
+      dividerImages: z.array(image()).length(2),
+      problemImages: z.array(image()),
+      solutionImages: z.array(image()),
+    }),
+});</code></pre>
+        </div>
+        <p>The objects in <code>src/data/site.js</code> and <code>src/data/about.js</code> aren&rsquo;t validated &mdash; keep each entry&rsquo;s keys the same as the existing ones (for example, every <code>experience</code> item needs <code>period</code>, <code>role</code>, <code>company</code>, and <code>href</code>).</p>
 
         <h3 id="error-handling">Error Handling</h3>
-        <div class="code-block" data-lang="typescript">
-          <div class="code-block-bar"><span class="code-lang">typescript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+        <div class="code-block" data-lang="javascript">
+          <div class="code-block-bar"><span class="code-lang">javascript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">try</span> {
   <span class="c-key">const</span> res = <span class="c-key">await</span> fetch(apiUrl);
   <span class="c-key">if</span> (!res.ok) <span class="c-key">throw new</span> Error(<span class="c-key">`Request failed: ${</span>res.status<span class="c-key">}</span><span class="c-key">`</span>);
@@ -1413,28 +1522,36 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <p class="section-lede">Per-page metadata, social previews, and the machine-readable files search engines expect.</p>
 
         <h3 id="page-title-meta">Page Title &amp; Meta Description</h3>
-        <p>Pass a unique <code>title</code> and <code>description</code> into the layout on every page &mdash; these drive both the browser tab and the snippet shown in search results:</p>
+        <p>Pass a unique <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results. The layout appends the site name for you, so pass just the page name:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/about.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;BaseLayout
-  title=<span class="c-string">"Services | Riverside Design"</span>
-  description=<span class="c-string">"Web design and development for small businesses."</span>
-&gt;</code></pre>
+  title=<span class="c-string">"About"</span>
+  description=<span class="c-string">"About Johnson Smith — experience, certifications, skills and design process."</span>
+&gt;
+<span class="c-comment">&lt;!-- renders &lt;title&gt;About | Johnson&lt;/title&gt; --&gt;</span></code></pre>
         </div>
+        <p>If <code>description</code> is omitted, <code>site.description</code> from <code>src/data/site.js</code> is used. Case-study pages use each project&rsquo;s <code>title</code> and <code>summary</code> automatically.</p>
 
         <h3 id="canonical-og-twitter">Canonical URL, Open Graph &amp; Twitter/X Cards</h3>
-        <p>Set inside the layout&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs:</p>
-        <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"canonical"</span> href={canonicalURL} /&gt;
-&lt;meta property=<span class="c-string">"og:title"</span> content={title} /&gt;
+        <p>Already set up inside <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The Open Graph image is generated at build time as a 1200px-wide JPG from the page&rsquo;s <code>image</code> prop, or from <code>About-Me-Image.webp</code> by default:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;link rel=<span class="c-string">"canonical"</span> href={canonical} /&gt;
+&lt;meta property=<span class="c-string">"og:type"</span> content=<span class="c-string">"website"</span> /&gt;
+&lt;meta property=<span class="c-string">"og:title"</span> content={pageTitle} /&gt;
 &lt;meta property=<span class="c-string">"og:description"</span> content={description} /&gt;
-&lt;meta property=<span class="c-string">"og:image"</span> content={<span class="c-string">"[Replace with an absolute image URL]"</span>} /&gt;
-&lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;</code></pre>
+&lt;meta property=<span class="c-string">"og:image"</span> content={ogImage} /&gt;
+&lt;meta property=<span class="c-string">"og:url"</span> content={canonical} /&gt;
+&lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;
+&lt;meta name=<span class="c-string">"twitter:title"</span> content={pageTitle} /&gt;
+&lt;meta name=<span class="c-string">"twitter:description"</span> content={description} /&gt;
+&lt;meta name=<span class="c-string">"twitter:image"</span> content={ogImage} /&gt;</code></pre>
         </div>
+        <p>These URLs are only correct once <code>site</code> in <code>astro.config.mjs</code> is changed from <code>https://example.com</code> to your real domain.</p>
 
         <h3 id="sitemap-robots">Sitemap &amp; Robots.txt</h3>
-        <p>Astro&rsquo;s official sitemap integration generates <code>sitemap-index.xml</code> automatically at build time once the <code>site</code> value is set. <code>public/robots.txt</code> controls crawler access and typically points to that sitemap:</p>
+        <p>Johnson includes Astro&rsquo;s official sitemap integration (<code>@astrojs/sitemap</code>), which generates <code>sitemap-index.xml</code> automatically at build time from the <code>site</code> value, and <code>BaseLayout</code> links to it. No <code>robots.txt</code> is bundled &mdash; if you want one, create <code>public/robots.txt</code> to control crawler access and point it at the sitemap:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><span class="code-filename">public/robots.txt</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>User-agent: *
@@ -1443,7 +1560,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         </div>
 
         <h3 id="structured-data-semantic">Structured Data &amp; Semantic HTML</h3>
-        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure. Add JSON-LD structured data in the layout&rsquo;s <code>&lt;head&gt;</code> for rich results (e.g. <code>Organization</code> or <code>Article</code> schema) where relevant to your content.</p>
+        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure &mdash; Johnson&rsquo;s pages each have a single <code>&lt;h1&gt;</code> inside a <code>&lt;main&gt;</code> landmark. No JSON-LD structured data ships with the template; if you want rich results, add it in <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code> (a <code>Person</code> schema suits a personal portfolio).</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#api-data"><span class="pager-label">Previous</span><span class="pager-title">&larr; API &amp; Data</span></a>
@@ -1459,7 +1576,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="callout info">
           <span class="callout-title">Static vs. SSR &mdash; check this first</span>
-          <p>A static Astro build (the default) produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. An Astro site using server-side rendering (SSR via an adapter) and a React/Vite single-page app both need a Node-capable host or the platform&rsquo;s matching adapter. Using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
+          <p>A static Astro build (the default) produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. An Astro site using server-side rendering (SSR via an adapter) needs a Node-capable host or the platform&rsquo;s matching adapter. Johnson is fully static &mdash; no adapter is installed &mdash; so use the static instructions below.</p>
         </div>
 
         <h3 id="deploy-vercel">Vercel</h3>
@@ -1467,7 +1584,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
           <li>Push the project to a GitHub, GitLab, or Bitbucket repository.</li>
           <li>In Vercel, choose <strong>Add New &rarr; Project</strong> and import that repository.</li>
           <li>Build command: <code>npm run build</code> &middot; Output directory: <code>dist</code> (Astro static) &mdash; Vercel&rsquo;s Astro preset detects this automatically in most cases.</li>
-          <li>Add any environment variables from your <code>.env</code> file under Project Settings &rarr; Environment Variables.</li>
+          <li>If you&rsquo;ve added a <code>.env</code> file, add its variables under Project Settings &rarr; Environment Variables (Johnson needs none as shipped).</li>
           <li>Click <strong>Deploy</strong>.</li>
         </ol>
 
@@ -1478,16 +1595,16 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
   command = <span class="c-string">"npm run build"</span>
   publish = <span class="c-string">"dist"</span></code></pre>
         </div>
-        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add environment variables under Site configuration &rarr; Environment variables, and deploy.</p>
+        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add any environment variables you&rsquo;ve introduced under Site configuration &rarr; Environment variables, and deploy. Johnson doesn&rsquo;t ship a <code>netlify.toml</code> &mdash; create one with the contents above if you want the settings in the repo.</p>
 
         <h3 id="deploy-cloudflare">Cloudflare Pages</h3>
-        <p>Connect the repository, set the build command to <code>npm run build</code> and the output directory to <code>dist</code>. For SSR Astro sites, use the official <code>@astrojs/cloudflare</code> adapter instead of the static preset.</p>
+        <p>Connect the repository, set the build command to <code>npm run build</code> and the output directory to <code>dist</code>. Johnson is static, so no adapter is needed. Make sure the build environment uses Node 22.12 or later (set a <code>NODE_VERSION</code> variable if the default is older).</p>
 
         <h3 id="deploy-github-pages">GitHub Pages</h3>
         <p>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match your repository URL, then build and publish the <code>dist/</code> folder to the <code>gh-pages</code> branch (via the official <code>astro build</code> + a deploy action, or manually). GitHub Pages only serves static output &mdash; it cannot run an SSR adapter.</p>
 
         <h3 id="deploy-traditional">Traditional Hosting</h3>
-        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. For an SSR build or a React/Vite app that needs a Node process, the host must support running <code>node</code> continuously (a VPS or a Node-compatible host) &mdash; plain shared hosting without Node support cannot run it.</p>
+        <p>Run <code>npm run build</code> locally, then upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. Because Johnson is fully static, any plain shared host works &mdash; no Node process is needed on the server.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#seo"><span class="pager-label">Previous</span><span class="pager-title">&larr; SEO</span></a>
@@ -1503,24 +1620,26 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>npm run build     <span class="c-comment"># type-check, bundle, and write dist/</span>
+          <pre><code>npm run build     <span class="c-comment"># bundle, optimize images, and write dist/</span>
 npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it will run in production</span></code></pre>
         </div>
 
         <h3 id="build-output">Build Output</h3>
-        <p>The build writes static HTML, hashed CSS/JS bundles, and optimized images to <code>dist/</code> (or <code>build/</code>, for some Vite/React setups). This folder is disposable and regenerated by every build &mdash; it&rsquo;s conventional to keep it out of Git via <code>.gitignore</code>.</p>
+        <p>The build writes static HTML (one folder per route, e.g. <code>dist/project/beyond-energy/index.html</code>), hashed CSS/JS bundles, optimized images under <code>dist/_astro/</code>, the <code>public/</code> files, and <code>sitemap-index.xml</code> to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; Johnson&rsquo;s <code>.gitignore</code> already keeps it out of Git.</p>
 
         <h3 id="build-env-vars">Environment Variables in Production</h3>
-        <p>Variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
+        <p>Johnson needs no environment variables as shipped. If you add some, remember that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
 
         <h3 id="production-checklist">Production Checklist</h3>
         <ul>
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
-          <li>Run <code>npm run preview</code> and click through the main pages.</li>
-          <li>Confirm the <code>site</code> URL in <code>astro.config.mjs</code> matches your real domain.</li>
-          <li>Set every environment variable from <code>.env</code> in your hosting platform&rsquo;s dashboard.</li>
-          <li>Check that forms, if any, point at a real endpoint rather than a placeholder.</li>
-          <li>Verify favicon, Open Graph image, and meta descriptions are your own, not the template defaults.</li>
+          <li>Run <code>npm run preview</code> and click through the home, about, contact, and case-study pages.</li>
+          <li>Change the <code>site</code> URL in <code>astro.config.mjs</code> from <code>https://example.com</code> to your real domain.</li>
+          <li>Replace the placeholder name, email, and social links in <code>src/data/site.js</code>, and the r&eacute;sum&eacute; content in <code>src/data/about.js</code>.</li>
+          <li>Point the contact form&rsquo;s <code>action</code> at a real endpoint and remove its demo script (see <a href="#forms">Forms</a>).</li>
+          <li>Replace the sample images and case studies with your own work.</li>
+          <li>Update the copyright line in <code>FooterMeta.astro</code>, and verify the favicon, logo, Open Graph image, and meta descriptions are your own, not the template defaults.</li>
+          <li>Set any environment variables you&rsquo;ve added in your hosting platform&rsquo;s dashboard.</li>
         </ul>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1537,8 +1656,8 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
 
         <div class="trouble-item">
           <h4><code>npm install</code> fails</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Node.js version too old, a corrupted local cache, or a stale lockfile from a different package manager.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>node --version</code> meets the requirement in <a href="#requirements">Requirements</a>, then run <code>rm -rf node_modules package-lock.json &amp;&amp; npm install</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Node.js older than 22.12 (Astro 7&rsquo;s minimum), a corrupted local cache, or a stale lockfile from a different package manager.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>node --version</code> reports v22.12.0 or later (see <a href="#requirements">Requirements</a>), then run <code>rm -rf node_modules package-lock.json &amp;&amp; npm install</code>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Port already in use</h4>
@@ -1547,38 +1666,38 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
         <div class="trouble-item">
           <h4>Module not found</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency, a typo in an import path, or a path alias not registered in <code>tsconfig.json</code>.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the import path casing matches the file exactly; confirm the alias exists under <code>compilerOptions.paths</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency (e.g. <code>gsap</code>), or a typo in a relative import path &mdash; Johnson uses relative paths like <code>../components/Hero.astro</code> and no path aliases.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the number of <code>../</code> segments and that the path casing matches the file exactly (e.g. <code>Hero-Image.webp</code>, not <code>hero-image.webp</code> &mdash; case matters on Linux hosts).</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Images not loading</h4>
           <dl class="trouble-row"><dt>Cause</dt><dd>An incorrect relative path, or an image placed in <code>src/assets/</code> but referenced with a <code>public/</code>-style absolute path (or vice versa).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; imported assets need an <code>import</code> statement; <code>public/</code> files need a root-relative URL like <code>/logo.svg</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; imported assets need an <code>import</code> statement; case-study JSON image paths are relative to the JSON file (<code>../../assets/work/&hellip;</code>); <code>public/</code> files need a root-relative URL like <code>/images/Logo.svg</code>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Styles not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>The stylesheet isn&rsquo;t imported into the layout, or a Tailwind class isn&rsquo;t being generated because the file isn&rsquo;t covered by its content glob.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>global.css</code> is imported in <code>BaseLayout</code>; check <code>tailwind.config.mjs</code>&rsquo;s <code>content</code> array includes the file you&rsquo;re editing.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A page isn&rsquo;t rendered inside <code>BaseLayout</code> (which imports all four stylesheets), or an <code>overrides.css</code> rule is being beaten by a more specific selector in <code>global.css</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Wrap the page in <code>&lt;BaseLayout&gt;</code>; confirm the four <code>import '../styles/&hellip;.css'</code> lines are still at the top of <code>BaseLayout.astro</code>; use your browser&rsquo;s inspector to see which rule wins.</dd></dl>
         </div>
         <div class="trouble-item">
-          <h4>TypeScript errors</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A component is receiving props that don&rsquo;t match its declared interface, often after copy-pasting a component and changing its usage.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Read the error&rsquo;s file and line number, compare against the component&rsquo;s <code>interface</code> (see <a href="#props">Props</a>), and adjust whichever side is wrong.</dd></dl>
+          <h4>Content collection errors</h4>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A case-study JSON file doesn&rsquo;t match the <code>work</code> schema &mdash; a missing field, a number written as a string (e.g. <code>"order": "2"</code>), an image path that doesn&rsquo;t exist, or a <code>dividerImages</code> array without exactly two items.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Read the error, which names the file and the field; compare the file against the schema in <code>src/content.config.js</code> (see <a href="#data-structures">Data Structures</a>) and an existing project JSON, and fix the mismatch.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Build fails (but dev server works)</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server is more forgiving than <code>build</code>, which fully type-checks the project &mdash; an issue tolerated in dev can fail the build.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server only processes pages as you open them, while <code>build</code> renders every route and optimizes every image &mdash; an issue on a page you didn&rsquo;t visit in dev can fail the build.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Read the full terminal output for the first error (later errors are often side effects of it); fix issues top to bottom and re-run.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Environment variables not working</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Only applies if you&rsquo;ve added your own variables (Johnson uses none): missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Rename the variable with the <code>PUBLIC_</code> prefix if it&rsquo;s used in browser code, then stop and restart <code>npm run dev</code> &mdash; env changes aren&rsquo;t hot-reloaded.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Deployment problems</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Wrong output directory configured on the host, or environment variables set locally but not in the platform&rsquo;s dashboard.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command and output folder against <a href="#deployment">Deployment</a> for your platform, and confirm every variable from <code>.env</code> is duplicated there.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Wrong output directory configured on the host, a build image running Node older than 22.12, or <code>site</code> still set to <code>https://example.com</code> (canonical and Open Graph URLs point at the wrong domain).</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command (<code>npm run build</code>) and output folder (<code>dist</code>) against <a href="#deployment">Deployment</a> for your platform, set the host&rsquo;s Node version to 22.12+, and update <code>site</code> in <code>astro.config.mjs</code>.</dd></dl>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1599,19 +1718,27 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Which Node.js version should I use?</summary>
-          <p>Node 18 or later &mdash; see <a href="#requirements">Requirements</a>. The current LTS release is a safe default.</p>
+          <p>Node 22.12.0 or later, as required by Astro 7 &mdash; see <a href="#requirements">Requirements</a>. Any current LTS release at or above 22.12 is a safe default.</p>
         </details>
         <details class="faq-item">
           <summary>Can I use JavaScript instead of TypeScript?</summary>
-          <p>Generally yes &mdash; rename <code>.ts</code>/<code>.tsx</code> files to <code>.js</code>/<code>.jsx</code> and remove type annotations. You&rsquo;ll lose compile-time type checking, so weigh that against the convenience.</p>
+          <p>Johnson is already plain JavaScript &mdash; there are no <code>.ts</code> or <code>.tsx</code> files. If you prefer TypeScript, you can add it gradually: Astro supports <code>.ts</code> files and typed props out of the box, and the included <code>tsconfig.json</code> already extends Astro&rsquo;s strict preset.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change colors?</summary>
-          <p>Update the CSS custom properties in <code>src/styles/global.css</code> (or the palette in <code>tailwind.config.mjs</code>) &mdash; see <a href="#global-styles">Styling</a>.</p>
+          <p>Update the CSS custom properties at the top of <code>src/styles/global.css</code> (<code>--orange-light</code>, <code>--heading</code>, <code>--body</code>, <code>--orange</code>), and each case study&rsquo;s <code>accent</code> in its JSON file &mdash; see <a href="#global-styles">Styling</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change fonts?</summary>
-          <p>Swap the font import and update the corresponding <code>--font-*</code> variable &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
+          <p>Swap the Outfit Google Fonts link and/or the General Sans <code>@font-face</code> rule, then update the matching <code>font-family</code> declarations in <code>global.css</code> &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I add or remove a project?</summary>
+          <p>Copy or delete a JSON file in <code>src/content/work/</code>; the home-page list, case-study page, and prev/next links update automatically &mdash; see <a href="#edit-cards-testimonials">Content Editing</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I turn off the animations?</summary>
+          <p>Visitors who enable &ldquo;reduce motion&rdquo; in their OS already skip the decorative loops. To remove an animation entirely, delete or edit the <code>&lt;script&gt;</code> block in the component that owns it (e.g. <code>SkillMarquee.astro</code> for the marquees) &mdash; see <a href="#components">Components</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I replace images?</summary>
@@ -1627,7 +1754,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Can I use the template commercially?</summary>
-          <p>[State your license terms here &mdash; e.g. standard vs. extended license &mdash; and link to the full license text.]</p>
+          <p>Yes. Johnson is sold under the RNN studio commercial license (the <code>LICENSE</code> file in the project root). You may build unlimited websites with it, for yourself or for clients, including commercial sites, and charge for that work. You may not resell, redistribute, or publish the template itself (or a modified version) as a template, theme, or starter &mdash; including in a public GitHub repository. Bundled fonts, GSAP, and sample imagery follow their own licenses; see the Credits section of <code>README.md</code>.</p>
         </details>
         <details class="faq-item">
           <summary>Where can I get support?</summary>
@@ -1647,17 +1774,12 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <p class="section-lede">Every notable change, newest first. Add a new entry above the last one for each release.</p>
 
         <div class="changelog-entry">
-          <span class="changelog-version">Version 1.1.0</span><span class="changelog-date">[Release date]</span>
+          <span class="changelog-version">Version 0.0.1</span><span class="changelog-date">[Release date]</span>
           <ul>
-            <li><span class="tag-added">Added</span>New reusable card and pricing components.</li>
-            <li><span class="tag-changed">Changed</span>Improved responsive behavior of the mobile navigation.</li>
-            <li><span class="tag-changed">Changed</span>Updated dependencies to their latest stable versions.</li>
-          </ul>
-        </div>
-        <div class="changelog-entry">
-          <span class="changelog-version">Version 1.0.0</span><span class="changelog-date">[Release date]</span>
-          <ul>
-            <li><span class="tag-added">Added</span>Initial release.</li>
+            <li><span class="tag-added">Added</span>Initial release: home, about, contact, project case-study, and 404 pages.</li>
+            <li><span class="tag-added">Added</span><code>work</code> content collection with five sample case studies and auto-generated prev/next navigation.</li>
+            <li><span class="tag-added">Added</span>GSAP animations, including the magnetic overlay menu, work-list colour shift, stacked process cards, and skill marquees.</li>
+            <li><span class="tag-added">Added</span>SEO meta, Open Graph/Twitter tags, canonical URLs, and sitemap.</li>
           </ul>
         </div>
 
