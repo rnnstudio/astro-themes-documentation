@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paydesk — Documentation</title>
+<title>Orchid — Documentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -612,7 +612,7 @@
   </button>
   <a href="#top" class="header-brand" id="brand-link">
     <span class="header-brand-text">
-      <span id="brand-name">Paydesk Astro Documentation</span>
+      <span id="brand-name">Orchid Astro Documentation</span>
     </span>
   </a>
   <button class="search-trigger" id="search-trigger" aria-label="Search documentation">
@@ -676,7 +676,7 @@
   <!-- ============================= CONTENT ============================= -->
   <div class="content-wrap">
     <main id="main-content">
-      <h1 class="visually-hidden" id="top">Paydesk Documentation</h1>
+      <h1 class="visually-hidden" id="top">Orchid Documentation</h1>
 
       <!-- ======================= 01 INTRODUCTION ======================= -->
       <section class="doc-section" id="introduction" aria-labelledby="introduction-h">
@@ -685,46 +685,47 @@
         <p class="section-lede">Everything you need to know before you open your editor &mdash; what&rsquo;s in the box, what it&rsquo;s built with, and what it expects from your machine.</p>
 
         <h3 id="welcome">Welcome</h3>
-        <p>Thanks for picking up <strong id="welcome-product-name">Paydesk</strong>, a conversion-focused landing page template for billing, invoicing and payment SaaS products. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Thanks for picking up <strong id="welcome-product-name">Orchid</strong>. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Orchid is a fitness and wellness marketing template built with Astro. It includes a one-page home page (hero, feature overview, category accordion, testimonials, pricing, trusted-by logos, FAQ, and app download links) plus standalone login and signup pages. It&rsquo;s styled with hand-written CSS and needs no UI framework or CSS framework.</p>
 
         <h3 id="whats-included">What&rsquo;s Included</h3>
         <div class="card-grid">
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>Source files</h4>
-            <p>The full, uncompiled project source &mdash; components, pages, styles, and configuration.</p>
+            <p>The full, uncompiled project source &mdash; 3 pages, 13 components, 1 layout, the GSAP animation helpers, stylesheets, and configuration.</p>
           </div>
           <div class="info-card">
-            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Self-hosted fonts</h4>
-            <p>Onest (Medium, Bold) and Satoshi Medium font files in <code>public/fonts/</code> &mdash; no external font requests. No pre-built <code>dist/</code> is included; run <code>npm run build</code> to generate one.</p>
+            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Build it yourself</h4>
+            <p>No pre-built <code>dist/</code> folder ships. Run <code>npm run build</code> to generate one (see <a href="#build-preview">Build &amp; Preview</a>).</p>
           </div>
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Design assets</h4>
-            <p>SVG logos, icons and decorative illustrations in <code>public/images/</code>, plus WebP/PNG product artwork in <code>src/assets/images/</code>. No Figma source file is included.</p>
+            <p>All imagery is self-hosted in <code>public/images/</code> as SVG, WebP, and PNG, and the General Sans font is in <code>public/fonts/</code>. No Figma or other design source files are included.</p>
           </div>
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>This documentation</h4>
-            <p>A single offline HTML file &mdash; open it directly in any browser, no server required.</p>
+            <p>Hosted online. The download includes a <code>documentation.txt</code> file with the link, and the project <code>README.md</code> has a quick-start summary.</p>
           </div>
         </div>
 
         <h3 id="features">Features</h3>
         <ul>
-          <li>A complete one-page marketing site with 10 home sections &mdash; hero with email capture, benefits, use cases, feature grid, integrations, &ldquo;Why Paydesk&rdquo; accordion, pricing, FAQ, reviews and call-to-action &mdash; plus Login, Signup, Changelog and License pages</li>
-          <li>Pricing section with an accessible monthly/yearly switch</li>
-          <li>Scroll-reveal animations, sticky navbar, accordions and an infinite logo marquee built with GSAP + ScrollTrigger &mdash; all respecting <code>prefers-reduced-motion</code></li>
-          <li>Accessible markup: semantic landmarks, one <code>&lt;h1&gt;</code> per page, keyboard-operable mobile menu, tabs and accordions, visible focus states</li>
-          <li>SEO-ready: per-page titles and descriptions, canonical URLs, Open Graph / Twitter tags and an automatic sitemap</li>
-          <li>Fast static output with responsive images via <code>astro:assets</code>, self-hosted fonts, and no CSS framework or jQuery</li>
+          <li>A one-page home page with 10 sections and smooth-scrolling nav links to each one</li>
+          <li>Standalone login and signup pages with styled, validated forms</li>
+          <li>GSAP + ScrollTrigger scroll-reveal animations and two infinite marquee loops (testimonials and trusted-by logos)</li>
+          <li>Sticky header with a slide-over mobile menu, accordions, and a YouTube video lightbox, all in small inline scripts with no UI framework</li>
+          <li>SEO-ready layout with per-page title and description, canonical URL, Open Graph and Twitter/X card tags, plus an automatic sitemap</li>
+          <li>Fully responsive, with breakpoints at 991px, 767px, and 479px</li>
         </ul>
 
         <h3 id="tech-stack">Technology Stack</h3>
-        <p>Paydesk is a plain Astro project &mdash; JavaScript and CSS only, with no UI framework, CSS framework, or TypeScript required.</p>
+        <p>Orchid is plain Astro with vanilla JavaScript and hand-written CSS. It doesn&rsquo;t use React, TypeScript, Tailwind, or Sass.</p>
         <div class="pill-row">
           <span class="pill"><span class="dot"></span>Astro 7</span>
-          <span class="pill"><span class="dot"></span>GSAP 3 (ScrollTrigger)</span>
-          <span class="pill"><span class="dot"></span>@astrojs/sitemap</span>
           <span class="pill"><span class="dot"></span>Vite</span>
           <span class="pill"><span class="dot"></span>Plain CSS</span>
+          <span class="pill"><span class="dot"></span>GSAP + ScrollTrigger</span>
+          <span class="pill"><span class="dot"></span>@astrojs/sitemap</span>
         </div>
 
         <h3 id="requirements">Requirements</h3>
@@ -732,9 +733,9 @@
           <table class="kv-table">
             <thead><tr><th>Tool</th><th>Minimum version</th><th>Notes</th></tr></thead>
             <tbody>
-              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Set in <code>package.json</code> &rarr; <code>engines</code>, as required by Astro 7</td></tr>
-              <tr><td>Package manager</td><td>npm (bundled with Node), pnpm, or Yarn</td><td>A <code>package-lock.json</code> ships with the project, so npm is the default; examples below cover all three</td></tr>
-              <tr><td>Code editor</td><td>&mdash;</td><td>VS Code with the official Astro extension (recommended in <code>.vscode/extensions.json</code>)</td></tr>
+              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Required by <code>package.json</code>&rsquo;s <code>engines</code> field (Astro 7)</td></tr>
+              <tr><td>Package manager</td><td>npm 9+, pnpm 8+, or Yarn 1.22+</td><td>The template ships a <code>package-lock.json</code>, so npm is the default; examples below cover all three</td></tr>
+              <tr><td>Code editor</td><td>&mdash;</td><td>VS Code with the Astro extension is a comfortable default (recommended in <code>.vscode/extensions.json</code>)</td></tr>
               <tr><td>Git</td><td>2.x</td><td>Only required if you plan to version-control your customized copy</td></tr>
             </tbody>
           </table>
@@ -750,7 +751,7 @@
         </div>
         <div class="callout warning">
           <span class="callout-title">Internet Explorer</span>
-          <p>Internet Explorer 11 is not supported. No polyfills are bundled &mdash; the template relies on modern CSS and ES modules.</p>
+          <p>Internet Explorer 11 is not supported, and the template ships no polyfills.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -767,15 +768,15 @@
 
         <h3 id="installation">Installation &amp; Extraction</h3>
         <ol>
-          <li>Download <code>paydesk-astro-package.zip</code> from your purchase confirmation email or account downloads page. It contains the <code>paydesk-astro/</code> project folder and a <code>documentation.txt</code> file.</li>
+          <li>Download the template ZIP from your purchase confirmation email or account downloads page.</li>
           <li>Extract it to a folder on your machine &mdash; avoid folder names with spaces or special characters.</li>
           <li>Open that folder in your terminal and in your code editor.</li>
         </ol>
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Extract on macOS / Linux</span>
-unzip paydesk-astro-package.zip
-<span class="c-key">cd</span> paydesk-astro-package/paydesk-astro</code></pre>
+unzip orchid-astro-package.zip -d orchid-astro-package
+<span class="c-key">cd</span> orchid-astro-package/orchid-astro</code></pre>
         </div>
 
         <h3 id="node-setup">Node.js Setup</h3>
@@ -817,7 +818,7 @@ nvm use 22</code></pre>
           <div class="code-block-bar"><span class="code-lang">pnpm</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>pnpm dev</code></pre>
         </div>
-        <p>This starts Astro&rsquo;s Vite-powered dev server with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
+        <p>This starts Vite&rsquo;s local dev server with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
 
         <h3 id="build-preview">Build for Production &amp; Preview</h3>
         <div class="code-block" data-lang="bash">
@@ -828,11 +829,11 @@ npm run build
 <span class="c-comment"># Serve that build locally to sanity-check it</span>
 npm run preview</code></pre>
         </div>
-        <p><code>build</code> renders every page to static HTML, bundles and minifies CSS/JS, optimizes images, generates the sitemap, and writes everything to <code>dist/</code>. <code>preview</code> serves that exact output locally so you can verify it before deploying &mdash; it does not rebuild automatically, so re-run <code>build</code> after further changes.</p>
+        <p><code>build</code> renders every page to static HTML, bundles and minifies the CSS and JavaScript, generates the sitemap, and writes the output to <code>dist/</code>. <code>preview</code> serves that exact output locally so you can verify it before deploying &mdash; it does not rebuild automatically, so re-run <code>build</code> after further changes.</p>
 
         <div class="callout info">
           <span class="callout-title">Which command do I actually need?</span>
-          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it catches issues (like a missing image file or a broken import path) that only surface when every page is rendered.</p>
+          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it renders every page at once, so it catches issues (like a missing import on a page you never opened in the browser) that a dev session can miss.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -847,40 +848,43 @@ npm run preview</code></pre>
         <h2 id="project-structure-h">Project Structure</h2>
         <p class="section-lede">A tour of the folders you&rsquo;ll actually touch, and the ones you generally shouldn&rsquo;t.</p>
 
-        <div class="file-tree" role="img" aria-label="Project directory structure">paydesk-astro/
-├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is (favicon.svg, favicon.ico)</span>
-│   ├── <span class="dir">fonts/</span>           <span class="cmt"># Onest &amp; Satoshi font files</span>
-│   └── <span class="dir">images/</span>          <span class="cmt"># SVG logos, icons and illustrations</span>
+        <div class="file-tree" role="img" aria-label="Project directory structure">orchid-astro/
+├── <span class="dir">public/</span>                  <span class="cmt"># Static files copied as-is</span>
+│   ├── <span class="dir">documents/</span>           <span class="cmt"># Accordion-Lottie.json (not currently used)</span>
+│   ├── <span class="dir">fonts/</span>               <span class="cmt"># Self-hosted General Sans variable font</span>
+│   ├── <span class="dir">images/</span>              <span class="cmt"># All template imagery, logos, icons, favicon.png, webclip.png</span>
+│   └── favicon.svg
 ├── <span class="dir">src/</span>
-│   ├── <span class="dir">assets/images/</span>   <span class="cmt"># WebP/PNG artwork optimized by astro:assets</span>
-│   ├── <span class="dir">components/</span>      <span class="cmt"># Page sections and shared UI (+ icons/)</span>
-│   ├── <span class="dir">layouts/</span>         <span class="cmt"># BaseLayout.astro &mdash; &lt;head&gt;, meta tags, global CSS</span>
-│   ├── <span class="dir">pages/</span>           <span class="cmt"># Routes: index, login, signup, changelog, license</span>
-│   ├── <span class="dir">scripts/</span>         <span class="cmt"># Browser modules: scroll reveals, demo forms</span>
-│   └── <span class="dir">styles/</span>          <span class="cmt"># normalize, base framework, theme &amp; behaviour CSS</span>
-├── astro.config.mjs     <span class="cmt"># Site URL &amp; sitemap integration</span>
-├── jsconfig.json        <span class="cmt"># Editor config (extends Astro&rsquo;s base config)</span>
-├── package.json         <span class="cmt"># Scripts and dependencies</span>
+│   ├── <span class="dir">components/</span>           <span class="cmt"># Nav, Hero, Overview, Pricing, Faq, Footer, etc.</span>
+│   ├── <span class="dir">layouts/</span>
+│   │   └── Layout.astro       <span class="cmt"># Shared &lt;html&gt;/&lt;head&gt;, SEO meta, font loading</span>
+│   ├── <span class="dir">pages/</span>                <span class="cmt"># index.astro, login.astro, signup.astro</span>
+│   ├── <span class="dir">scripts/</span>
+│   │   └── scroll-reveal.js   <span class="cmt"># Shared GSAP reveal + marquee helpers</span>
+│   └── <span class="dir">styles/</span>               <span class="cmt"># global.css, orchid.css, base-framework.css, normalize.css</span>
+├── astro.config.mjs          <span class="cmt"># Site URL and the sitemap integration</span>
+├── package.json              <span class="cmt"># Scripts and dependencies</span>
+├── package-lock.json
+├── tsconfig.json             <span class="cmt"># Astro&rsquo;s base config, for editor tooling only</span>
 └── README.md</div>
 
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Holds the favicons, <code>fonts/</code> (self-hosted font files) and <code>images/</code> (SVG logos, icons and illustrations referenced as <code>/images/&hellip;</code>).</td></tr>
-              <tr><td><code>src/components/</code></td><td>One <code>.astro</code> file per home page section (<code>Hero</code>, <code>Benefits</code>, <code>Pricing</code>, <code>Faq</code>&hellip;) plus shared UI (<code>Navbar</code>, <code>Footer</code>, <code>Accordion</code>, <code>CheckList</code>&hellip;). <code>icons/</code> holds inline-SVG icon components.</td></tr>
-              <tr><td><code>src/layouts/</code></td><td><code>BaseLayout.astro</code> &mdash; the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> meta/SEO tags, font preloads and global stylesheet imports.</td></tr>
+              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Orchid keeps <em>all</em> of its images, the General Sans font, and the favicons here, referenced by root-relative URLs like <code>/images/Logo.svg</code>.</td></tr>
+              <tr><td><code>src/components/</code></td><td>The 13 <code>.astro</code> components that make up the pages: <code>AnnouncementBar</code>, <code>Nav</code>, <code>Hero</code>, <code>Overview</code>, <code>CtaBand</code>, <code>Category</code>, <code>Reviews</code>, <code>Pricing</code>, <code>TrustedBy</code>, <code>Faq</code>, <code>AppLinks</code>, <code>Footer</code>, and <code>UtilityHero</code> (not currently used by any page).</td></tr>
+              <tr><td><code>src/layouts/</code></td><td><code>Layout.astro</code> is the single page shell. It holds the <code>&lt;head&gt;</code> tags (SEO meta, fonts, favicons) and imports <code>global.css</code>. Each page supplies its own nav, content, and footer inside it.</td></tr>
               <tr><td><code>src/pages/</code></td><td>Every file here becomes a route automatically. See <a href="#pages">Pages</a> for details.</td></tr>
-              <tr><td><code>src/assets/images/</code></td><td>Raster images that are optimized, resized, and hashed by the build. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
-              <tr><td><code>src/styles/</code></td><td>The four global stylesheets imported by <code>BaseLayout</code>. See <a href="#styling">Styling</a>.</td></tr>
-              <tr><td><code>src/scripts/</code></td><td>Shared browser modules: <code>reveal.js</code> (GSAP scroll reveals) and <code>forms.js</code> (demo form handling).</td></tr>
+              <tr><td><code>src/scripts/</code></td><td><code>scroll-reveal.js</code> exports the GSAP helpers (<code>revealFades</code>, <code>revealSlides</code>, <code>revealBottomStagger</code>, <code>marqueeLoop</code>) that components import in their own <code>&lt;script&gt;</code> tags.</td></tr>
+              <tr><td><code>src/styles/</code></td><td>Plain CSS stylesheets. <code>global.css</code> is the entry point that imports the others. See <a href="#styling">Styling</a>.</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
-          <span class="callout-title">Files not shown above</span>
-          <p><code>package-lock.json</code> (npm lockfile), <code>.gitignore</code>, <code>.vscode/</code> (recommended editor extensions) and, in the distributed package, a <code>LICENSE</code> file. There is no <code>tsconfig.json</code>, Tailwind config, content collection config, or <code>src/data/</code> folder &mdash; section content lives in small arrays at the top of each component.</p>
+          <span class="callout-title">No data folder</span>
+          <p>There is no <code>src/data/</code> or <code>src/assets/</code> folder. Repeating content (nav links, pricing plans, reviews, FAQs) is defined as small arrays in the frontmatter of the component that renders it. See <a href="#content-editing">Content Editing</a>. Also at the root: <code>.gitignore</code> and <code>.vscode/</code> (the recommended Astro editor extension).</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -900,12 +904,10 @@ npm run preview</code></pre>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">package.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
-  <span class="c-key">"name"</span>: <span class="c-string">"paydesk-astro"</span>,
+  <span class="c-key">"name"</span>: <span class="c-string">"orchid-astro"</span>,
   <span class="c-key">"type"</span>: <span class="c-string">"module"</span>,
   <span class="c-key">"version"</span>: <span class="c-string">"0.0.1"</span>,
-  <span class="c-key">"engines"</span>: {
-    <span class="c-key">"node"</span>: <span class="c-string">"&gt;=22.12.0"</span>
-  },
+  <span class="c-key">"engines"</span>: { <span class="c-key">"node"</span>: <span class="c-string">"&gt;=22.12.0"</span> },
   <span class="c-key">"scripts"</span>: {
     <span class="c-key">"dev"</span>: <span class="c-string">"astro dev"</span>,
     <span class="c-key">"build"</span>: <span class="c-string">"astro build"</span>,
@@ -914,31 +916,38 @@ npm run preview</code></pre>
   },
   <span class="c-key">"dependencies"</span>: {
     <span class="c-key">"@astrojs/sitemap"</span>: <span class="c-string">"^3.7.4"</span>,
-    <span class="c-key">"astro"</span>: <span class="c-string">"^7.3.4"</span>,
-    <span class="c-key">"gsap"</span>: <span class="c-string">"^3.15.0"</span>
+    <span class="c-key">"astro"</span>: <span class="c-string">"^7.3.3"</span>,
+    <span class="c-key">"gsap"</span>: <span class="c-string">"^3.15.0"</span>,
+    <span class="c-key">"lottie-web"</span>: <span class="c-string">"^5.13.0"</span>
   }
 }</code></pre>
         </div>
+        <p><code>gsap</code> powers the scroll animations and marquees. <code>lottie-web</code> is listed as a dependency but isn&rsquo;t imported anywhere in the current source, so you can remove it with <code>npm uninstall lottie-web</code> if you don&rsquo;t plan to add a Lottie animation.</p>
 
         <h3 id="config-astro">astro.config.mjs</h3>
-        <p>Controls integrations, the deployed site URL, and build behavior. Paydesk registers only the sitemap integration; replace <code>site</code> with your production URL &mdash; it&rsquo;s used for canonical URLs, Open Graph image URLs and the generated sitemap.</p>
+        <p>Controls integrations, the deployed site URL, and build behavior. Orchid registers a single integration, <code>@astrojs/sitemap</code>, and builds as a fully static site (Astro&rsquo;s default output).</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">astro.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
+          <pre><code><span class="c-comment">// @ts-check</span>
+<span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
+
 <span class="c-key">import</span> sitemap <span class="c-key">from</span> <span class="c-string">'@astrojs/sitemap'</span>;
 
-<span class="c-comment">// Replace `site` with your production URL — it is used for canonical URLs,</span>
-<span class="c-comment">// Open Graph image URLs and the generated sitemap.</span>
+<span class="c-comment">// https://astro.build/config</span>
 <span class="c-key">export default</span> defineConfig({
   site: <span class="c-string">'https://example.com'</span>,
-  integrations: [sitemap()],
+  integrations: [sitemap()]
 });</code></pre>
         </div>
+        <div class="callout warning">
+          <span class="callout-title">Replace the placeholder site URL</span>
+          <p><code>site</code> is set to <code>https://example.com</code>. Change it to your real domain before deploying. The layout uses it to build the canonical URL and the absolute Open Graph and Twitter image URLs, and the sitemap integration uses it for every URL in <code>sitemap-index.xml</code>.</p>
+        </div>
 
-        <h3 id="config-tsconfig">jsconfig.json</h3>
-        <p>Paydesk is written in plain JavaScript, so it ships a <code>jsconfig.json</code> instead of a <code>tsconfig.json</code>. It extends Astro&rsquo;s base config so your editor gets IntelliSense for <code>.astro</code> files and Astro&rsquo;s generated types. No path aliases are defined &mdash; components are imported with relative paths such as <code>../components/Footer.astro</code>.</p>
+        <h3 id="config-tsconfig">tsconfig.json</h3>
+        <p>Orchid is written in plain JavaScript and has no <code>.ts</code> files. <code>tsconfig.json</code> only extends Astro&rsquo;s base preset so the Astro editor extension can offer autocomplete. It defines no path aliases, so all imports use relative paths like <code>../components/Nav.astro</code>.</p>
         <div class="code-block" data-lang="json">
-          <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">jsconfig.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">tsconfig.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
   <span class="c-key">"extends"</span>: <span class="c-string">"astro/tsconfigs/base"</span>,
   <span class="c-key">"include"</span>: [<span class="c-string">".astro/types.d.ts"</span>, <span class="c-string">"**/*"</span>],
@@ -947,7 +956,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-env">Environment Variables (.env)</h3>
-        <p>Paydesk reads no environment variables out of the box &mdash; the site URL lives in <code>astro.config.mjs</code>. If you add an API or form service, create a <code>.env</code> file in the project root for values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
+        <p>Orchid doesn&rsquo;t read any environment variables and ships no <code>.env</code> file. If you add an integration that needs one, create a <code>.env</code> file in the project root for values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Exposed to the browser &mdash; never put secrets here</span>
@@ -958,7 +967,7 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
         </div>
         <div class="callout warning">
           <span class="callout-title">Never commit .env</span>
-          <p>Paydesk&rsquo;s <code>.gitignore</code> already excludes <code>.env</code> and <code>.env.production</code>. Anything without the <code>PUBLIC_</code> prefix should stay off the client entirely.</p>
+          <p>Orchid&rsquo;s <code>.gitignore</code> already excludes <code>.env</code> and <code>.env.production</code>. Anything without the <code>PUBLIC_</code> prefix should stay off the client entirely.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -971,40 +980,36 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
       <section class="doc-section" id="pages" aria-labelledby="pages-h">
         <span class="section-eyebrow">05 &middot; Guide</span>
         <h2 id="pages-h">Pages</h2>
-        <p class="section-lede">How routes are created, and how Paydesk&rsquo;s pages are assembled.</p>
+        <p class="section-lede">How routes are created, and how Orchid&rsquo;s three pages are put together.</p>
 
         <h3 id="creating-pages">Creating a New Page</h3>
-        <p>Astro uses file-based routing: any <code>.astro</code>, <code>.md</code>, or <code>.html</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Paydesk ships five routes:</p>
+        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Orchid ships three routes:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>src/pages/index.astro      <span class="c-comment">&rarr;  /           (one-page home: all marketing sections)</span>
-src/pages/login.astro      <span class="c-comment">&rarr;  /login</span>
-src/pages/signup.astro     <span class="c-comment">&rarr;  /signup</span>
-src/pages/changelog.astro  <span class="c-comment">&rarr;  /changelog</span>
-src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code></pre>
+          <pre><code>src/pages/index.astro   <span class="c-comment">&rarr;  /        (home page with every marketing section)</span>
+src/pages/login.astro   <span class="c-comment">&rarr;  /login   (login form)</span>
+src/pages/signup.astro  <span class="c-comment">&rarr;  /signup  (signup form)</span></code></pre>
         </div>
-        <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point:</p>
+        <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point. Pages render their own <code>Nav</code> and <code>Footer</code>, so include them explicitly:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/services.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/about.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> BaseLayout <span class="c-key">from</span> <span class="c-string">'../layouts/BaseLayout.astro'</span>;
-<span class="c-key">import</span> Navbar <span class="c-key">from</span> <span class="c-string">'../components/Navbar.astro'</span>;
+<span class="c-key">import</span> Layout <span class="c-key">from</span> <span class="c-string">'../layouts/Layout.astro'</span>;
+<span class="c-key">import</span> Nav <span class="c-key">from</span> <span class="c-string">'../components/Nav.astro'</span>;
 <span class="c-key">import</span> Footer <span class="c-key">from</span> <span class="c-string">'../components/Footer.astro'</span>;
 <span class="c-comment">---</span>
-&lt;BaseLayout title=<span class="c-string">"Services | Paydesk"</span> description=<span class="c-string">"What we offer."</span>&gt;
-  &lt;Navbar /&gt;
-  &lt;main&gt;
-    &lt;h1&gt;Our Services&lt;/h1&gt;
-  &lt;/main&gt;
+&lt;Layout title=<span class="c-string">"About — Orchid"</span> description=<span class="c-string">"About our fitness platform."</span>&gt;
+  &lt;Nav /&gt;
+  &lt;h1&gt;About Orchid&lt;/h1&gt;
   &lt;Footer /&gt;
-&lt;/BaseLayout&gt;</code></pre>
+&lt;/Layout&gt;</code></pre>
         </div>
 
         <h3 id="editing-pages">Editing an Existing Page</h3>
-        <p>Open the relevant file under <code>src/pages/</code> and edit the markup directly. The home page (<code>index.astro</code>) is only a list of section components &mdash; its copy lives in files like <code>src/components/Hero.astro</code> and <code>src/components/Pricing.astro</code>. Anything imported from <code>src/components/</code> lives elsewhere &mdash; edit the component file itself to change content that repeats across multiple pages (like a shared call-to-action block).</p>
+        <p>Open the relevant file under <code>src/pages/</code>. <code>index.astro</code> is just a list of section components (<code>Hero</code>, <code>Overview</code>, <code>Pricing</code>, and so on), so to change the home page&rsquo;s content, edit the matching file in <code>src/components/</code>. To reorder or remove a section, move or delete its tag in <code>index.astro</code>. The login and signup pages keep their form markup inline in the page file.</p>
 
         <h3 id="dynamic-routes">Dynamic Routes</h3>
-        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Paydesk doesn&rsquo;t ship any dynamic routes, but if you add one, Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
+        <p>Orchid has no dynamic routes. If you add one, note that files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/blog/[slug].astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1018,29 +1023,22 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="layouts">Layouts</h3>
-        <p>Paydesk has a single layout, <code>src/layouts/BaseLayout.astro</code>. It provides the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> metadata, favicons, font preloads and the global stylesheet imports. The navbar and footer are <em>not</em> part of the layout &mdash; each page places <code>&lt;Navbar /&gt;</code> and <code>&lt;Footer /&gt;</code> itself, because the login/signup pages use a reduced navbar and no footer. Every page renders inside the layout via its <code>&lt;slot /&gt;</code>:</p>
+        <p>Orchid has one layout, <code>src/layouts/Layout.astro</code>. It renders the <code>&lt;html&gt;</code> shell and every <code>&lt;head&gt;</code> tag (title, description, canonical, Open Graph and Twitter/X meta, Google Fonts, favicons), imports <code>global.css</code>, and injects the page into <code>&lt;body&gt;</code> via a <code>&lt;slot /&gt;</code>. It doesn&rsquo;t add a header or footer, so each page includes <code>Nav</code> and <code>Footer</code> itself. It accepts five optional props:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> <span class="c-string">'../styles/normalize.css'</span>;
-<span class="c-key">import</span> <span class="c-string">'../styles/base-framework.css'</span>;
-<span class="c-key">import</span> <span class="c-string">'../styles/paydesk.css'</span>;
-<span class="c-key">import</span> <span class="c-string">'../styles/site.css'</span>;
-<span class="c-key">import</span> defaultOgImage <span class="c-key">from</span> <span class="c-string">'../assets/images/Hero-Image.webp'</span>;
+<span class="c-key">import</span> <span class="c-string">'../styles/global.css'</span>;
 
 <span class="c-key">const</span> {
-  title = <span class="c-string">'Paydesk — Online Billing and Payment Platform'</span>,
-  description = <span class="c-string">'Online Billing and Payment Platform. ...'</span>,
-  bodyClass = <span class="c-string">'main-body'</span>,
-  ogImage: ogImageAsset = defaultOgImage,
+  title = <span class="c-string">'Orchid — Fitness &amp; Wellness Astro Template'</span>,
+  description = <span class="c-string">"The Hassle-free world of fitness. …"</span>,
+  ogImage = <span class="c-string">'/images/Hero-Image-with-shadow_1.webp'</span>,
+  bodyClass = <span class="c-string">''</span>,      <span class="c-comment">// extra class on &lt;body&gt; (login uses "with-body-color")</span>
+  noindex = <span class="c-key">false</span>,     <span class="c-comment">// true adds &lt;meta name="robots" content="noindex"&gt;</span>
 } = Astro.props;
 <span class="c-comment">---</span>
 &lt;html lang=<span class="c-string">"en"</span>&gt;
-  &lt;head&gt;
-    &lt;title&gt;{title}&lt;/title&gt;
-    &lt;meta name=<span class="c-string">"description"</span> content={description} /&gt;
-    <span class="c-comment">&lt;!-- canonical, Open Graph, Twitter, favicons, font preloads --&gt;</span>
-  &lt;/head&gt;
+  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt; <span class="c-comment">&lt;!-- …plus SEO meta, fonts, favicons --&gt;</span>&lt;/head&gt;
   &lt;body class={bodyClass}&gt;
     &lt;slot /&gt; <span class="c-comment">&lt;!-- page content is injected here --&gt;</span>
   &lt;/body&gt;
@@ -1048,7 +1046,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="page-metadata">Page Metadata &amp; the 404 Page</h3>
-        <p>Pass a <code>title</code> and description into your layout&rsquo;s props on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). A file named <code>404.astro</code> in <code>src/pages/</code> is served automatically whenever no route matches &mdash; Paydesk doesn&rsquo;t include one, so add <code>src/pages/404.astro</code> if you want a custom &ldquo;not found&rdquo; page.</p>
+        <p>Pass a <code>title</code> and <code>description</code> into <code>Layout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). Orchid doesn&rsquo;t ship a custom 404 page. Add a file named <code>404.astro</code> in <code>src/pages/</code> and it will be served automatically whenever no route matches.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#configuration"><span class="pager-label">Previous</span><span class="pager-title">&larr; Configuration</span></a>
@@ -1063,77 +1061,74 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">The building blocks pages are assembled from, and how data flows into them.</p>
 
         <h3 id="reusable-components">Reusable Components</h3>
-        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a button, a pricing card, a navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Every Paydesk component is an <code>.astro</code> file:</p>
+        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI so it can be reused across pages without copy-pasting markup. All of Orchid&rsquo;s components are <code>.astro</code> files. Most are self-contained page sections with no props:</p>
         <div class="kv-table-wrap">
           <table class="kv-table">
-            <thead><tr><th>Group</th><th>Components</th></tr></thead>
+            <thead><tr><th>Component</th><th>What it renders</th></tr></thead>
             <tbody>
-              <tr><td>Home sections</td><td><code>Hero</code>, <code>Benefits</code>, <code>UseCases</code>, <code>MoreFeatures</code>, <code>Integrations</code>, <code>WhyPaydesk</code>, <code>Pricing</code>, <code>Faq</code>, <code>Reviews</code>, <code>Cta</code></td></tr>
-              <tr><td>Site chrome</td><td><code>Navbar</code>, <code>AnnouncementBar</code>, <code>Footer</code>, <code>TemplatePageHeader</code> (intro block on Changelog/License)</td></tr>
-              <tr><td>Shared UI</td><td><code>Accordion</code>, <code>CheckList</code>, <code>AnimatedLink</code>, <code>LogoMarquee</code>, <code>SignupForm</code>, <code>AuthForm</code> (login/signup)</td></tr>
-              <tr><td><code>icons/</code></td><td>Inline-SVG icon components: <code>FacebookIcon</code>, <code>InstagramIcon</code>, <code>PinterestIcon</code>, <code>TwitterIcon</code>, <code>WhyIcon1</code>&ndash;<code>WhyIcon3</code></td></tr>
+              <tr><td><code>AnnouncementBar</code></td><td>Top promo strip (&ldquo;Signup now and get 50% flat discount&hellip;&rdquo;), used on every page</td></tr>
+              <tr><td><code>Nav</code></td><td>Logo, section links, Login/Signup buttons, and the mobile slide-over menu</td></tr>
+              <tr><td><code>Hero</code></td><td>Headline, rating badges, hero image, and the YouTube video lightbox</td></tr>
+              <tr><td><code>Overview</code></td><td>Feature overview rows with slide-in images</td></tr>
+              <tr><td><code>CtaBand</code></td><td>&ldquo;Discover how Orchid can help you to grow&rdquo; call-to-action band</td></tr>
+              <tr><td><code>Category</code></td><td>Four category cards plus a tabbed accordion</td></tr>
+              <tr><td><code>Reviews</code></td><td>Testimonial cards in an infinite marquee</td></tr>
+              <tr><td><code>Pricing</code></td><td>Starter and Premium membership plans</td></tr>
+              <tr><td><code>TrustedBy</code></td><td>Partner logo row (marquee on desktop only)</td></tr>
+              <tr><td><code>Faq</code></td><td>Two columns of accordion questions</td></tr>
+              <tr><td><code>AppLinks</code></td><td>App Store / Google Play download section</td></tr>
+              <tr><td><code>Footer</code></td><td>Logo, copyright, quick links, and social icons</td></tr>
+              <tr><td><code>UtilityHero</code></td><td>Simple gradient page-title banner (<code>title</code>, <code>description</code> props). Not used by any page yet, but available for new inner pages</td></tr>
             </tbody>
           </table>
         </div>
 
         <h3 id="props">Props</h3>
-        <p>Props are the inputs a component accepts, similar to HTML attributes. Paydesk components are plain JavaScript: each one lists its props in a short comment at the top of the file and reads them from <code>Astro.props</code> with sensible defaults.</p>
+        <p>Props are the inputs a component accepts, similar to HTML attributes. Orchid is plain JavaScript, so props are read by destructuring <code>Astro.props</code> with default values rather than through TypeScript interfaces. <code>Nav</code> is the main example:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/AnnouncementBar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Nav.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">const</span> {
-  label = <span class="c-string">'Announcement'</span>,
-  href = <span class="c-string">'/signup'</span>,
-  text = <span class="c-string">'Join Paydesk and receive 75% discount on checkout'</span>,
-} = Astro.props;
+<span class="c-key">const</span> { current = <span class="c-string">''</span> } = Astro.props;
+
+<span class="c-key">const</span> isHome = current === <span class="c-string">'home'</span>;
+<span class="c-key">const</span> anchor = (hash) =&gt; (isHome ? <span class="c-string">`#${hash}`</span> : <span class="c-string">`/#${hash}`</span>);
 <span class="c-comment">---</span></code></pre>
         </div>
-        <p>In plain language: all three props are optional. <code>&lt;AnnouncementBar /&gt;</code> renders the defaults above, while <code>&lt;AnnouncementBar text="Spring sale: 50% off" href="/#Pricing" /&gt;</code> overrides just the text and link. Other examples: <code>Navbar</code> takes <code>variant</code> (<code>"inline"</code> or <code>"fixed"</code>) and <code>showLinks</code>; <code>AuthForm</code> takes <code>mode</code> (<code>"login"</code> or <code>"signup"</code>); <code>AnimatedLink</code> takes <code>href</code> plus its link text as a slot.</p>
+        <p>In plain language: <code>current</code> is optional and tells the nav which page it&rsquo;s on. With <code>"home"</code>, the section links point at in-page anchors (<code>#Overview</code>), and anywhere else they point back to the home page (<code>/#Overview</code>). With <code>"login"</code> or <code>"signup"</code>, the matching button gets <code>aria-current="page"</code>. <code>UtilityHero</code> accepts <code>title</code> and <code>description</code>, and <code>Layout</code>&rsquo;s props are listed under <a href="#layouts">Layouts</a>.</p>
 
         <h3 id="composition">Component Composition</h3>
-        <p>Larger sections are composed from smaller components rather than written as one long block of markup. The home page itself is just a stack of section components:</p>
+        <p>Larger pages are composed from smaller components rather than written as one long block of markup. This is the whole body of the home page:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/index.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;BaseLayout&gt;
-  &lt;Navbar variant=<span class="c-string">"fixed"</span> /&gt;
+          <pre><code>&lt;Layout title=<span class="c-string">"Orchid — Fitness &amp; Wellness Astro Template"</span> description=<span class="c-string">"…"</span>&gt;
   &lt;AnnouncementBar /&gt;
-  &lt;main&gt;
-    &lt;Hero /&gt;
-    &lt;Benefits /&gt;
-    &lt;UseCases /&gt;
-    &lt;MoreFeatures /&gt;
-    &lt;Integrations /&gt;
-    &lt;WhyPaydesk /&gt;
-    &lt;Pricing /&gt;
-    &lt;Faq /&gt;
-    &lt;Reviews /&gt;
-    &lt;Cta /&gt;
-  &lt;/main&gt;
+  &lt;Nav current=<span class="c-string">"home"</span> /&gt;
+  &lt;Hero /&gt;
+  &lt;Overview /&gt;
+  &lt;CtaBand /&gt;
+  &lt;Category /&gt;
+  &lt;Reviews /&gt;
+  &lt;Pricing /&gt;
+  &lt;TrustedBy /&gt;
+  &lt;Faq /&gt;
+  &lt;AppLinks /&gt;
   &lt;Footer /&gt;
-&lt;/BaseLayout&gt;</code></pre>
+&lt;/Layout&gt;</code></pre>
         </div>
 
         <h3 id="passing-data">Passing Data to Components</h3>
-        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>. Paydesk&rsquo;s list components take arrays defined at the top of the parent component:</p>
+        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> Accordion <span class="c-key">from</span> <span class="c-string">'./Accordion.astro'</span>;
-
-<span class="c-key">const</span> text = <span class="c-string">'Managing subscriptions and recurring payments can be a daunting task. ...'</span>;
-<span class="c-key">const</span> faqs = [
-  { title: <span class="c-string">'Is there a free trial available?'</span>, text },
-  { title: <span class="c-string">'Can I change my plan later?'</span>, text },
-];
+<span class="c-key">import</span> UtilityHero <span class="c-key">from</span> <span class="c-string">'../components/UtilityHero.astro'</span>;
 <span class="c-comment">---</span>
-&lt;Accordion items={faqs} class=<span class="c-string">"faq-accordions"</span> id=<span class="c-string">"faq"</span>&gt;
-  <span class="c-comment">&lt;!-- optional slot content, rendered after the items --&gt;</span>
-&lt;/Accordion&gt;</code></pre>
+&lt;UtilityHero title=<span class="c-string">"About Orchid"</span> description=<span class="c-string">"The all-in-one fitness platform."</span> /&gt;</code></pre>
         </div>
 
         <div class="callout info">
-          <span class="callout-title">No UI framework required</span>
-          <p>Paydesk uses Astro components only &mdash; no React/Vue islands or <code>client:</code> directives. Interactivity (mobile menu, pricing switch, accordions, logo marquee, scroll reveals) is handled by a small <code>&lt;script&gt;</code> block inside each component, using GSAP where animation is involved.</p>
+          <span class="callout-title">Interactivity without a UI framework</span>
+          <p>Orchid doesn&rsquo;t use React or any client-side framework. Interactive pieces (the mobile menu in <code>Nav</code>, the accordions in <code>Category</code> and <code>Faq</code>, the video lightbox in <code>Hero</code>, and the marquees and scroll reveals) are each a small <code>&lt;script&gt;</code> tag at the bottom of their component. Astro bundles and optimizes these automatically.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1149,44 +1144,54 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Where to change colors, type, and spacing without fighting the build.</p>
 
         <h3 id="global-styles">Global Styles &amp; CSS Variables</h3>
-        <p>Paydesk is styled with plain CSS &mdash; no Tailwind or Sass. <code>BaseLayout.astro</code> imports four global stylesheets from <code>src/styles/</code>, in this order:</p>
+        <p>Orchid uses plain CSS with no preprocessor or utility framework. <code>Layout.astro</code> imports <code>src/styles/global.css</code>, which pulls in the other stylesheets in order:</p>
         <div class="kv-table-wrap">
           <table class="kv-table">
-            <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+            <thead><tr><th>File</th><th>Contains</th></tr></thead>
             <tbody>
               <tr><td><code>normalize.css</code></td><td>Cross-browser reset</td></tr>
-              <tr><td><code>base-framework.css</code></td><td>Base layout/utility classes (containers, buttons, forms) the design was built on</td></tr>
-              <tr><td><code>paydesk.css</code></td><td>The theme: color tokens, typography classes, every section&rsquo;s styles, responsive rules and <code>@font-face</code> declarations</td></tr>
-              <tr><td><code>site.css</code></td><td>Behaviour styles for interactive pieces (mobile menu, accordions, tabs, scroll-reveal pre-states); loaded last so its rules win</td></tr>
+              <tr><td><code>base-framework.css</code></td><td>Base layout and utility classes the design relies on (containers, grid, buttons, form fields)</td></tr>
+              <tr><td><code>orchid.css</code></td><td>The template&rsquo;s design system: color and font tokens, typography, and every section&rsquo;s styles</td></tr>
+              <tr><td><code>global.css</code></td><td>Small additions for the reimplemented behaviors: sticky nav, mobile menu, accordions, marquees, custom checkbox, video lightbox</td></tr>
             </tbody>
           </table>
         </div>
-        <p>The brand colors are defined once as CSS custom properties at the top of <code>paydesk.css</code>. Change a value here and it updates everywhere it&rsquo;s referenced:</p>
+        <p>Brand colors and font families are CSS custom properties at the top of <code>src/styles/orchid.css</code>. Change a value here and it updates across the whole site:</p>
         <div class="code-block" data-lang="css">
-          <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/paydesk.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/orchid.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">:root</span> {
-  <span class="c-key">--heading</span>: <span class="c-string">#1c1e30</span>;
-  <span class="c-key">--body</span>: <span class="c-string">#494c65</span>;
-  <span class="c-key">--white</span>: <span class="c-string">white</span>;
-  <span class="c-key">--green</span>: <span class="c-string">#01a66b</span>;
-  <span class="c-key">--blue-light</span>: <span class="c-string">#e6eeff</span>;
-  <span class="c-key">--purple-light</span>: <span class="c-string">#f0e8fd</span>;
-  <span class="c-key">--orange-light</span>: <span class="c-string">#fceeed</span>;
-  <span class="c-key">--green-lite</span>: <span class="c-string">#e6f7f1</span>;
+  <span class="c-key">--font--body</span>: <span class="c-string">var(--font-family--general-sans)</span>;
+  <span class="c-key">--font-color--body</span>: <span class="c-string">var(--color--slate-blue)</span>;
+  <span class="c-key">--font--heading</span>: <span class="c-string">var(--font-family--figtree)</span>;
+  <span class="c-key">--font-color--heading</span>: <span class="c-string">var(--color--midnight-blue)</span>;
+  <span class="c-key">--font-color--text-highlight</span>: <span class="c-string">var(--color--green)</span>;
+  <span class="c-key">--color--white</span>: <span class="c-string">white</span>;
+  <span class="c-key">--color--green</span>: <span class="c-string">#00b172</span>;
+  <span class="c-key">--color--light-pink</span>: <span class="c-string">#faeaf0</span>;
+  <span class="c-key">--color--yellow</span>: <span class="c-string">#f2c94c</span>;
+  <span class="c-key">--color--light-green</span>: <span class="c-string">#e6f7f1</span>;
+  <span class="c-key">--radius--radius-1</span>: <span class="c-string">20px</span>;
+  <span class="c-key">--radius--radius-2</span>: <span class="c-string">10px</span>;
+  <span class="c-key">--color--pink</span>: <span class="c-string">#8e2690</span>;
+  <span class="c-key">--color--black</span>: <span class="c-string">black</span>;
+  <span class="c-key">--color--midnight-blue</span>: <span class="c-string">#2b2e45</span>;
+  <span class="c-key">--color--slate-blue</span>: <span class="c-string">#555777</span>;
+  <span class="c-key">--font-family--general-sans</span>: <span class="c-string">"Generalsans Variable", sans-serif</span>;
+  <span class="c-key">--font-family--figtree</span>: <span class="c-string">Figtree, sans-serif</span>;
 }</code></pre>
         </div>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Paydesk&rsquo;s components don&rsquo;t use scoped styles &mdash; all styling lives in the global sheets above, so to restyle a section, search <code>paydesk.css</code> for the class names used in its component (e.g. <code>.pricing-section</code>). For new components of your own, Astro supports scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files.</p>
+        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks, where CSS only applies to that component so class names never collide across files. Orchid&rsquo;s components don&rsquo;t use them. All styling lives in the shared stylesheets above, keyed off class names like <code>.pricing-section</code> or <code>.footer-link</code>, so search <code>orchid.css</code> for a class to find its rules. You&rsquo;re free to add a scoped block to any new component:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style&gt;
-  .card { padding: <span class="c-key">var</span>(<span class="c-key">--space-md</span>); border-radius: 0.5rem; }
+  .card { padding: 20px; border-radius: <span class="c-key">var</span>(<span class="c-key">--radius--radius-1</span>); }
 &lt;/style&gt;</code></pre>
         </div>
 
         <h3 id="responsive-typography">Responsive Design, Typography &amp; Spacing</h3>
-        <p>Responsive rules live in <code>paydesk.css</code> under four media queries: <code>max-width: 991px</code> (tablet), <code>767px</code> (large phone), <code>479px</code> (phone) and <code>min-width: 1280px</code> (wide screens). The type scale is a set of reusable classes in the same file &mdash; <code>.h1</code>&ndash;<code>.h6</code>, <code>.body-variant-2</code>, <code>.body-variant-3</code> and so on. Prefer adjusting these shared classes over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
+        <p>Responsive rules use three <code>max-width</code> breakpoints throughout <code>orchid.css</code> and <code>global.css</code>: <code>991px</code> (tablet, where the nav switches to the slide-over menu), <code>767px</code> (large phone), and <code>479px</code> (small phone). Headings use Figtree and body text uses General Sans, via the <code>--font--heading</code> and <code>--font--body</code> tokens. Prefer adjusting these shared values over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
 
         <div class="callout warning">
           <span class="callout-title">Avoid editing dist/</span>
@@ -1209,41 +1214,37 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
           <table class="kv-table">
             <thead><tr><th>Location</th><th>Use for</th><th>Behavior</th></tr></thead>
             <tbody>
-              <tr><td><code>src/assets/images/</code></td><td>Product artwork, screenshots and avatars (WebP/PNG) imported into components</td><td>Optimized, resized into responsive <code>srcset</code>s, and content-hashed automatically by the build</td></tr>
-              <tr><td><code>public/</code></td><td>Favicons, fonts, and the SVG logos/icons/illustrations in <code>public/images/</code> (referenced as <code>/images/Logo.svg</code> etc.)</td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>public/</code></td><td>Where Orchid keeps <strong>all</strong> its imagery (<code>public/images/</code>), the General Sans font (<code>public/fonts/</code>), and the favicons</td><td>Copied as-is, no processing. Referenced by root-relative URLs like <code>/images/Logo.svg</code></td></tr>
+              <tr><td><code>src/assets/</code></td><td>Not present in Orchid. Create it if you want Astro to optimize new images</td><td>Optimized, resized, and content-hashed automatically by the build</td></tr>
             </tbody>
           </table>
         </div>
 
         <h3 id="replacing-images">Replacing Images</h3>
-        <p>Swap the file in place (keeping the same filename) or update the import/path to point at your new file. For example, the hero screenshot in <code>src/components/Hero.astro</code>:</p>
+        <p>Images are plain <code>&lt;img&gt;</code> tags pointing into <code>public/images/</code>. Either swap the file in place (keeping the same filename), or drop in your new file and update the <code>src</code>:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Nav.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;img src=<span class="c-string">"/images/Logo.svg"</span> loading=<span class="c-string">"lazy"</span> alt=<span class="c-string">"logo"</span> class=<span class="c-string">"logo"</span> /&gt;</code></pre>
+        </div>
+        <p>Some images are set in data arrays instead of markup: review avatars in <code>Reviews.astro</code>, category icons in <code>Category.astro</code>, and partner logos in <code>TrustedBy.astro</code>. The logo appears in <code>Nav.astro</code> (twice, for desktop and mobile) and <code>Footer.astro</code>. The default social-share image is the <code>ogImage</code> prop in <code>Layout.astro</code>.</p>
+
+        <h3 id="supported-formats">Supported Formats &amp; SVGs</h3>
+        <p>Orchid ships WebP photos, a few PNGs, and SVGs for logos, icons, and section backgrounds. Any format a browser can display works from <code>public/</code>. Small UI icons (arrows, social icons) are inline <code>&lt;svg&gt;</code> elements using <code>fill="currentColor"</code>, so they inherit the surrounding text color.</p>
+
+        <h3 id="image-optimization">Image Optimization</h3>
+        <p>Because everything lives in <code>public/</code>, Astro serves Orchid&rsquo;s images exactly as they are, with no build-time resizing. The bundled photos are already compressed WebP files. Compress your replacements before adding them (WebP at roughly the same dimensions is a good target). If you&rsquo;d rather have Astro optimize images, move them into <code>src/assets/</code> and render them with the <code>Image</code> component from <code>astro:assets</code>:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> { Image } <span class="c-key">from</span> <span class="c-string">'astro:assets'</span>;
-<span class="c-key">import</span> heroImage <span class="c-key">from</span> <span class="c-string">'../assets/images/Hero-Image.webp'</span>;
+<span class="c-key">import</span> hero <span class="c-key">from</span> <span class="c-string">'../assets/hero.webp'</span>;
 <span class="c-comment">---</span>
-&lt;Image
-  src={heroImage}
-  alt=<span class="c-string">"Paydesk dashboard showing invoices and payment activity"</span>
-  widths={[500, 800, 1080, 1600, 2000]}
-  loading=<span class="c-string">"eager"</span>
-/&gt;</code></pre>
+&lt;Image src={hero} alt=<span class="c-string">"Woman doing yoga"</span> width={1200} height={630} /&gt;</code></pre>
         </div>
-
-        <h3 id="supported-formats">Supported Formats &amp; SVGs</h3>
-        <p>JPEG, PNG, WebP, AVIF, and GIF are supported through the optimized <code>Image</code> component. In Paydesk, most SVGs live in <code>public/images/</code> and are referenced as plain <code>&lt;img src="/images/&hellip;"&gt;</code> tags; the social and &ldquo;Why Paydesk&rdquo; icons are inline-SVG components in <code>src/components/icons/</code> so they can inherit color via <code>currentColor</code>.</p>
-        <div class="callout info">
-          <span class="callout-title">Social preview image</span>
-          <p><code>BaseLayout</code> uses <code>src/assets/images/Hero-Image.webp</code> as the default Open Graph image (converted to a 1200px PNG at build time). Pass a different import via the <code>ogImage</code> prop on any page &mdash; the login and signup pages pass <code>Form-Image.webp</code>.</p>
-        </div>
-
-        <h3 id="image-optimization">Image Optimization</h3>
-        <p>Images imported from <code>src/assets/</code> are automatically resized and re-encoded at build time based on the <code>width</code>/<code>height</code> (or <code>densities</code>/<code>widths</code>) you specify &mdash; you generally don&rsquo;t need a separate compression step before adding an image to the project.</p>
 
         <div class="callout">
-          <span class="callout-title">Rule of thumb</span>
-          <p>If an image is part of the design (hero photos, thumbnails, icons), put it in <code>src/assets/</code>. If a URL needs to work regardless of the build (a favicon, a file linked from an email), put it in <code>public/</code>.</p>
+          <span class="callout-title">Image credits</span>
+          <p>Some bundled photos come from Unsplash, Pexels, and Freepik. Four Freepik images require attribution if you keep them. The links are listed under <strong>Credits</strong> in the project&rsquo;s <code>README.md</code>.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1259,31 +1260,35 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Swapping typefaces and icon sets without touching every component.</p>
 
         <h3 id="google-fonts">Google Fonts</h3>
-        <p>Paydesk doesn&rsquo;t load any Google Fonts &mdash; all of its fonts are self-hosted (see below). If you&rsquo;d rather use a Google Font, add its <code>&lt;link&gt;</code> tags to the <code>&lt;head&gt;</code> in <code>BaseLayout.astro</code>, then update the <code>font-family</code> rules in <code>paydesk.css</code>:</p>
+        <p>The heading font, <strong>Figtree</strong> (weights 300&ndash;900), loads from Google Fonts via a <code>&lt;link&gt;</code> tag in <code>Layout.astro</code>&rsquo;s <code>&lt;head&gt;</code>. To change it, replace that tag with your chosen font&rsquo;s embed code, then update <code>--font-family--figtree</code> (or point <code>--font--heading</code> at a new variable) in <code>orchid.css</code>:</p>
         <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span>&gt;
-&lt;link href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap"</span> rel=<span class="c-string">"stylesheet"</span>&gt;</code></pre>
+          <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span> /&gt;
+&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.gstatic.com"</span> crossorigin /&gt;
+&lt;link
+  href=<span class="c-string">"https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&amp;display=swap"</span>
+  rel=<span class="c-string">"stylesheet"</span>
+/&gt;</code></pre>
         </div>
 
         <h3 id="local-fonts">Local Fonts</h3>
-        <p>Paydesk uses <strong>Onest</strong> (Medium and Bold) and <strong>Satoshi</strong> (Medium). The font files live in <code>public/fonts/</code> and are declared with <code>@font-face</code> near the end of <code>src/styles/paydesk.css</code>:</p>
+        <p>The body font, <strong>General Sans</strong>, is self-hosted as a single variable font file, <code>public/fonts/GeneralSans-Variable.ttf</code>. It&rsquo;s declared with <code>@font-face</code> in <code>orchid.css</code>, which supplies <code>--font-family--general-sans</code>. To swap it, replace the file in <code>public/fonts/</code> and update the <code>@font-face</code> rule. The same rule is declared at both the top and the bottom of <code>orchid.css</code>, so update both or delete one:</p>
         <div class="code-block" data-lang="css">
-          <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/paydesk.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/orchid.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">@font-face</span> {
-  font-family: <span class="c-string">'Satoshi Medium'</span>;
-  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/Satoshi-Medium.woff'</span>) format(<span class="c-string">'woff'</span>);
-  font-weight: 500;
+  font-family: <span class="c-string">'Generalsans Variable'</span>;
+  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/GeneralSans-Variable.ttf'</span>) format(<span class="c-string">'truetype'</span>);
+  font-weight: 200 700;
   font-style: normal;
+  font-display: swap;
 }</code></pre>
         </div>
-        <p>To swap a typeface: add your font file to <code>public/fonts/</code>, point the matching <code>@font-face</code> rule at it, and update the <code>font-family</code> declarations that reference it in <code>paydesk.css</code> (e.g. find &amp; replace <code>Onest Medium</code>). <code>BaseLayout.astro</code> also preloads <code>Onest-Medium.ttf</code> and <code>Satoshi-Medium.woff</code> &mdash; update those two <code>&lt;link rel="preload"&gt;</code> tags to match your new files.</p>
 
         <h3 id="icon-libraries">Icon Libraries</h3>
-        <p>Paydesk doesn&rsquo;t depend on an icon library package. Icons come from three places: SVG files in <code>public/images/</code> (feature icons, check marks, logos, decorations) used as <code>&lt;img&gt;</code> tags; inline-SVG Astro components in <code>src/components/icons/</code> (Facebook, Instagram, Pinterest, X/Twitter, and the three &ldquo;Why Paydesk&rdquo; icons); and a tiny embedded <code>paydesk-icons</code> font in <code>base-framework.css</code> for its <code>w-icon-*</code> utility classes, which the components don&rsquo;t currently use.</p>
+        <p>Orchid doesn&rsquo;t use an icon library package. Icons come in two forms. Small UI icons (link arrows, the five footer social icons) are inline <code>&lt;svg&gt;</code> markup inside their components. Larger illustrative icons (category icons, check marks, rating stars, tags) are SVG files in <code>public/images/</code>. <code>base-framework.css</code> also embeds a tiny base64 icon font (<code>orchid-icons</code>) for its built-in <code>w-icon-*</code> classes.</p>
 
         <h3 id="replacing-icons">Replacing &amp; Adding Icons</h3>
-        <p>To replace an image-based icon, overwrite the SVG in <code>public/images/</code> (keeping the filename) or change the path in the component&rsquo;s data array &mdash; e.g. the <code>icon</code> fields in <code>MoreFeatures.astro</code>. The inline icon components take no props: each is a single <code>&lt;svg&gt;</code> using <code>fill="currentColor"</code>, so they pick up the surrounding text color. To add one, create a new <code>.astro</code> file in <code>src/components/icons/</code> containing your <code>&lt;svg&gt;</code> markup and import it the way <code>Footer.astro</code> imports <code>FacebookIcon</code>.</p>
+        <p>To change an inline icon, replace the <code>&lt;svg&gt;&hellip;&lt;/svg&gt;</code> block in the component, and keep <code>fill="currentColor"</code> so it still picks up the theme color. To change a file-based icon, swap the SVG in <code>public/images/</code> or point the <code>src</code> (or the <code>icon</code> field in <code>Category.astro</code>&rsquo;s <code>items</code> array) at your new file. If you prefer a library such as Lucide or Heroicons, copy its SVG markup in the same way. No package is required.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#images-assets"><span class="pager-label">Previous</span><span class="pager-title">&larr; Images &amp; Assets</span></a>
@@ -1302,34 +1307,64 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="edit-headings-text">Headings, Paragraphs &amp; Buttons</h3>
-        <p>For the home page, copy lives in the section components in <code>src/components/</code> (the Login, Signup, Changelog and License pages keep theirs in <code>src/pages/</code>). Locate the text between the tags and edit it directly &mdash; for example, in <code>Hero.astro</code>:</p>
+        <p>Home page text lives in the section components in <code>src/components/</code>. Login and signup text lives in <code>src/pages/login.astro</code> and <code>src/pages/signup.astro</code>. Locate the text between the tags and edit it directly:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
-&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Join with 5600+ User and grow your business online&lt;/p&gt;
-&lt;span class=<span class="c-string">"display-and-page-title"</span>&gt;Online Billing&lt;/span&gt;
+&lt;h1 class=<span class="c-string">"display-and-page-title"</span>&gt;The Hassle-free world of fitness&lt;/h1&gt;
+&lt;p class=<span class="c-string">"body---variant-3"</span>&gt;Orchid is the all‑in‑one fitness platform that supports members across all their goals — helps you to grow.&lt;/p&gt;
 
 <span class="c-comment">&lt;!-- after --&gt;</span>
-&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Trusted by 10,000+ finance teams worldwide&lt;/p&gt;
-&lt;span class=<span class="c-string">"display-and-page-title"</span>&gt;Smart Invoicing&lt;/span&gt;</code></pre>
+&lt;h1 class=<span class="c-string">"display-and-page-title"</span>&gt;Train smarter at Riverside Fitness&lt;/h1&gt;
+&lt;p class=<span class="c-string">"body---variant-3"</span>&gt;Classes, coaching, and progress tracking in one membership.&lt;/p&gt;</code></pre>
         </div>
+        <p>Keep the <code>class</code> attributes as they are, since they carry the typography styles. Button labels are plain text inside the <code>&lt;a&gt;</code> tags. Other one-off text to look for: the promo message in <code>AnnouncementBar.astro</code>, the CTA band in <code>CtaBand.astro</code>, and the app download copy in <code>AppLinks.astro</code>.</p>
 
         <h3 id="edit-nav-footer">Navigation &amp; Footer</h3>
-        <p>Menu links are a <code>links</code> array at the top of <code>src/components/Navbar.astro</code>; footer columns, social links and template links are the <code>columns</code>, <code>socials</code> and <code>templateLinks</code> arrays at the top of <code>src/components/Footer.astro</code> &mdash; so you edit the label and URL once rather than hunting through every page. See <a href="#navigation">Navigation</a> for the full pattern.</p>
+        <p>Menu links are a small <code>links</code> array at the top of <code>Nav.astro</code>, and footer quick links are a <code>quickLinks</code> array at the top of <code>Footer.astro</code>. Edit a label or URL once there rather than hunting through every page. See <a href="#navigation">Navigation</a> for the full pattern.</p>
 
         <h3 id="edit-cards-testimonials">Cards, Testimonials &amp; Pricing</h3>
-        <p>Repeating content blocks are driven by a data array at the top of their component rather than hand-written per card, so adding or removing an item is a matter of editing the list. Reviews are in <code>Reviews.astro</code> (<code>reviews</code>), FAQs in <code>Faq.astro</code> (<code>faqs</code>), feature cards in <code>MoreFeatures.astro</code> (<code>features</code>), and pricing in <code>Pricing.astro</code>:</p>
+        <p>Repeating content blocks are driven by a data array in the frontmatter of the component that renders them, so adding or removing an item is a matter of editing the list:</p>
+        <div class="kv-table-wrap">
+          <table class="kv-table">
+            <thead><tr><th>Content</th><th>File</th><th>Array</th></tr></thead>
+            <tbody>
+              <tr><td>Testimonials</td><td><code>src/components/Reviews.astro</code></td><td><code>reviews</code></td></tr>
+              <tr><td>Pricing plans</td><td><code>src/components/Pricing.astro</code></td><td><code>plans</code></td></tr>
+              <tr><td>FAQ questions</td><td><code>src/components/Faq.astro</code></td><td><code>columns</code> (two lists, one per column)</td></tr>
+              <tr><td>Category cards &amp; accordion tabs</td><td><code>src/components/Category.astro</code></td><td><code>items</code> and <code>tabs</code></td></tr>
+              <tr><td>Partner logos</td><td><code>src/components/TrustedBy.astro</code></td><td><code>logos</code></td></tr>
+              <tr><td>Signup page bullet points</td><td><code>src/pages/signup.astro</code></td><td><code>points</code></td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/components/Pricing.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> plans = [
-  { name: <span class="c-string">'Starter'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 19, yearly: 59 },
-  { name: <span class="c-string">'Agency'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 59, yearly: 99, recommended: <span class="c-key">true</span> },
-  { name: <span class="c-string">'Ultimate'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 99, yearly: 199 },
+  {
+    name: <span class="c-string">'Starter Plan'</span>,
+    modifier: <span class="c-string">'starter'</span>,
+    blurb: <span class="c-string">'Our standard membership, with unlimited access to your home club.'</span>,
+    price: <span class="c-string">'19'</span>,
+  },
+  {
+    name: <span class="c-string">'Premium Plan'</span>,
+    modifier: <span class="c-string">'premium'</span>,
+    blurb: <span class="c-string">'Access to any program + digital workouts, and so much more!'</span>,
+    price: <span class="c-string">'39'</span>,
+  },
 ];</code></pre>
         </div>
+        <p>The FAQ answers in <code>Faq.astro</code> ship as placeholder text (&ldquo;A wonderful serenity has taken possession&hellip;&rdquo;), so replace them with your real answers before launch.</p>
 
         <h3 id="edit-blog-contact">Blog Content &amp; Contact Information</h3>
-        <p>Paydesk doesn&rsquo;t include a blog. Contact details live in <code>src/components/Footer.astro</code>: the placeholder company name and address in the <code>&lt;address&gt;</code> element, the copyright line, and the footer logo&rsquo;s <code>alt</code> text. The FAQ&rsquo;s &ldquo;Support Team&rdquo; link (<code>mailto:support@example.com</code>) is in <code>src/components/Faq.astro</code>, and the announcement text is a prop default in <code>src/components/AnnouncementBar.astro</code>. The Changelog entries are a <code>releases</code> array in <code>src/pages/changelog.astro</code>.</p>
+        <p>Orchid has no blog and no contact page. If you add a blog, Markdown files in <code>src/pages/blog/</code> or a content collection in <code>src/content/</code> are the usual approach. Brand and contact-related details are spread across a few files:</p>
+        <ul>
+          <li><strong>Copyright line</strong> (&ldquo;RNN studio&rdquo;): <code>Footer.astro</code>, plus the copyright line at the bottom of <code>login.astro</code> and <code>signup.astro</code>.</li>
+          <li><strong>Social links</strong> (Facebook, Messenger, WhatsApp, Twitter/X, Dribbble): the <code>href</code>s in <code>Footer.astro</code>. They currently point at each network&rsquo;s home page.</li>
+          <li><strong>App store links</strong>: the two buttons in <code>AppLinks.astro</code>. They currently point at <code>apple.com</code> and <code>play.google.com</code>.</li>
+          <li><strong>Hero video</strong>: the YouTube embed URL in the <code>data-src</code> attribute near the bottom of <code>Hero.astro</code>.</li>
+        </ul>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#fonts-icons"><span class="pager-label">Previous</span><span class="pager-title">&larr; Fonts &amp; Icons</span></a>
@@ -1344,23 +1379,24 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Header, mobile menu, and footer links, in one predictable place.</p>
 
         <h3 id="header-nav">Header Navigation</h3>
-        <p>Primary nav links are a small array in <code>Navbar.astro</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. Each <code>id</code> is the <code>id</code> of a home page section: on the home page the link is <code>#Pricing</code>, on other pages it becomes <code>/#Pricing</code>. The Login and Signup buttons are separate, after the list.</p>
+        <p>Primary nav links are defined as a small array at the top of <code>src/components/Nav.astro</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. Each link points at a section anchor on the home page. The <code>anchor()</code> helper makes it a same-page <code>#hash</code> on the home page and a <code>/#hash</code> link everywhere else:</p>
         <div class="code-block" data-lang="javascript">
-          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/components/Navbar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/components/Nav.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> links = [
-  { id: <span class="c-string">'Feature'</span>, label: <span class="c-string">'Features'</span> },
-  { id: <span class="c-string">'Why-Paydesk'</span>, label: <span class="c-string">'Why Paydesk?'</span> },
-  { id: <span class="c-string">'Pricing'</span>, label: <span class="c-string">'Pricing'</span> },
-  { id: <span class="c-string">'FAQs'</span>, label: <span class="c-string">'Faqs'</span> },
-  { id: <span class="c-string">'Reviews'</span>, label: <span class="c-string">'Reviews'</span> },
+  { label: <span class="c-string">'Home'</span>, href: anchor(<span class="c-string">'Home'</span>) },
+  { label: <span class="c-string">'Overview'</span>, href: anchor(<span class="c-string">'Overview'</span>) },
+  { label: <span class="c-string">'Features'</span>, href: anchor(<span class="c-string">'Features'</span>) },
+  { label: <span class="c-string">'Membership'</span>, href: anchor(<span class="c-string">'Membership'</span>) },
+  { label: <span class="c-string">"FAQ's"</span>, href: anchor(<span class="c-string">'FAQs'</span>) },
 ];</code></pre>
         </div>
+        <p>The anchors are empty <code>&lt;div id="&hellip;" class="anchor-div"&gt;</code> elements inside the section components: <code>Home</code> and <code>Overview</code> in <code>Hero.astro</code>, <code>Features</code> in <code>Overview.astro</code>, <code>Membership</code> in <code>Pricing.astro</code>, and <code>FAQs</code> in <code>Faq.astro</code>. If you rename one, update both sides. The Login and Signup buttons are written directly in the nav markup below the array. <code>global.css</code> turns on smooth scrolling for these jumps unless the visitor prefers reduced motion.</p>
 
         <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The mobile menu is a vanilla <code>&lt;script&gt;</code> inside <code>src/components/Navbar.astro</code> (no React island). Below 991px the links collapse behind a menu button; the drawer slides in from the right with GSAP and closes on link click, overlay click, or <kbd>Esc</kbd>. The same script slides in the sticky <code>variant="fixed"</code> navbar once the home page is scrolled, and highlights the link for the section in view (scroll-spy). There are no dropdown menus.</p>
+        <p>Below 991px the nav links collapse into a slide-over panel opened by the hamburger button. This is a vanilla inline <code>&lt;script&gt;</code> at the bottom of <code>src/components/Nav.astro</code>, not a framework component. It toggles an <code>is-open</code> class on the nav, locks page scrolling while open, and closes the menu when the overlay or any link is clicked. The slide animation itself is CSS in <code>global.css</code>. Orchid has no dropdown menus.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
-        <p>Footer link groups follow the same data-driven pattern in <code>Footer.astro</code>: a <code>columns</code> array (&ldquo;Quick links&rdquo; to home page sections, and &ldquo;Products&rdquo; &mdash; whose links are <code>#</code> placeholders for you to point somewhere real), <code>templateLinks</code> (Changelog, License Info) and <code>socials</code>.</p>
+        <p>Footer quick links follow the same data-driven pattern in a <code>quickLinks</code> array at the top of <code>src/components/Footer.astro</code>. The &ldquo;Others&rdquo; column (Login, Signup, Powered by Astro) and the social icons are written directly in the footer markup.</p>
 
         <h3 id="internal-external-links">Internal vs. External Links</h3>
         <p>Internal links should be root-relative (<code>/about</code>, not the full domain) so they keep working across environments. External links should open safely in a new tab:</p>
@@ -1384,29 +1420,32 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
 
         <div class="callout warning">
           <span class="callout-title">Forms need somewhere to go</span>
-          <p>Every form in Paydesk is front-end only and is <strong>not</strong> wired to any service. Forms carry a <code>data-demo-form</code> attribute; <code>src/scripts/forms.js</code> intercepts their submit, hides the form and shows its &ldquo;Thank you&rdquo; message without sending data anywhere. To collect real submissions you need a backend endpoint or a third-party service.</p>
+          <p>Orchid&rsquo;s only forms are the login and signup forms, and they are <strong>front-end only</strong>. They capture and validate input in the browser, but they have no <code>action</code>, no submit handler, and no connected service. Submitting one just reloads the same page, and the browser&rsquo;s default GET submission appends the field values to the URL. Real sign-in or account creation needs an authentication backend or third-party service, which is not included.</p>
         </div>
 
-        <h3 id="contact-forms">Signup &amp; Login Forms</h3>
-        <p>Paydesk has no contact form. Its forms are: <code>SignupForm.astro</code> (email capture in the hero and the call-to-action section), <code>AuthForm.astro</code> (name + email on <code>/login</code> and <code>/signup</code>), and the newsletter form in <code>Footer.astro</code>. To make one submit for real, set its <code>action</code> to your endpoint and remove <code>data-demo-form</code>:</p>
-        <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/components/Footer.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-comment">&lt;!-- before: demo only --&gt;</span>
-&lt;form name=<span class="c-string">"newsletter-form"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"#"</span> class=<span class="c-string">"footer-form"</span> data-demo-form&gt;
+        <h3 id="contact-forms">Contact Forms</h3>
+        <p>Orchid has no contact form. The two forms live inline in <code>src/pages/login.astro</code> (username, password, terms checkbox) and <code>src/pages/signup.astro</code> (name, work email, password, confirm password, terms checkbox). Each <code>&lt;form&gt;</code> carries a <code>data-static-form</code> marker attribute but nothing else. To send submissions somewhere, add an <code>action</code> and <code>method</code> pointing at your endpoint:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/signup.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
+&lt;form class=<span class="c-string">"utility-form"</span> data-static-form&gt;
 
-<span class="c-comment">&lt;!-- after: posts to your service --&gt;</span>
-&lt;form name=<span class="c-string">"newsletter-form"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"https://example.com/your-form-endpoint"</span> class=<span class="c-string">"footer-form"</span>&gt;</code></pre>
+<span class="c-comment">&lt;!-- after --&gt;</span>
+&lt;form class=<span class="c-string">"utility-form"</span> action=<span class="c-string">"https://your-backend.example.com/signup"</span> method=<span class="c-string">"POST"</span>&gt;</code></pre>
         </div>
-        <p>The &ldquo;Continue with Google&rdquo; button on the login/signup pages is a placeholder link (<code>href="#"</code>) &mdash; real authentication isn&rsquo;t included.</p>
+        <div class="callout warning">
+          <span class="callout-title">Don&rsquo;t send passwords to a generic form service</span>
+          <p>These are account forms with password fields. Wire them to a proper authentication provider or your own backend over HTTPS, not to an email-forwarding form service.</p>
+        </div>
 
         <h3 id="newsletter-forms">Newsletter Forms</h3>
-        <p>The footer&rsquo;s &ldquo;Subscribe Newsletter&rdquo; form isn&rsquo;t pre-wired for any email provider. To connect Mailchimp, ConvertKit or similar, copy the form <code>action</code> URL from your provider&rsquo;s embedded-form code, rename the input&rsquo;s <code>name</code> if the provider expects a specific field name, and remove <code>data-demo-form</code>.</p>
+        <p>Orchid has no newsletter form and isn&rsquo;t pre-wired to any email provider. If you add one (for example in the footer), point its <code>action</code> at your provider&rsquo;s embed endpoint (Mailchimp, ConvertKit, etc.).</p>
 
         <h3 id="form-validation">Form Validation</h3>
-        <p>Required fields and email format are checked in the browser before submission using standard HTML attributes only (<code>required</code>, <code>type="email"</code>, <code>maxlength="256"</code>) &mdash; there&rsquo;s no custom validation script &mdash; giving users immediate feedback without a round trip to a server.</p>
+        <p>Validation uses standard HTML attributes only. Every field is <code>required</code> with <code>maxlength="256"</code>, the signup email field uses <code>type="email"</code>, and the &ldquo;I accept Terms of use&rdquo; checkbox is <code>required</code>. The browser checks these before submission and gives users immediate feedback without a round trip to a server. Note that nothing checks that &ldquo;Password&rdquo; and &ldquo;Confirm Password&rdquo; match, so add that in your submit logic. The checkbox is a styled custom control (native input hidden, CSS in <code>global.css</code>) that stays keyboard-accessible.</p>
 
         <h3 id="third-party-forms">Third-Party Form Services</h3>
-        <p>If you&rsquo;d rather not run your own backend, services like Formspree, Getform, or Basin accept form submissions directly from static HTML and forward them to your email &mdash; typically a one-line change to the form&rsquo;s <code>action</code> attribute.</p>
+        <p>If you add a contact or lead-capture form and would rather not run your own backend, services like Formspree, Getform, or Basin accept form submissions directly from static HTML and forward them to your email &mdash; typically a one-line change to the form&rsquo;s <code>action</code> attribute.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#navigation"><span class="pager-label">Previous</span><span class="pager-title">&larr; Navigation</span></a>
@@ -1418,14 +1457,15 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
       <section class="doc-section" id="api-data" aria-labelledby="api-data-h">
         <span class="section-eyebrow">13 &middot; Guide</span>
         <h2 id="api-data-h">API &amp; Data</h2>
-        <p class="section-lede">Paydesk fetches no external data &mdash; this section only matters if you add an API.</p>
+        <p class="section-lede">Orchid fetches no data from any API &mdash; this section only matters if you add one.</p>
+
         <div class="callout info">
-          <span class="callout-title">No API out of the box</span>
-          <p>All content is static: it&rsquo;s written in the markup or in small arrays at the top of each component (see <a href="#content-editing">Content Editing</a>), and there are no <code>fetch</code> calls or environment variables. The examples below show the recommended pattern if you connect one.</p>
+          <span class="callout-title">No external data out of the box</span>
+          <p>All content is static and lives in the <code>.astro</code> files themselves. The only third-party requests the built site makes are the Google Fonts stylesheet (Figtree) and the YouTube embed, which loads only when a visitor opens the hero video lightbox. There are no API keys, environment variables, or fetch calls to configure.</p>
         </div>
 
         <h3 id="api-configuration">API Configuration</h3>
-        <p>API URLs and keys are read from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coded, so the same code can point at a staging or production API depending on environment:</p>
+        <p>If you connect an API, read URLs and keys from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coded, so the same code can point at a staging or production API depending on environment:</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>PUBLIC_API_URL=https://example.com/api
@@ -1446,20 +1486,17 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="data-structures">Data Structures</h3>
-        <p>The in-component arrays use these shapes &mdash; if you move content to an API or CMS, return the same fields so the components keep working unchanged:</p>
+        <p>The closest thing Orchid has to a data model is the arrays in its components (see <a href="#edit-cards-testimonials">Content Editing</a>). If you move content to an API or CMS, have it return the same shapes so the existing markup keeps working:</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-comment">// Pricing.astro → plans</span>
-{ name, caption, monthly, yearly, recommended? }
+          <pre><code><span class="c-comment">// Reviews.astro &mdash; one testimonial card</span>
+{ rating: <span class="c-string">'4.7'</span>, ratingClass: <span class="c-string">''</span>, avatar: <span class="c-string">'/images/reviewer-image.png'</span>, name: <span class="c-string">'Alex Carter'</span>, role: <span class="c-string">'Member since 2023'</span> }
 
-<span class="c-comment">// Reviews.astro → reviews  (avatar is an imported image)</span>
-{ title, text, name, avatar }
+<span class="c-comment">// Pricing.astro &mdash; one plan (modifier picks the card style: 'starter' | 'premium')</span>
+{ name: <span class="c-string">'Starter Plan'</span>, modifier: <span class="c-string">'starter'</span>, blurb: <span class="c-string">'Our standard membership&hellip;'</span>, price: <span class="c-string">'19'</span> }
 
-<span class="c-comment">// Accordion items (Faq.astro → faqs, WhyPaydesk.astro → items)</span>
-{ title, text, icon? }   <span class="c-comment">// icon: an Astro component</span>
-
-<span class="c-comment">// CheckList → items</span>
-[<span class="c-string">'Group Chat'</span>, <span class="c-string">'Quick Report'</span>, ...]   <span class="c-comment">// array of strings</span></code></pre>
+<span class="c-comment">// Faq.astro &mdash; one question</span>
+{ q: <span class="c-string">'What are your opening hours?'</span>, a: <span class="c-string">'&hellip;'</span> }</code></pre>
         </div>
 
         <h3 id="error-handling">Error Handling</h3>
@@ -1488,32 +1525,35 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <p class="section-lede">Per-page metadata, social previews, and the machine-readable files search engines expect.</p>
 
         <h3 id="page-title-meta">Page Title &amp; Meta Description</h3>
-        <p>Pass a unique <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results. The home page uses the layout&rsquo;s defaults; the other pages pass their own:</p>
+        <p>Pass a unique <code>title</code> and <code>description</code> into <code>Layout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results. Each of Orchid&rsquo;s three pages already does this:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;BaseLayout
-  title=<span class="c-string">"Login | Paydesk"</span>
-  description=<span class="c-string">"Register an account to start your free trial"</span>
-  ogImage={formImage}
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/login.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;Layout
+  title=<span class="c-string">"Login — Orchid"</span>
+  description=<span class="c-string">"Designed to optimize your wellness journey. …"</span>
+  bodyClass=<span class="c-string">"with-body-color"</span>
 &gt;</code></pre>
         </div>
+        <p>If you don&rsquo;t want the login and signup pages indexed, add <code>noindex</code> to their <code>&lt;Layout&gt;</code> tag (<code>&lt;Layout noindex &hellip;&gt;</code>). It&rsquo;s off by default on every page.</p>
 
         <h3 id="canonical-og-twitter">Canonical URL, Open Graph &amp; Twitter/X Cards</h3>
-        <p>Already set inside <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The Open Graph image is generated from the <code>ogImage</code> prop as a 1200px PNG:</p>
-        <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"canonical"</span> href={canonical} /&gt;
-&lt;meta property=<span class="c-string">"og:type"</span> content=<span class="c-string">"website"</span> /&gt;
-&lt;meta property=<span class="c-string">"og:title"</span> content={title} /&gt;
+        <p>Already set inside <code>Layout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The share image defaults to <code>/images/Hero-Image-with-shadow_1.webp</code>. Override it per page with the <code>ogImage</code> prop:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;meta property=<span class="c-string">"og:title"</span> content={title} /&gt;
 &lt;meta property=<span class="c-string">"og:description"</span> content={description} /&gt;
-&lt;meta property=<span class="c-string">"og:url"</span> content={canonical} /&gt;
-&lt;meta property=<span class="c-string">"og:image"</span> content={ogImageUrl} /&gt;
+&lt;meta property=<span class="c-string">"og:image"</span> content={new URL(ogImage, Astro.site)} /&gt;
+&lt;meta property=<span class="c-string">"og:type"</span> content=<span class="c-string">"website"</span> /&gt;
+&lt;meta property=<span class="c-string">"og:url"</span> content={canonicalURL} /&gt;
 &lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;
-&lt;meta name=<span class="c-string">"twitter:image"</span> content={ogImageUrl} /&gt;</code></pre>
+&lt;meta name=<span class="c-string">"twitter:title"</span> content={title} /&gt;
+&lt;meta name=<span class="c-string">"twitter:description"</span> content={description} /&gt;
+&lt;meta name=<span class="c-string">"twitter:image"</span> content={new URL(ogImage, Astro.site)} /&gt;
+&lt;link rel=<span class="c-string">"canonical"</span> href={canonicalURL} /&gt;</code></pre>
         </div>
 
         <h3 id="sitemap-robots">Sitemap &amp; Robots.txt</h3>
-        <p>Paydesk includes Astro&rsquo;s official sitemap integration (<code>@astrojs/sitemap</code>), which generates <code>sitemap-index.xml</code> at build time from the <code>site</code> value, and <code>BaseLayout</code> links to it. No <code>robots.txt</code> ships with the template &mdash; create <code>public/robots.txt</code> to control crawler access and point it at your sitemap:</p>
+        <p>Orchid includes Astro&rsquo;s official sitemap integration (<code>@astrojs/sitemap</code>), which generates <code>sitemap-index.xml</code> automatically at build time from the <code>site</code> value. Set that to your real domain first. Orchid doesn&rsquo;t ship a <code>robots.txt</code>. To add one, create <code>public/robots.txt</code> to control crawler access and point it at the sitemap:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><span class="code-filename">public/robots.txt</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>User-agent: *
@@ -1522,7 +1562,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         </div>
 
         <h3 id="structured-data-semantic">Structured Data &amp; Semantic HTML</h3>
-        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure. Paydesk&rsquo;s pages already follow this pattern. No JSON-LD is included, so add structured data to <code>BaseLayout</code>&rsquo;s <code>&lt;head&gt;</code> yourself for rich results (e.g. <code>Organization</code> or <code>Article</code> schema) where relevant to your content.</p>
+        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure. Each Orchid page has exactly one <code>&lt;h1&gt;</code>. No JSON-LD ships with the template. Add JSON-LD structured data in the layout&rsquo;s <code>&lt;head&gt;</code> for rich results (e.g. <code>Organization</code> or <code>Article</code> schema) where relevant to your content.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#api-data"><span class="pager-label">Previous</span><span class="pager-title">&larr; API &amp; Data</span></a>
@@ -1538,7 +1578,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="callout info">
           <span class="callout-title">Static vs. SSR &mdash; check this first</span>
-          <p>Paydesk is a fully static Astro build (no adapter): it produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. Only follow the SSR notes below if you later add an adapter for server-side rendering &mdash; using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
+          <p>Orchid is a <strong>static</strong> Astro build. It uses no adapter, so <code>npm run build</code> produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. You only need a Node-capable host or a platform adapter if you later switch Astro to server-side rendering (SSR). Using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
         </div>
 
         <h3 id="deploy-vercel">Vercel</h3>
@@ -1546,7 +1586,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
           <li>Push the project to a GitHub, GitLab, or Bitbucket repository.</li>
           <li>In Vercel, choose <strong>Add New &rarr; Project</strong> and import that repository.</li>
           <li>Build command: <code>npm run build</code> &middot; Output directory: <code>dist</code> (Astro static) &mdash; Vercel&rsquo;s Astro preset detects this automatically in most cases.</li>
-          <li>Paydesk needs no environment variables; if you&rsquo;ve added any in a <code>.env</code> file, set them under Project Settings &rarr; Environment Variables.</li>
+          <li>Orchid needs no environment variables. If you&rsquo;ve added a <code>.env</code> file, copy its values under Project Settings &rarr; Environment Variables.</li>
           <li>Click <strong>Deploy</strong>.</li>
         </ol>
 
@@ -1557,7 +1597,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
   command = <span class="c-string">"npm run build"</span>
   publish = <span class="c-string">"dist"</span></code></pre>
         </div>
-        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add any environment variables you&rsquo;ve introduced under Site configuration &rarr; Environment variables, and deploy. (Paydesk doesn&rsquo;t ship a <code>netlify.toml</code>; create one with the contents above if you want the settings in code.)</p>
+        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add environment variables under Site configuration &rarr; Environment variables, and deploy.</p>
 
         <h3 id="deploy-cloudflare">Cloudflare Pages</h3>
         <p>Connect the repository, set the build command to <code>npm run build</code> and the output directory to <code>dist</code>. For SSR Astro sites, use the official <code>@astrojs/cloudflare</code> adapter instead of the static preset.</p>
@@ -1566,7 +1606,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         <p>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match your repository URL, then build and publish the <code>dist/</code> folder to the <code>gh-pages</code> branch (via the official <code>astro build</code> + a deploy action, or manually). GitHub Pages only serves static output &mdash; it cannot run an SSR adapter.</p>
 
         <h3 id="deploy-traditional">Traditional Hosting</h3>
-        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. If you later switch to an SSR build that needs a Node process, the host must support running <code>node</code> continuously (a VPS or a Node-compatible host) &mdash; plain shared hosting without Node support cannot run it.</p>
+        <p>Because Orchid builds to static files, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. Any shared host works, and no Node.js is needed on the server. Only if you later convert the site to SSR would the host need to run <code>node</code> continuously (a VPS or a Node-compatible host).</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#seo"><span class="pager-label">Previous</span><span class="pager-title">&larr; SEO</span></a>
@@ -1582,25 +1622,26 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>npm run build     <span class="c-comment"># render pages, bundle CSS/JS, optimize images, write dist/</span>
+          <pre><code>npm run build     <span class="c-comment"># render pages, bundle assets, generate the sitemap, and write dist/</span>
 npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it will run in production</span></code></pre>
         </div>
 
         <h3 id="build-output">Build Output</h3>
-        <p>The build writes static HTML for all five pages, hashed CSS/JS bundles, optimized responsive images and <code>sitemap-index.xml</code> to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; Paydesk&rsquo;s <code>.gitignore</code> already excludes it, and it isn&rsquo;t included in the downloaded package.</p>
+        <p>The build writes one HTML file per route (<code>index.html</code>, <code>login/index.html</code>, <code>signup/index.html</code>), hashed CSS/JS bundles (including GSAP), <code>sitemap-index.xml</code>, and a copy of everything in <code>public/</code> to <code>dist/</code>. This folder is disposable and regenerated by every build. Orchid&rsquo;s <code>.gitignore</code> already keeps it out of Git.</p>
 
         <h3 id="build-env-vars">Environment Variables in Production</h3>
-        <p>Paydesk itself needs none. If you add some, note that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
+        <p>Orchid uses no environment variables, so there&rsquo;s nothing to set out of the box. If you add some, remember that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
 
         <h3 id="production-checklist">Production Checklist</h3>
         <ul>
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
           <li>Run <code>npm run preview</code> and click through the main pages.</li>
-          <li>Confirm the <code>site</code> URL in <code>astro.config.mjs</code> matches your real domain.</li>
-          <li>If you&rsquo;ve added environment variables, set each one in your hosting platform&rsquo;s dashboard.</li>
-          <li>Point each form&rsquo;s <code>action</code> at a real endpoint and remove <code>data-demo-form</code> (see <a href="#forms">Forms</a>).</li>
-          <li>Replace the placeholder address, copyright name and <code>#</code> &ldquo;Products&rdquo; links in <code>Footer.astro</code>, and the <code>support@example.com</code> link in <code>Faq.astro</code>.</li>
-          <li>Verify <code>public/favicon.svg</code>/<code>favicon.ico</code>, the default Open Graph image (<code>Hero-Image.webp</code>), and the <code>BaseLayout</code> default title/description are your own.</li>
+          <li>Replace <code>site: 'https://example.com'</code> in <code>astro.config.mjs</code> with your real domain.</li>
+          <li>Set every environment variable from <code>.env</code> (if you added any) in your hosting platform&rsquo;s dashboard.</li>
+          <li>Wire the login and signup forms to a real backend, or remove them. Out of the box they don&rsquo;t submit anywhere.</li>
+          <li>Replace the placeholder FAQ answers, social links, app store links, and the hero YouTube video.</li>
+          <li>Verify the favicons (<code>favicon.svg</code>, <code>images/favicon.png</code>, <code>images/webclip.png</code>), the Open Graph image, and the meta descriptions are your own, not the template defaults.</li>
+          <li>Keep or remove the Freepik images that require attribution (see <code>README.md</code> &rarr; Credits).</li>
         </ul>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1617,7 +1658,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
 
         <div class="trouble-item">
           <h4><code>npm install</code> fails</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Node.js version too old, a corrupted local cache, or a stale lockfile from a different package manager.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Node.js older than 22.12.0 (required by Astro 7), a corrupted local cache, or a stale lockfile from a different package manager.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>node --version</code> meets the requirement in <a href="#requirements">Requirements</a>, then run <code>rm -rf node_modules package-lock.json &amp;&amp; npm install</code>.</dd></dl>
         </div>
         <div class="trouble-item">
@@ -1627,38 +1668,38 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
         <div class="trouble-item">
           <h4>Module not found</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency, or a typo or wrong relative depth in an import path (Paydesk uses relative imports only &mdash; no path aliases).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the import path casing matches the file exactly (e.g. <code>Hero-Image.webp</code>, not <code>hero-image.webp</code> &mdash; case matters on Linux hosts); count the <code>../</code> segments from the importing file.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency (for example <code>gsap</code>, which the component scripts import), or a typo in a relative import path.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check that the import path casing matches the file exactly (Orchid has no path aliases, so every import is relative, e.g. <code>../scripts/scroll-reveal.js</code>).</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Images not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>An incorrect relative path, or an image placed in <code>src/assets/</code> but referenced with a <code>public/</code>-style absolute path (or vice versa).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; imported assets need an <code>import</code> statement; <code>public/</code> files need a root-relative URL like <code>/images/Logo.svg</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A wrong path or filename casing (case matters on most Linux hosts, e.g. <code>Logo.svg</code> vs <code>logo.svg</code>), or an image moved into <code>src/</code> while still referenced by a <code>/images/&hellip;</code> URL.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a>. Orchid&rsquo;s images live in <code>public/images/</code> and need a root-relative URL like <code>/images/Logo.svg</code>. Files you move to <code>src/assets/</code> need an <code>import</code> statement instead.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Styles not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A stylesheet import was removed from the layout, or a new page doesn&rsquo;t render inside <code>BaseLayout</code>.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>BaseLayout.astro</code> still imports <code>normalize.css</code>, <code>base-framework.css</code>, <code>paydesk.css</code> and <code>site.css</code> in that order, and that your page wraps its content in <code>&lt;BaseLayout&gt;</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>The <code>global.css</code> import was removed from the layout, one of its <code>@import</code> lines was deleted, or a new page doesn&rsquo;t use <code>Layout</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>import '../styles/global.css';</code> is at the top of <code>src/layouts/Layout.astro</code>, that <code>global.css</code> still imports <code>normalize.css</code>, <code>base-framework.css</code>, and <code>orchid.css</code>, and that your page is wrapped in <code>&lt;Layout&gt;</code>.</dd></dl>
         </div>
         <div class="trouble-item">
-          <h4>Sections stay invisible or don&rsquo;t animate</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Elements with <code>data-reveal</code> start hidden until GSAP animates them in. A new section that uses <code>data-reveal</code> but never calls <code>initReveals()</code> from <code>src/scripts/reveal.js</code> won&rsquo;t animate; a 3-second safety net in <code>BaseLayout</code> then simply reveals everything.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Add a <code>&lt;script&gt;</code> to your component that imports <code>initReveals</code> and calls it for your section, as <code>Benefits.astro</code> does. If nothing animates at all, check whether your OS has &ldquo;reduce motion&rdquo; enabled &mdash; Paydesk deliberately skips animations then.</dd></dl>
+          <h4>Animations, menu, or accordions not working</h4>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A required class or <code>data-*</code> attribute was removed while editing markup. The component scripts find their elements by attributes like <code>data-nav-toggle</code>, <code>data-accordion-item</code>, and <code>data-marquee</code>, and by classes like <code>fade-in-200</code>. A JavaScript error elsewhere on the page can also stop them.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Compare your edited markup against the original component and restore the missing attribute or class. Check the browser console for errors.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Build fails (but dev server works)</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server only renders the page you&rsquo;re viewing, while <code>build</code> renders every page and processes every imported image &mdash; a missing image file or a broken import on another page only shows up at build time.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server only renders the pages you open, while <code>build</code> renders every page at once, so an error in a page you didn&rsquo;t visit only shows up at build time.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Read the full terminal output for the first error (later errors are often side effects of it); fix issues top to bottom and re-run.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Environment variables not working</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Only applies if you&rsquo;ve added variables (Paydesk uses none by default): missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Only applies if you&rsquo;ve added a <code>.env</code> file, since Orchid uses none. Usually the <code>PUBLIC_</code> prefix is missing for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Rename the variable with the <code>PUBLIC_</code> prefix if it&rsquo;s used in browser code, then stop and restart <code>npm run dev</code> &mdash; env changes aren&rsquo;t hot-reloaded.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Deployment problems</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Wrong output directory configured on the host, or environment variables set locally but not in the platform&rsquo;s dashboard.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command and output folder against <a href="#deployment">Deployment</a> for your platform, and confirm every variable from <code>.env</code> is duplicated there.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Wrong output directory configured on the host, the placeholder <code>site</code> URL still in <code>astro.config.mjs</code> (giving canonical, social, and sitemap URLs on <code>example.com</code>), or environment variables you added set locally but not in the platform&rsquo;s dashboard.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command (<code>npm run build</code>) and output folder (<code>dist</code>) against <a href="#deployment">Deployment</a> for your platform, set <code>site</code> to your real domain, and confirm any <code>.env</code> variables are duplicated on the host.</dd></dl>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1679,23 +1720,23 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Which Node.js version should I use?</summary>
-          <p>Node 22.12.0 or later, as required by Astro 7 &mdash; see <a href="#requirements">Requirements</a>. The current Node 22+ LTS release is a safe default.</p>
+          <p>Node 22.12.0 or later, as required by Astro 7 and the <code>engines</code> field in <code>package.json</code> &mdash; see <a href="#requirements">Requirements</a>. The current Node 22 LTS release is a safe default.</p>
         </details>
         <details class="faq-item">
           <summary>Can I use JavaScript instead of TypeScript?</summary>
-          <p>Paydesk already uses plain JavaScript &mdash; no TypeScript is required. If you&rsquo;d like type checking, you can add a <code>tsconfig.json</code> (extending <code>astro/tsconfigs/strict</code>) in place of <code>jsconfig.json</code> and rename <code>.js</code> files to <code>.ts</code> as you go.</p>
+          <p>Orchid is already plain JavaScript. There are no <code>.ts</code> files, and the component scripts and <code>scroll-reveal.js</code> are vanilla JS. If you&rsquo;d like TypeScript, Astro supports it out of the box: add <code>.ts</code> files or <code>lang="ts"</code> scripts as you go.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change colors?</summary>
-          <p>Update the CSS custom properties in <code>:root</code> at the top of <code>src/styles/paydesk.css</code> &mdash; see <a href="#global-styles">Styling</a>.</p>
+          <p>Update the CSS custom properties in the <code>:root</code> block at the top of <code>src/styles/orchid.css</code> (e.g. <code>--color--green</code>, <code>--color--midnight-blue</code>) &mdash; see <a href="#global-styles">Styling</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change fonts?</summary>
-          <p>Add the new font file to <code>public/fonts/</code>, update the <code>@font-face</code> rules and <code>font-family</code> declarations in <code>paydesk.css</code>, and the font preloads in <code>BaseLayout.astro</code> &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
+          <p>For headings, swap the Google Fonts <code>&lt;link&gt;</code> in <code>Layout.astro</code> and update <code>--font-family--figtree</code>. For body text, replace the General Sans file in <code>public/fonts/</code> and its <code>@font-face</code> rule in <code>orchid.css</code> &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I replace images?</summary>
-          <p>Swap the file or update the import path &mdash; see <a href="#images-assets">Images &amp; Assets</a>.</p>
+          <p>Swap the file in <code>public/images/</code> or update the <code>src</code> path &mdash; see <a href="#images-assets">Images &amp; Assets</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I add a new page?</summary>
@@ -1703,11 +1744,11 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>How do I deploy the template?</summary>
-          <p>Platform-specific steps for Vercel, Netlify, Cloudflare Pages, GitHub Pages, and traditional hosts are in <a href="#deployment">Deployment</a>.</p>
+          <p>Orchid builds to a static site, so it runs on almost any host. Platform-specific steps for Vercel, Netlify, Cloudflare Pages, GitHub Pages, and traditional hosts are in <a href="#deployment">Deployment</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Can I use the template commercially?</summary>
-          <p>[State your license terms here &mdash; e.g. standard vs. extended license &mdash; and link to the full license text.] The template&rsquo;s <code>/license</code> page lists the licenses for the bundled images (Unsplash, Pexels) and fonts (Onest, Satoshi).</p>
+          <p>[State your license terms here &mdash; e.g. standard vs. extended license &mdash; and link to the full license text.] Separately, some bundled photos come from Unsplash, Pexels, and Freepik, and four Freepik images require attribution. The fonts are Figtree (Google Fonts) and General Sans (Fontshare). Links to each license are under <strong>Credits</strong> in the project&rsquo;s <code>README.md</code>.</p>
         </details>
         <details class="faq-item">
           <summary>Where can I get support?</summary>
@@ -1729,7 +1770,9 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <div class="changelog-entry">
           <span class="changelog-version">Version 0.0.1</span>
           <ul>
-            <li><span class="tag-added">Added</span>Initial release of the Paydesk Astro template.</li>
+            <li><span class="tag-added">Added</span>Initial release: home page, login page, and signup page built with Astro 7 and plain CSS.</li>
+            <li><span class="tag-added">Added</span>GSAP scroll-reveal animations, testimonial and logo marquees, accordions, mobile slide-over menu, and hero video lightbox.</li>
+            <li><span class="tag-added">Added</span>SEO meta (canonical, Open Graph, Twitter/X cards) and automatic sitemap via <code>@astrojs/sitemap</code>.</li>
           </ul>
         </div>
 
@@ -1822,13 +1865,13 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
      template. The UI below reads from this object wherever possible.
      ==================================================================== */
   var DOC_CONFIG = {
-    productName: "Paydesk",
+    productName: "Orchid",
     productVersion: "0.0.1",
     framework: "Astro",
     companyName: "RNN studio",
     supportUrl: "https://rnnstudio.com/contact",
     supportEmail: "hello@rnnstudio.com",
-    githubUrl: "https://github.com/krunalprogrammer/paydesk-astro"
+    githubUrl: "https://github.com/krunalprogrammer/orchid-astro"
   };
 
   /* ---- Apply DOC_CONFIG to the DOM ---- */
