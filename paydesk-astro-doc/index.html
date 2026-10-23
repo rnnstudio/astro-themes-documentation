@@ -685,7 +685,8 @@
         <p class="section-lede">Everything you need to know before you open your editor &mdash; what&rsquo;s in the box, what it&rsquo;s built with, and what it expects from your machine.</p>
 
         <h3 id="welcome">Welcome</h3>
-        <p>Thanks for picking up <strong id="welcome-product-name">Paydesk</strong>, a conversion-focused landing page template for billing, invoicing and payment SaaS products. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Thanks for picking up <strong id="welcome-product-name">Paydesk</strong>. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Paydesk is a clean, conversion-focused landing page template for billing, invoicing, and payment SaaS products. It ships a full one-page marketing site plus login and signup pages, with smooth GSAP scroll-reveal animations, a monthly/yearly pricing switch, accessible accordions, and a responsive mobile menu.</p>
 
         <h3 id="whats-included">What&rsquo;s Included</h3>
         <div class="card-grid">
@@ -694,37 +695,38 @@
             <p>The full, uncompiled project source &mdash; components, pages, styles, and configuration.</p>
           </div>
           <div class="info-card">
-            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Self-hosted fonts</h4>
-            <p>Onest (Medium, Bold) and Satoshi Medium font files in <code>public/fonts/</code> &mdash; no external font requests. No pre-built <code>dist/</code> is included; run <code>npm run build</code> to generate one.</p>
+            <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Production build</h4>
+            <p>No pre-built <code>dist/</code> folder is shipped &mdash; run <code>npm run build</code> once to generate one (see <a href="#build-preview">Build &amp; Preview</a>).</p>
           </div>
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Design assets</h4>
-            <p>SVG logos, icons and decorative illustrations in <code>public/images/</code>, plus WebP/PNG product artwork in <code>src/assets/images/</code>. No Figma source file is included.</p>
+            <p>Self-hosted Onest and Satoshi font files, SVG icons and logos in <code>public/images/</code>, and WebP/PNG artwork in <code>src/assets/images/</code>. No Figma file is included.</p>
           </div>
           <div class="info-card">
             <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>This documentation</h4>
-            <p>A single offline HTML file &mdash; open it directly in any browser, no server required.</p>
+            <p>Hosted online &mdash; the link is in the <code>documentation.txt</code> file included alongside the template folder in the download.</p>
           </div>
         </div>
 
         <h3 id="features">Features</h3>
         <ul>
-          <li>A complete one-page marketing site with 10 home sections &mdash; hero with email capture, benefits, use cases, feature grid, integrations, &ldquo;Why Paydesk&rdquo; accordion, pricing, FAQ, reviews and call-to-action &mdash; plus Login, Signup, Changelog and License pages</li>
-          <li>Pricing section with an accessible monthly/yearly switch</li>
-          <li>Scroll-reveal animations, sticky navbar, accordions and an infinite logo marquee built with GSAP + ScrollTrigger &mdash; all respecting <code>prefers-reduced-motion</code></li>
-          <li>Accessible markup: semantic landmarks, one <code>&lt;h1&gt;</code> per page, keyboard-operable mobile menu, tabs and accordions, visible focus states</li>
-          <li>SEO-ready: per-page titles and descriptions, canonical URLs, Open Graph / Twitter tags and an automatic sitemap</li>
-          <li>Fast static output with responsive images via <code>astro:assets</code>, self-hosted fonts, and no CSS framework or jQuery</li>
+          <li>Five pages: Home, Login, Signup, Changelog, and License</li>
+          <li>Home page sections: hero with email capture, feature rows, use cases, feature grid, integrations, &ldquo;Why Paydesk&rdquo; accordion, pricing with a monthly/yearly toggle, FAQ, reviews with an infinite logo marquee, call-to-action, and a footer with a newsletter form</li>
+          <li>Scroll reveals, sticky navbar, pricing switch, accordions, and logo marquee animated with GSAP + ScrollTrigger &mdash; all respect <code>prefers-reduced-motion</code></li>
+          <li>Accessible markup: semantic landmarks, one <code>h1</code> per page, keyboard-operable menu, tabs, and accordions, and visible focus states</li>
+          <li>Fast static output with responsive images optimized by <code>astro:assets</code>, self-hosted fonts, and no jQuery</li>
+          <li>SEO-ready: per-page titles and descriptions, Open Graph/Twitter tags, canonical URLs, and an automatic sitemap via <code>@astrojs/sitemap</code></li>
         </ul>
 
         <h3 id="tech-stack">Technology Stack</h3>
-        <p>Paydesk is a plain Astro project &mdash; JavaScript and CSS only, with no UI framework, CSS framework, or TypeScript required.</p>
+        <p>Paydesk is built with Astro and plain CSS, with GSAP for animation. There is no UI framework, no TypeScript, and no CSS preprocessor &mdash; components are <code>.astro</code> files and browser scripts are plain JavaScript.</p>
         <div class="pill-row">
           <span class="pill"><span class="dot"></span>Astro 7</span>
           <span class="pill"><span class="dot"></span>GSAP 3 (ScrollTrigger)</span>
-          <span class="pill"><span class="dot"></span>@astrojs/sitemap</span>
-          <span class="pill"><span class="dot"></span>Vite</span>
           <span class="pill"><span class="dot"></span>Plain CSS</span>
+          <span class="pill"><span class="dot"></span>JavaScript</span>
+          <span class="pill"><span class="dot"></span>Vite</span>
+          <span class="pill"><span class="dot"></span>@astrojs/sitemap</span>
         </div>
 
         <h3 id="requirements">Requirements</h3>
@@ -732,9 +734,9 @@
           <table class="kv-table">
             <thead><tr><th>Tool</th><th>Minimum version</th><th>Notes</th></tr></thead>
             <tbody>
-              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Set in <code>package.json</code> &rarr; <code>engines</code>, as required by Astro 7</td></tr>
-              <tr><td>Package manager</td><td>npm (bundled with Node), pnpm, or Yarn</td><td>A <code>package-lock.json</code> ships with the project, so npm is the default; examples below cover all three</td></tr>
-              <tr><td>Code editor</td><td>&mdash;</td><td>VS Code with the official Astro extension (recommended in <code>.vscode/extensions.json</code>)</td></tr>
+              <tr><td>Node.js</td><td><code>22.12.0</code> or later</td><td>Set in <code>package.json</code> under <code>engines.node</code>; required by Astro 7</td></tr>
+              <tr><td>Package manager</td><td>npm 9+, pnpm 8+, or Yarn 1.22+</td><td>A <code>package-lock.json</code> is included, so npm reproduces the tested dependency versions exactly</td></tr>
+              <tr><td>Code editor</td><td>&mdash;</td><td>VS Code with the Astro extension (recommended in <code>.vscode/extensions.json</code>) is a comfortable default</td></tr>
               <tr><td>Git</td><td>2.x</td><td>Only required if you plan to version-control your customized copy</td></tr>
             </tbody>
           </table>
@@ -750,7 +752,7 @@
         </div>
         <div class="callout warning">
           <span class="callout-title">Internet Explorer</span>
-          <p>Internet Explorer 11 is not supported. No polyfills are bundled &mdash; the template relies on modern CSS and ES modules.</p>
+          <p>Internet Explorer 11 is not supported. The template ships no polyfills.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -767,9 +769,9 @@
 
         <h3 id="installation">Installation &amp; Extraction</h3>
         <ol>
-          <li>Download <code>paydesk-astro-package.zip</code> from your purchase confirmation email or account downloads page. It contains the <code>paydesk-astro/</code> project folder and a <code>documentation.txt</code> file.</li>
-          <li>Extract it to a folder on your machine &mdash; avoid folder names with spaces or special characters.</li>
-          <li>Open that folder in your terminal and in your code editor.</li>
+          <li>Download the template ZIP from your purchase confirmation email or account downloads page.</li>
+          <li>Extract it to a folder on your machine &mdash; avoid folder names with spaces or special characters. The ZIP contains a <code>paydesk-astro-package/</code> folder holding the project folder <code>paydesk-astro/</code> and a <code>documentation.txt</code> file.</li>
+          <li>Open the <code>paydesk-astro/</code> folder in your terminal and in your code editor.</li>
         </ol>
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
@@ -817,7 +819,7 @@ nvm use 22</code></pre>
           <div class="code-block-bar"><span class="code-lang">pnpm</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>pnpm dev</code></pre>
         </div>
-        <p>This starts Astro&rsquo;s Vite-powered dev server with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
+        <p>This starts Astro&rsquo;s local dev server (powered by Vite) with hot module reloading &mdash; edits to components, pages, and styles appear in the browser immediately without a manual refresh. By default it&rsquo;s available at <code>http://localhost:4321</code>; the terminal output will confirm the exact address.</p>
 
         <h3 id="build-preview">Build for Production &amp; Preview</h3>
         <div class="code-block" data-lang="bash">
@@ -828,11 +830,11 @@ npm run build
 <span class="c-comment"># Serve that build locally to sanity-check it</span>
 npm run preview</code></pre>
         </div>
-        <p><code>build</code> renders every page to static HTML, bundles and minifies CSS/JS, optimizes images, generates the sitemap, and writes everything to <code>dist/</code>. <code>preview</code> serves that exact output locally so you can verify it before deploying &mdash; it does not rebuild automatically, so re-run <code>build</code> after further changes.</p>
+        <p><code>build</code> renders every page to static HTML, bundles and minifies CSS and JavaScript, optimizes images, generates the sitemap, and writes everything to <code>dist/</code>. <code>preview</code> serves that exact output locally so you can verify it before deploying &mdash; it does not rebuild automatically, so re-run <code>build</code> after further changes.</p>
 
         <div class="callout info">
           <span class="callout-title">Which command do I actually need?</span>
-          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it catches issues (like a missing image file or a broken import path) that only surface when every page is rendered.</p>
+          <p>Use <code>dev</code> while you&rsquo;re customizing the template. Use <code>build</code>, then <code>preview</code>, once before you deploy &mdash; it catches issues (like missing imports or a broken image path) that the dev server tolerates but production won&rsquo;t.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -848,39 +850,45 @@ npm run preview</code></pre>
         <p class="section-lede">A tour of the folders you&rsquo;ll actually touch, and the ones you generally shouldn&rsquo;t.</p>
 
         <div class="file-tree" role="img" aria-label="Project directory structure">paydesk-astro/
-├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is (favicon.svg, favicon.ico)</span>
-│   ├── <span class="dir">fonts/</span>           <span class="cmt"># Onest &amp; Satoshi font files</span>
-│   └── <span class="dir">images/</span>          <span class="cmt"># SVG logos, icons and illustrations</span>
+├── <span class="dir">.vscode/</span>             <span class="cmt"># Recommended editor extension (Astro)</span>
+├── <span class="dir">public/</span>              <span class="cmt"># Static files copied as-is</span>
+│   ├── <span class="dir">fonts/</span>            <span class="cmt"># Onest and Satoshi font files</span>
+│   ├── <span class="dir">images/</span>           <span class="cmt"># SVG icons, logos, and decorative graphics</span>
+│   ├── favicon.ico
+│   └── favicon.svg
 ├── <span class="dir">src/</span>
-│   ├── <span class="dir">assets/images/</span>   <span class="cmt"># WebP/PNG artwork optimized by astro:assets</span>
-│   ├── <span class="dir">components/</span>      <span class="cmt"># Page sections and shared UI (+ icons/)</span>
-│   ├── <span class="dir">layouts/</span>         <span class="cmt"># BaseLayout.astro &mdash; &lt;head&gt;, meta tags, global CSS</span>
-│   ├── <span class="dir">pages/</span>           <span class="cmt"># Routes: index, login, signup, changelog, license</span>
-│   ├── <span class="dir">scripts/</span>         <span class="cmt"># Browser modules: scroll reveals, demo forms</span>
-│   └── <span class="dir">styles/</span>          <span class="cmt"># normalize, base framework, theme &amp; behaviour CSS</span>
-├── astro.config.mjs     <span class="cmt"># Site URL &amp; sitemap integration</span>
-├── jsconfig.json        <span class="cmt"># Editor config (extends Astro&rsquo;s base config)</span>
-├── package.json         <span class="cmt"># Scripts and dependencies</span>
+│   ├── <span class="dir">assets/images/</span>    <span class="cmt"># Raster images optimized by astro:assets</span>
+│   ├── <span class="dir">components/</span>       <span class="cmt"># Page sections and shared UI (Navbar, Footer, Accordion, &hellip;)</span>
+│   │   └── <span class="dir">icons/</span>        <span class="cmt"># Inline SVG icon components</span>
+│   ├── <span class="dir">layouts/</span>          <span class="cmt"># BaseLayout &mdash; &lt;head&gt;, meta tags, global styles</span>
+│   ├── <span class="dir">pages/</span>            <span class="cmt"># Routes: index, login, signup, changelog, license</span>
+│   ├── <span class="dir">scripts/</span>          <span class="cmt"># Shared browser modules (scroll reveals, demo forms)</span>
+│   └── <span class="dir">styles/</span>           <span class="cmt"># normalize, base framework, theme, behaviour styles</span>
+├── astro.config.mjs      <span class="cmt"># Site URL and integrations (sitemap)</span>
+├── jsconfig.json         <span class="cmt"># Editor settings extending Astro&rsquo;s base config</span>
+├── package.json          <span class="cmt"># Scripts and dependencies</span>
+├── package-lock.json     <span class="cmt"># Locked dependency versions</span>
+├── LICENSE               <span class="cmt"># Commercial license terms</span>
 └── README.md</div>
 
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Holds the favicons, <code>fonts/</code> (self-hosted font files) and <code>images/</code> (SVG logos, icons and illustrations referenced as <code>/images/&hellip;</code>).</td></tr>
-              <tr><td><code>src/components/</code></td><td>One <code>.astro</code> file per home page section (<code>Hero</code>, <code>Benefits</code>, <code>Pricing</code>, <code>Faq</code>&hellip;) plus shared UI (<code>Navbar</code>, <code>Footer</code>, <code>Accordion</code>, <code>CheckList</code>&hellip;). <code>icons/</code> holds inline-SVG icon components.</td></tr>
-              <tr><td><code>src/layouts/</code></td><td><code>BaseLayout.astro</code> &mdash; the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> meta/SEO tags, font preloads and global stylesheet imports.</td></tr>
+              <tr><td><code>public/</code></td><td>Files here are copied to the output root untouched &mdash; no optimization or hashing. Paydesk keeps its favicons, font files (<code>public/fonts/</code>), and SVG icons/logos (<code>public/images/</code>) here.</td></tr>
+              <tr><td><code>src/components/</code></td><td>Every section of the home page (<code>Hero</code>, <code>Pricing</code>, <code>Faq</code>, &hellip;) plus shared UI such as <code>Navbar</code>, <code>Footer</code>, <code>Accordion</code>, and <code>CheckList</code>. Section content lives in data arrays at the top of each file. See <a href="#components">Components</a>.</td></tr>
+              <tr><td><code>src/layouts/</code></td><td><code>BaseLayout.astro</code> defines the common page shell &mdash; <code>&lt;head&gt;</code> tags, SEO/social meta, font preloads, and the global stylesheets &mdash; so individual pages only supply their unique content.</td></tr>
               <tr><td><code>src/pages/</code></td><td>Every file here becomes a route automatically. See <a href="#pages">Pages</a> for details.</td></tr>
-              <tr><td><code>src/assets/images/</code></td><td>Raster images that are optimized, resized, and hashed by the build. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
-              <tr><td><code>src/styles/</code></td><td>The four global stylesheets imported by <code>BaseLayout</code>. See <a href="#styling">Styling</a>.</td></tr>
-              <tr><td><code>src/scripts/</code></td><td>Shared browser modules: <code>reveal.js</code> (GSAP scroll reveals) and <code>forms.js</code> (demo form handling).</td></tr>
+              <tr><td><code>src/assets/images/</code></td><td>WebP/PNG images that are optimized, resized, and hashed by the build. See <a href="#images-assets">Images &amp; Assets</a>.</td></tr>
+              <tr><td><code>src/scripts/</code></td><td><code>reveal.js</code> (GSAP scroll-reveal helper) and <code>forms.js</code> (front-end-only demo form handling), imported by component <code>&lt;script&gt;</code> tags.</td></tr>
+              <tr><td><code>src/styles/</code></td><td>Four plain CSS files, loaded in order by <code>BaseLayout</code>: <code>normalize.css</code>, <code>base-framework.css</code>, <code>paydesk.css</code> (theme and design tokens), and <code>site.css</code> (behaviour styles). See <a href="#styling">Styling</a>.</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="callout">
           <span class="callout-title">Files not shown above</span>
-          <p><code>package-lock.json</code> (npm lockfile), <code>.gitignore</code>, <code>.vscode/</code> (recommended editor extensions) and, in the distributed package, a <code>LICENSE</code> file. There is no <code>tsconfig.json</code>, Tailwind config, content collection config, or <code>src/data/</code> folder &mdash; section content lives in small arrays at the top of each component.</p>
+          <p>There is no <code>src/data/</code> folder, no <code>tsconfig.json</code>, and no content collections &mdash; content is kept inside each component. Running the project also creates <code>node_modules/</code>, <code>.astro/</code> (generated types), and <code>dist/</code> (build output); all three are git-ignored and can be deleted safely.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -921,7 +929,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-astro">astro.config.mjs</h3>
-        <p>Controls integrations, the deployed site URL, and build behavior. Paydesk registers only the sitemap integration; replace <code>site</code> with your production URL &mdash; it&rsquo;s used for canonical URLs, Open Graph image URLs and the generated sitemap.</p>
+        <p>Controls integrations, the deployed site URL, and build behavior. Paydesk registers only the sitemap integration and renders fully static output (Astro&rsquo;s default). <strong>Replace <code>site</code> with your production URL</strong> &mdash; it is used for canonical URLs, Open Graph image URLs, and the generated sitemap.</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">astro.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">import</span> { defineConfig } <span class="c-key">from</span> <span class="c-string">'astro/config'</span>;
@@ -936,7 +944,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-tsconfig">jsconfig.json</h3>
-        <p>Paydesk is written in plain JavaScript, so it ships a <code>jsconfig.json</code> instead of a <code>tsconfig.json</code>. It extends Astro&rsquo;s base config so your editor gets IntelliSense for <code>.astro</code> files and Astro&rsquo;s generated types. No path aliases are defined &mdash; components are imported with relative paths such as <code>../components/Footer.astro</code>.</p>
+        <p>Paydesk is written in plain JavaScript, so instead of a <code>tsconfig.json</code> it ships a small <code>jsconfig.json</code> that extends Astro&rsquo;s base settings for editor autocomplete. No path aliases are defined &mdash; imports use relative paths such as <code>../components/Navbar.astro</code>.</p>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">jsconfig.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
@@ -947,7 +955,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-env">Environment Variables (.env)</h3>
-        <p>Paydesk reads no environment variables out of the box &mdash; the site URL lives in <code>astro.config.mjs</code>. If you add an API or form service, create a <code>.env</code> file in the project root for values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
+        <p>Paydesk doesn&rsquo;t read any environment variables out of the box. If you add values that differ between environments (API URLs, keys) or shouldn&rsquo;t be committed to Git, create a <code>.env</code> file in the project root. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Exposed to the browser &mdash; never put secrets here</span>
@@ -958,7 +966,7 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
         </div>
         <div class="callout warning">
           <span class="callout-title">Never commit .env</span>
-          <p>Paydesk&rsquo;s <code>.gitignore</code> already excludes <code>.env</code> and <code>.env.production</code>. Anything without the <code>PUBLIC_</code> prefix should stay off the client entirely.</p>
+          <p><code>.env</code> and <code>.env.production</code> are already listed in Paydesk&rsquo;s <code>.gitignore</code>. Anything without the <code>PUBLIC_</code> prefix should stay off the client entirely.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -971,40 +979,40 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
       <section class="doc-section" id="pages" aria-labelledby="pages-h">
         <span class="section-eyebrow">05 &middot; Guide</span>
         <h2 id="pages-h">Pages</h2>
-        <p class="section-lede">How routes are created, and how Paydesk&rsquo;s pages are assembled.</p>
+        <p class="section-lede">How routes are created, and how Paydesk&rsquo;s five pages are put together.</p>
 
         <h3 id="creating-pages">Creating a New Page</h3>
-        <p>Astro uses file-based routing: any <code>.astro</code>, <code>.md</code>, or <code>.html</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Paydesk ships five routes:</p>
+        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Paydesk ships these routes:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>src/pages/index.astro      <span class="c-comment">&rarr;  /           (one-page home: all marketing sections)</span>
+          <pre><code>src/pages/index.astro      <span class="c-comment">&rarr;  /           (one-page marketing site)</span>
 src/pages/login.astro      <span class="c-comment">&rarr;  /login</span>
 src/pages/signup.astro     <span class="c-comment">&rarr;  /signup</span>
 src/pages/changelog.astro  <span class="c-comment">&rarr;  /changelog</span>
-src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code></pre>
+src/pages/license.astro    <span class="c-comment">&rarr;  /license    (image and font credits)</span></code></pre>
         </div>
-        <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point:</p>
+        <p>To add a page, create a new file in <code>src/pages/</code> using the layout and structure of an existing, similar page as a starting point. The changelog and license pages are a good model for a simple content page:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/services.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/about.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> BaseLayout <span class="c-key">from</span> <span class="c-string">'../layouts/BaseLayout.astro'</span>;
-<span class="c-key">import</span> Navbar <span class="c-key">from</span> <span class="c-string">'../components/Navbar.astro'</span>;
+<span class="c-key">import</span> TemplatePageHeader <span class="c-key">from</span> <span class="c-string">'../components/TemplatePageHeader.astro'</span>;
 <span class="c-key">import</span> Footer <span class="c-key">from</span> <span class="c-string">'../components/Footer.astro'</span>;
 <span class="c-comment">---</span>
-&lt;BaseLayout title=<span class="c-string">"Services | Paydesk"</span> description=<span class="c-string">"What we offer."</span>&gt;
-  &lt;Navbar /&gt;
+&lt;BaseLayout title=<span class="c-string">"About | Paydesk"</span> description=<span class="c-string">"Who we are and why we built Paydesk."</span>&gt;
+  &lt;TemplatePageHeader title=<span class="c-string">"About"</span> subtitle=<span class="c-string">"Who we are and why we built Paydesk."</span> /&gt;
   &lt;main&gt;
-    &lt;h1&gt;Our Services&lt;/h1&gt;
+    <span class="c-comment">&lt;!-- page content --&gt;</span>
   &lt;/main&gt;
   &lt;Footer /&gt;
 &lt;/BaseLayout&gt;</code></pre>
         </div>
 
         <h3 id="editing-pages">Editing an Existing Page</h3>
-        <p>Open the relevant file under <code>src/pages/</code> and edit the markup directly. The home page (<code>index.astro</code>) is only a list of section components &mdash; its copy lives in files like <code>src/components/Hero.astro</code> and <code>src/components/Pricing.astro</code>. Anything imported from <code>src/components/</code> lives elsewhere &mdash; edit the component file itself to change content that repeats across multiple pages (like a shared call-to-action block).</p>
+        <p>Open the relevant file under <code>src/pages/</code> and edit the markup directly. The home page (<code>index.astro</code>) is only a list of section components &mdash; <code>Hero</code>, <code>Benefits</code>, <code>UseCases</code>, <code>MoreFeatures</code>, <code>Integrations</code>, <code>WhyPaydesk</code>, <code>Pricing</code>, <code>Faq</code>, <code>Reviews</code>, and <code>Cta</code> &mdash; so its text lives in those files under <code>src/components/</code>. Reorder or remove a section by moving or deleting its tag in <code>index.astro</code>.</p>
 
         <h3 id="dynamic-routes">Dynamic Routes</h3>
-        <p>Files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Paydesk doesn&rsquo;t ship any dynamic routes, but if you add one, Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
+        <p>Paydesk doesn&rsquo;t include any dynamic routes. If you add one, files wrapped in square brackets, such as <code>[slug].astro</code>, generate multiple pages from a single template &mdash; commonly used for blog posts or product pages. Astro requires a <code>getStaticPaths()</code> function for these on statically-generated sites:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/blog/[slug].astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1018,7 +1026,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="layouts">Layouts</h3>
-        <p>Paydesk has a single layout, <code>src/layouts/BaseLayout.astro</code>. It provides the <code>&lt;html&gt;</code> shell, <code>&lt;head&gt;</code> metadata, favicons, font preloads and the global stylesheet imports. The navbar and footer are <em>not</em> part of the layout &mdash; each page places <code>&lt;Navbar /&gt;</code> and <code>&lt;Footer /&gt;</code> itself, because the login/signup pages use a reduced navbar and no footer. Every page renders inside the layout via its <code>&lt;slot /&gt;</code>:</p>
+        <p>Paydesk has a single layout, <code>src/layouts/BaseLayout.astro</code>. It provides the <code>&lt;html&gt;</code> shell, the <code>&lt;head&gt;</code> metadata, font preloads, and the global stylesheets, and renders the page through a <code>&lt;slot /&gt;</code>. The navbar and footer are <em>not</em> part of the layout &mdash; each page includes the <code>Navbar</code>, <code>Footer</code>, or <code>TemplatePageHeader</code> components it needs, which is why the login and signup pages can show a stripped-down navbar and no footer. A simplified view of the layout:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1038,8 +1046,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
 &lt;html lang=<span class="c-string">"en"</span>&gt;
   &lt;head&gt;
     &lt;title&gt;{title}&lt;/title&gt;
-    &lt;meta name=<span class="c-string">"description"</span> content={description} /&gt;
-    <span class="c-comment">&lt;!-- canonical, Open Graph, Twitter, favicons, font preloads --&gt;</span>
+    <span class="c-comment">&lt;!-- description, canonical, Open Graph, Twitter, favicons, font preloads --&gt;</span>
   &lt;/head&gt;
   &lt;body class={bodyClass}&gt;
     &lt;slot /&gt; <span class="c-comment">&lt;!-- page content is injected here --&gt;</span>
@@ -1048,7 +1055,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="page-metadata">Page Metadata &amp; the 404 Page</h3>
-        <p>Pass a <code>title</code> and description into your layout&rsquo;s props on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>). A file named <code>404.astro</code> in <code>src/pages/</code> is served automatically whenever no route matches &mdash; Paydesk doesn&rsquo;t include one, so add <code>src/pages/404.astro</code> if you want a custom &ldquo;not found&rdquo; page.</p>
+        <p>Pass a <code>title</code> and <code>description</code> (and optionally an <code>ogImage</code>) into <code>BaseLayout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>); pages that omit them fall back to the defaults above. Paydesk doesn&rsquo;t ship a custom 404 page &mdash; create <code>src/pages/404.astro</code> and Astro will serve it automatically whenever no route matches.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#configuration"><span class="pager-label">Previous</span><span class="pager-title">&larr; Configuration</span></a>
@@ -1063,77 +1070,75 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">The building blocks pages are assembled from, and how data flows into them.</p>
 
         <h3 id="reusable-components">Reusable Components</h3>
-        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a button, a pricing card, a navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Every Paydesk component is an <code>.astro</code> file:</p>
+        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a page section, a form, the navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Every component in Paydesk is an <code>.astro</code> file:</p>
         <div class="kv-table-wrap">
           <table class="kv-table">
-            <thead><tr><th>Group</th><th>Components</th></tr></thead>
+            <thead><tr><th>Component</th><th>What it renders</th></tr></thead>
             <tbody>
-              <tr><td>Home sections</td><td><code>Hero</code>, <code>Benefits</code>, <code>UseCases</code>, <code>MoreFeatures</code>, <code>Integrations</code>, <code>WhyPaydesk</code>, <code>Pricing</code>, <code>Faq</code>, <code>Reviews</code>, <code>Cta</code></td></tr>
-              <tr><td>Site chrome</td><td><code>Navbar</code>, <code>AnnouncementBar</code>, <code>Footer</code>, <code>TemplatePageHeader</code> (intro block on Changelog/License)</td></tr>
-              <tr><td>Shared UI</td><td><code>Accordion</code>, <code>CheckList</code>, <code>AnimatedLink</code>, <code>LogoMarquee</code>, <code>SignupForm</code>, <code>AuthForm</code> (login/signup)</td></tr>
-              <tr><td><code>icons/</code></td><td>Inline-SVG icon components: <code>FacebookIcon</code>, <code>InstagramIcon</code>, <code>PinterestIcon</code>, <code>TwitterIcon</code>, <code>WhyIcon1</code>&ndash;<code>WhyIcon3</code></td></tr>
+              <tr><td><code>Navbar</code></td><td>Logo, section links, Login/Signup buttons, and the mobile drawer. Props: <code>variant</code> (<code>"inline"</code> or <code>"fixed"</code>), <code>showLinks</code></td></tr>
+              <tr><td><code>AnnouncementBar</code></td><td>Top promo strip. Props: <code>label</code>, <code>href</code>, <code>text</code></td></tr>
+              <tr><td><code>Hero</code></td><td>Headline, email capture form, and hero image with floating widgets</td></tr>
+              <tr><td><code>Benefits</code></td><td>Feature rows with charts, check lists, and productivity blocks</td></tr>
+              <tr><td><code>UseCases</code></td><td>Use-case points and the Individuals/Companies cards</td></tr>
+              <tr><td><code>MoreFeatures</code></td><td>Six-item feature grid</td></tr>
+              <tr><td><code>Integrations</code></td><td>Integrations block with retention statistics</td></tr>
+              <tr><td><code>WhyPaydesk</code></td><td>&ldquo;Why Paydesk?&rdquo; accordion with an illustration</td></tr>
+              <tr><td><code>Pricing</code></td><td>Three plans with a monthly/yearly tab switch</td></tr>
+              <tr><td><code>Faq</code></td><td>FAQ accordion and support link</td></tr>
+              <tr><td><code>Reviews</code></td><td>Testimonial cards plus the <code>LogoMarquee</code> of customer logos</td></tr>
+              <tr><td><code>Cta</code></td><td>Closing call-to-action with check list and email form</td></tr>
+              <tr><td><code>Footer</code></td><td>Address, social links, link columns, newsletter form, and copyright row</td></tr>
+              <tr><td><code>AuthForm</code></td><td>Split-screen form for <code>/login</code> and <code>/signup</code>. Prop: <code>mode</code> (<code>"login"</code> or <code>"signup"</code>)</td></tr>
+              <tr><td><code>SignupForm</code></td><td>Email capture form used in the hero and CTA. Prop: <code>id</code></td></tr>
+              <tr><td><code>TemplatePageHeader</code></td><td>Navbar plus page title block for the changelog and license pages. Props: <code>title</code>, <code>subtitle</code></td></tr>
+              <tr><td><code>Accordion</code>, <code>CheckList</code>, <code>AnimatedLink</code>, <code>LogoMarquee</code></td><td>Small shared building blocks used inside the sections above</td></tr>
+              <tr><td><code>icons/</code></td><td>Inline SVG icon components (social icons and the three &ldquo;Why Paydesk&rdquo; icons)</td></tr>
             </tbody>
           </table>
         </div>
 
         <h3 id="props">Props</h3>
-        <p>Props are the inputs a component accepts, similar to HTML attributes. Paydesk components are plain JavaScript: each one lists its props in a short comment at the top of the file and reads them from <code>Astro.props</code> with sensible defaults.</p>
+        <p>Props are the inputs a component accepts, similar to HTML attributes. Paydesk is plain JavaScript, so there are no TypeScript interfaces &mdash; instead, each component reads its props from <code>Astro.props</code> with default values, and documents them in a comment at the top of the file. For example, <code>CheckList</code>:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/AnnouncementBar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/CheckList.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
-<span class="c-key">const</span> {
-  label = <span class="c-string">'Announcement'</span>,
-  href = <span class="c-string">'/signup'</span>,
-  text = <span class="c-string">'Join Paydesk and receive 75% discount on checkout'</span>,
-} = Astro.props;
+<span class="c-comment">/**
+ * Check-mark bullet list.
+ *  items:        array of strings
+ *  class:        extra classes for the wrapper (e.g. "justify-space-between")
+ *  itemClass:    extra classes per item (e.g. "use-case-point")
+ *  checkClass:   extra classes for the check badge (e.g. "yellow")
+ */</span>
+<span class="c-key">const</span> { items = [], class: className, itemClass, checkClass } = Astro.props;
 <span class="c-comment">---</span></code></pre>
         </div>
-        <p>In plain language: all three props are optional. <code>&lt;AnnouncementBar /&gt;</code> renders the defaults above, while <code>&lt;AnnouncementBar text="Spring sale: 50% off" href="/#Pricing" /&gt;</code> overrides just the text and link. Other examples: <code>Navbar</code> takes <code>variant</code> (<code>"inline"</code> or <code>"fixed"</code>) and <code>showLinks</code>; <code>AuthForm</code> takes <code>mode</code> (<code>"login"</code> or <code>"signup"</code>); <code>AnimatedLink</code> takes <code>href</code> plus its link text as a slot.</p>
+        <p>In plain language: <code>items</code> is the list of strings to show, and defaults to an empty list if omitted; the three class props are optional and only add extra styling hooks. Because there is no type checking, a misspelled prop name is silently ignored &mdash; check the comment at the top of the component if something doesn&rsquo;t render as expected.</p>
 
         <h3 id="composition">Component Composition</h3>
-        <p>Larger sections are composed from smaller components rather than written as one long block of markup. The home page itself is just a stack of section components:</p>
+        <p>Larger sections are composed from smaller components rather than written as one long block of markup. The FAQ section, for example, passes its questions to the shared <code>Accordion</code> and drops an <code>AnimatedLink</code> into the accordion&rsquo;s slot:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/index.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;BaseLayout&gt;
-  &lt;Navbar variant=<span class="c-string">"fixed"</span> /&gt;
-  &lt;AnnouncementBar /&gt;
-  &lt;main&gt;
-    &lt;Hero /&gt;
-    &lt;Benefits /&gt;
-    &lt;UseCases /&gt;
-    &lt;MoreFeatures /&gt;
-    &lt;Integrations /&gt;
-    &lt;WhyPaydesk /&gt;
-    &lt;Pricing /&gt;
-    &lt;Faq /&gt;
-    &lt;Reviews /&gt;
-    &lt;Cta /&gt;
-  &lt;/main&gt;
-  &lt;Footer /&gt;
-&lt;/BaseLayout&gt;</code></pre>
-        </div>
-
-        <h3 id="passing-data">Passing Data to Components</h3>
-        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>. Paydesk&rsquo;s list components take arrays defined at the top of the parent component:</p>
-        <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-comment">---</span>
-<span class="c-key">import</span> Accordion <span class="c-key">from</span> <span class="c-string">'./Accordion.astro'</span>;
-
-<span class="c-key">const</span> text = <span class="c-string">'Managing subscriptions and recurring payments can be a daunting task. ...'</span>;
-<span class="c-key">const</span> faqs = [
-  { title: <span class="c-string">'Is there a free trial available?'</span>, text },
-  { title: <span class="c-string">'Can I change my plan later?'</span>, text },
-];
-<span class="c-comment">---</span>
-&lt;Accordion items={faqs} class=<span class="c-string">"faq-accordions"</span> id=<span class="c-string">"faq"</span>&gt;
-  <span class="c-comment">&lt;!-- optional slot content, rendered after the items --&gt;</span>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Faq.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code>&lt;Accordion items={faqs} class=<span class="c-string">"faq-accordions"</span> id=<span class="c-string">"faq"</span>&gt;
+  &lt;div class=<span class="c-string">"faq-contact-link-wrapper"</span>&gt;
+    &lt;div class=<span class="c-string">"body---variant-1 body-color"</span>&gt;Still have questions? Please connect with our&lt;/div&gt;
+    &lt;AnimatedLink href=<span class="c-string">"mailto:support@example.com"</span>&gt;Support Team&lt;/AnimatedLink&gt;
+  &lt;/div&gt;
 &lt;/Accordion&gt;</code></pre>
         </div>
 
+        <h3 id="passing-data">Passing Data to Components</h3>
+        <p>In Astro, props are passed the same way as HTML attributes and read via <code>Astro.props</code>:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-comment">---</span>
+<span class="c-key">import</span> AnnouncementBar <span class="c-key">from</span> <span class="c-string">'../components/AnnouncementBar.astro'</span>;
+<span class="c-comment">---</span>
+&lt;AnnouncementBar label=<span class="c-string">"New"</span> href=<span class="c-string">"/signup"</span> text=<span class="c-string">"Try Paydesk free for 30 days"</span> /&gt;</code></pre>
+        </div>
+
         <div class="callout info">
-          <span class="callout-title">No UI framework required</span>
-          <p>Paydesk uses Astro components only &mdash; no React/Vue islands or <code>client:</code> directives. Interactivity (mobile menu, pricing switch, accordions, logo marquee, scroll reveals) is handled by a small <code>&lt;script&gt;</code> block inside each component, using GSAP where animation is involved.</p>
+          <span class="callout-title">Interactivity without a UI framework</span>
+          <p>Paydesk uses no React or other framework. Interactive pieces &mdash; the mobile menu, accordions, pricing tabs, and scroll reveals &mdash; are handled by a <code>&lt;script&gt;</code> tag inside the relevant <code>.astro</code> component, using GSAP and the shared helpers in <code>src/scripts/</code>. Astro bundles these scripts automatically.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1149,44 +1154,33 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Where to change colors, type, and spacing without fighting the build.</p>
 
         <h3 id="global-styles">Global Styles &amp; CSS Variables</h3>
-        <p>Paydesk is styled with plain CSS &mdash; no Tailwind or Sass. <code>BaseLayout.astro</code> imports four global stylesheets from <code>src/styles/</code>, in this order:</p>
-        <div class="kv-table-wrap">
-          <table class="kv-table">
-            <thead><tr><th>File</th><th>Purpose</th></tr></thead>
-            <tbody>
-              <tr><td><code>normalize.css</code></td><td>Cross-browser reset</td></tr>
-              <tr><td><code>base-framework.css</code></td><td>Base layout/utility classes (containers, buttons, forms) the design was built on</td></tr>
-              <tr><td><code>paydesk.css</code></td><td>The theme: color tokens, typography classes, every section&rsquo;s styles, responsive rules and <code>@font-face</code> declarations</td></tr>
-              <tr><td><code>site.css</code></td><td>Behaviour styles for interactive pieces (mobile menu, accordions, tabs, scroll-reveal pre-states); loaded last so its rules win</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>The brand colors are defined once as CSS custom properties at the top of <code>paydesk.css</code>. Change a value here and it updates everywhere it&rsquo;s referenced:</p>
+        <p>Paydesk uses plain CSS &mdash; no Tailwind or Sass. The brand palette is defined once as CSS custom properties at the top of <code>src/styles/paydesk.css</code> and referenced throughout the stylesheet. Change a value here and it updates across the whole site:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/paydesk.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">:root</span> {
-  <span class="c-key">--heading</span>: <span class="c-string">#1c1e30</span>;
-  <span class="c-key">--body</span>: <span class="c-string">#494c65</span>;
+  <span class="c-key">--heading</span>: <span class="c-string">#1c1e30</span>;       <span class="c-comment">/* headings and dark text */</span>
+  <span class="c-key">--body</span>: <span class="c-string">#494c65</span>;          <span class="c-comment">/* body copy */</span>
   <span class="c-key">--white</span>: <span class="c-string">white</span>;
-  <span class="c-key">--green</span>: <span class="c-string">#01a66b</span>;
-  <span class="c-key">--blue-light</span>: <span class="c-string">#e6eeff</span>;
+  <span class="c-key">--green</span>: <span class="c-string">#01a66b</span>;         <span class="c-comment">/* primary brand / accent color */</span>
+  <span class="c-key">--blue-light</span>: <span class="c-string">#e6eeff</span>;    <span class="c-comment">/* soft section backgrounds */</span>
   <span class="c-key">--purple-light</span>: <span class="c-string">#f0e8fd</span>;
   <span class="c-key">--orange-light</span>: <span class="c-string">#fceeed</span>;
   <span class="c-key">--green-lite</span>: <span class="c-string">#e6f7f1</span>;
 }</code></pre>
         </div>
+        <p>The stylesheets are loaded in this order by <code>BaseLayout</code>, so later files win: <code>normalize.css</code> (browser reset) &rarr; <code>base-framework.css</code> (base layout and utility classes) &rarr; <code>paydesk.css</code> (all theme and section styles) &rarr; <code>site.css</code> (behaviour styles for the mobile menu, accordions, tabs, and scroll-reveal states). Most visual edits belong in <code>paydesk.css</code>.</p>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Paydesk&rsquo;s components don&rsquo;t use scoped styles &mdash; all styling lives in the global sheets above, so to restyle a section, search <code>paydesk.css</code> for the class names used in its component (e.g. <code>.pricing-section</code>). For new components of your own, Astro supports scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files.</p>
+        <p>Paydesk&rsquo;s components don&rsquo;t use scoped styles &mdash; all styling lives in the global stylesheets above and is applied through class names such as <code>pricing-section</code> or <code>btn bg-color-green</code>. If you add a new component, you can still use an Astro scoped <code>&lt;style&gt;</code> block &mdash; CSS written there only applies to that component, so class names never collide across files.</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style&gt;
-  .card { padding: <span class="c-key">var</span>(<span class="c-key">--space-md</span>); border-radius: 0.5rem; }
+  .card { color: <span class="c-key">var</span>(<span class="c-key">--heading</span>); border-radius: 0.5rem; }
 &lt;/style&gt;</code></pre>
         </div>
 
         <h3 id="responsive-typography">Responsive Design, Typography &amp; Spacing</h3>
-        <p>Responsive rules live in <code>paydesk.css</code> under four media queries: <code>max-width: 991px</code> (tablet), <code>767px</code> (large phone), <code>479px</code> (phone) and <code>min-width: 1280px</code> (wide screens). The type scale is a set of reusable classes in the same file &mdash; <code>.h1</code>&ndash;<code>.h6</code>, <code>.body-variant-2</code>, <code>.body-variant-3</code> and so on. Prefer adjusting these shared classes over overriding sizes on individual elements, so the site keeps a consistent rhythm as you edit it.</p>
+        <p>Responsive rules in <code>paydesk.css</code> use these breakpoints: <code>max-width: 991px</code> (tablet), <code>767px</code> (mobile landscape), <code>479px</code> (mobile portrait), and <code>min-width: 1280px</code> (large desktop). Type styles are reusable classes &mdash; <code>h1</code>&ndash;<code>h6</code>, <code>display-and-page-title</code>, <code>body</code>, and the <code>body-variant-*</code> classes &mdash; plus <code>body---variant-1</code> &mdash; so prefer editing those shared classes over overriding sizes on individual elements, and the site keeps a consistent rhythm as you edit it.</p>
 
         <div class="callout warning">
           <span class="callout-title">Avoid editing dist/</span>
@@ -1209,16 +1203,17 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
           <table class="kv-table">
             <thead><tr><th>Location</th><th>Use for</th><th>Behavior</th></tr></thead>
             <tbody>
-              <tr><td><code>src/assets/images/</code></td><td>Product artwork, screenshots and avatars (WebP/PNG) imported into components</td><td>Optimized, resized into responsive <code>srcset</code>s, and content-hashed automatically by the build</td></tr>
-              <tr><td><code>public/</code></td><td>Favicons, fonts, and the SVG logos/icons/illustrations in <code>public/images/</code> (referenced as <code>/images/Logo.svg</code> etc.)</td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>src/assets/images/</code></td><td>Photos, screenshots, and widgets (WebP/PNG) imported by components &mdash; e.g. <code>Hero-Image.webp</code>, <code>Form-Image.webp</code></td><td>Optimized, resized, and content-hashed automatically by the build</td></tr>
+              <tr><td><code>public/images/</code></td><td>SVG icons, logos (<code>Logo.svg</code>, <code>Logo-White.svg</code>), customer logos, and decorative backgrounds, referenced by URL such as <code>/images/Logo.svg</code></td><td>Copied as-is, no processing</td></tr>
+              <tr><td><code>public/</code></td><td><code>favicon.svg</code> and <code>favicon.ico</code></td><td>Copied as-is, no processing</td></tr>
             </tbody>
           </table>
         </div>
 
         <h3 id="replacing-images">Replacing Images</h3>
-        <p>Swap the file in place (keeping the same filename) or update the import/path to point at your new file. For example, the hero screenshot in <code>src/components/Hero.astro</code>:</p>
+        <p>Swap the file in place (keeping the same filename) or update the import/path to point at your new file. The hero image, for example, is imported at the top of <code>src/components/Hero.astro</code>:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> { Image } <span class="c-key">from</span> <span class="c-string">'astro:assets'</span>;
 <span class="c-key">import</span> heroImage <span class="c-key">from</span> <span class="c-string">'../assets/images/Hero-Image.webp'</span>;
@@ -1227,16 +1222,14 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
   src={heroImage}
   alt=<span class="c-string">"Paydesk dashboard showing invoices and payment activity"</span>
   widths={[500, 800, 1080, 1600, 2000]}
+  sizes=<span class="c-string">"(max-width: 479px) 87vw, ..., 1055px"</span>
   loading=<span class="c-string">"eager"</span>
 /&gt;</code></pre>
         </div>
+        <p>SVGs in <code>public/images/</code> are plain <code>&lt;img&gt;</code> tags &mdash; replace the file with one of the same name, or change the <code>src</code> (e.g. <code>/images/Logo.svg</code> in <code>Navbar.astro</code>). <code>Hero-Image.webp</code> is also the default social-share (Open Graph) image; see <a href="#seo">SEO</a>.</p>
 
         <h3 id="supported-formats">Supported Formats &amp; SVGs</h3>
-        <p>JPEG, PNG, WebP, AVIF, and GIF are supported through the optimized <code>Image</code> component. In Paydesk, most SVGs live in <code>public/images/</code> and are referenced as plain <code>&lt;img src="/images/&hellip;"&gt;</code> tags; the social and &ldquo;Why Paydesk&rdquo; icons are inline-SVG components in <code>src/components/icons/</code> so they can inherit color via <code>currentColor</code>.</p>
-        <div class="callout info">
-          <span class="callout-title">Social preview image</span>
-          <p><code>BaseLayout</code> uses <code>src/assets/images/Hero-Image.webp</code> as the default Open Graph image (converted to a 1200px PNG at build time). Pass a different import via the <code>ogImage</code> prop on any page &mdash; the login and signup pages pass <code>Form-Image.webp</code>.</p>
-        </div>
+        <p>JPEG, PNG, WebP, AVIF, and GIF are supported through the optimized <code>Image</code> component. In Paydesk, most SVGs are referenced as plain <code>&lt;img&gt;</code> sources from <code>public/images/</code>; icons that need to be styled with CSS (the social icons and &ldquo;Why Paydesk&rdquo; icons) are inline SVG components in <code>src/components/icons/</code>.</p>
 
         <h3 id="image-optimization">Image Optimization</h3>
         <p>Images imported from <code>src/assets/</code> are automatically resized and re-encoded at build time based on the <code>width</code>/<code>height</code> (or <code>densities</code>/<code>widths</code>) you specify &mdash; you generally don&rsquo;t need a separate compression step before adding an image to the project.</p>
@@ -1259,7 +1252,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Swapping typefaces and icon sets without touching every component.</p>
 
         <h3 id="google-fonts">Google Fonts</h3>
-        <p>Paydesk doesn&rsquo;t load any Google Fonts &mdash; all of its fonts are self-hosted (see below). If you&rsquo;d rather use a Google Font, add its <code>&lt;link&gt;</code> tags to the <code>&lt;head&gt;</code> in <code>BaseLayout.astro</code>, then update the <code>font-family</code> rules in <code>paydesk.css</code>:</p>
+        <p>Paydesk doesn&rsquo;t load anything from Google Fonts or any other font CDN &mdash; all fonts are self-hosted (see below), so the site makes no third-party font requests. If you want to switch to a Google Font, add its <code>&lt;link&gt;</code> tags to the <code>&lt;head&gt;</code> in <code>BaseLayout.astro</code> and update the <code>font-family</code> declarations in <code>paydesk.css</code>:</p>
         <div class="code-block" data-lang="html">
           <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;link rel=<span class="c-string">"preconnect"</span> href=<span class="c-string">"https://fonts.googleapis.com"</span>&gt;
@@ -1267,23 +1260,29 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="local-fonts">Local Fonts</h3>
-        <p>Paydesk uses <strong>Onest</strong> (Medium and Bold) and <strong>Satoshi</strong> (Medium). The font files live in <code>public/fonts/</code> and are declared with <code>@font-face</code> near the end of <code>src/styles/paydesk.css</code>:</p>
+        <p>Paydesk uses two typefaces: <strong>Onest</strong> (Medium and Bold) and <strong>Satoshi</strong> (Medium). The font files live in <code>public/fonts/</code> (<code>Onest-Medium.ttf</code>, <code>Onest-Bold.ttf</code>, <code>Satoshi-Medium.woff</code>) and are declared with <code>@font-face</code> at the bottom of <code>src/styles/paydesk.css</code>:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/paydesk.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">@font-face</span> {
-  font-family: <span class="c-string">'Satoshi Medium'</span>;
-  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/Satoshi-Medium.woff'</span>) format(<span class="c-string">'woff'</span>);
+  font-family: <span class="c-string">'Onest Medium'</span>;
+  src: <span class="c-key">url</span>(<span class="c-string">'/fonts/Onest-Medium.ttf'</span>) format(<span class="c-string">'truetype'</span>);
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }</code></pre>
         </div>
-        <p>To swap a typeface: add your font file to <code>public/fonts/</code>, point the matching <code>@font-face</code> rule at it, and update the <code>font-family</code> declarations that reference it in <code>paydesk.css</code> (e.g. find &amp; replace <code>Onest Medium</code>). <code>BaseLayout.astro</code> also preloads <code>Onest-Medium.ttf</code> and <code>Satoshi-Medium.woff</code> &mdash; update those two <code>&lt;link rel="preload"&gt;</code> tags to match your new files.</p>
+        <p>Each weight is registered as its own family name (<code>'Onest Medium'</code>, <code>'Onest Bold'</code>, <code>'Satoshi Medium'</code>), and the theme refers to those names directly in its <code>font-family</code> rules. To swap a typeface, replace the file in <code>public/fonts/</code>, update its <code>@font-face</code> rule, and update the matching <code>font-family</code> references in <code>paydesk.css</code>. <code>BaseLayout.astro</code> also preloads <code>Onest-Medium.ttf</code> and <code>Satoshi-Medium.woff</code> &mdash; update those <code>&lt;link rel="preload"&gt;</code> tags if you rename the files.</p>
 
         <h3 id="icon-libraries">Icon Libraries</h3>
-        <p>Paydesk doesn&rsquo;t depend on an icon library package. Icons come from three places: SVG files in <code>public/images/</code> (feature icons, check marks, logos, decorations) used as <code>&lt;img&gt;</code> tags; inline-SVG Astro components in <code>src/components/icons/</code> (Facebook, Instagram, Pinterest, X/Twitter, and the three &ldquo;Why Paydesk&rdquo; icons); and a tiny embedded <code>paydesk-icons</code> font in <code>base-framework.css</code> for its <code>w-icon-*</code> utility classes, which the components don&rsquo;t currently use.</p>
+        <p>Paydesk doesn&rsquo;t use an icon library package. Icons come from three places:</p>
+        <ul>
+          <li><strong>SVG files</strong> in <code>public/images/</code> (feature icons, check marks, arrows, star ratings), used as <code>&lt;img&gt;</code> tags.</li>
+          <li><strong>Inline SVG components</strong> in <code>src/components/icons/</code>: <code>FacebookIcon</code>, <code>InstagramIcon</code>, <code>PinterestIcon</code>, <code>TwitterIcon</code>, and <code>WhyIcon1</code>&ndash;<code>WhyIcon3</code>.</li>
+          <li>A tiny embedded icon font, <code>paydesk-icons</code>, defined at the top of <code>src/styles/base-framework.css</code> for a few framework UI glyphs.</li>
+        </ul>
 
         <h3 id="replacing-icons">Replacing &amp; Adding Icons</h3>
-        <p>To replace an image-based icon, overwrite the SVG in <code>public/images/</code> (keeping the filename) or change the path in the component&rsquo;s data array &mdash; e.g. the <code>icon</code> fields in <code>MoreFeatures.astro</code>. The inline icon components take no props: each is a single <code>&lt;svg&gt;</code> using <code>fill="currentColor"</code>, so they pick up the surrounding text color. To add one, create a new <code>.astro</code> file in <code>src/components/icons/</code> containing your <code>&lt;svg&gt;</code> markup and import it the way <code>Footer.astro</code> imports <code>FacebookIcon</code>.</p>
+        <p>To replace an image-based icon, overwrite the SVG in <code>public/images/</code> or point the component&rsquo;s <code>src</code> at a new file. To add an inline icon that can be colored with CSS, create a new <code>.astro</code> file in <code>src/components/icons/</code> containing the <code>&lt;svg&gt;</code> markup, then import it like any other component &mdash; the existing social icons in <code>Footer.astro</code> show the pattern.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#images-assets"><span class="pager-label">Previous</span><span class="pager-title">&larr; Images &amp; Assets</span></a>
@@ -1302,34 +1301,38 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         </div>
 
         <h3 id="edit-headings-text">Headings, Paragraphs &amp; Buttons</h3>
-        <p>For the home page, copy lives in the section components in <code>src/components/</code> (the Login, Signup, Changelog and License pages keep theirs in <code>src/pages/</code>). Locate the text between the tags and edit it directly &mdash; for example, in <code>Hero.astro</code>:</p>
+        <p>Home page text lives in the section components under <code>src/components/</code> (the page file itself only lists the sections). Open the component, locate the text between the tags, and edit it directly &mdash; for example, the hero headline in <code>Hero.astro</code>:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/Hero.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">&lt;!-- before --&gt;</span>
-&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Join with 5600+ User and grow your business online&lt;/p&gt;
 &lt;span class=<span class="c-string">"display-and-page-title"</span>&gt;Online Billing&lt;/span&gt;
+...
+&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Join with 5600+ User and grow your business online&lt;/p&gt;
 
 <span class="c-comment">&lt;!-- after --&gt;</span>
-&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Trusted by 10,000+ finance teams worldwide&lt;/p&gt;
-&lt;span class=<span class="c-string">"display-and-page-title"</span>&gt;Smart Invoicing&lt;/span&gt;</code></pre>
+&lt;span class=<span class="c-string">"display-and-page-title"</span>&gt;Smarter Invoicing&lt;/span&gt;
+...
+&lt;p class=<span class="c-string">"body-variant-3"</span>&gt;Trusted by 10,000+ freelancers and finance teams&lt;/p&gt;</code></pre>
         </div>
+        <p>The announcement strip text is a prop default in <code>AnnouncementBar.astro</code>, and the default page title and description are set in <code>BaseLayout.astro</code>.</p>
 
         <h3 id="edit-nav-footer">Navigation &amp; Footer</h3>
-        <p>Menu links are a <code>links</code> array at the top of <code>src/components/Navbar.astro</code>; footer columns, social links and template links are the <code>columns</code>, <code>socials</code> and <code>templateLinks</code> arrays at the top of <code>src/components/Footer.astro</code> &mdash; so you edit the label and URL once rather than hunting through every page. See <a href="#navigation">Navigation</a> for the full pattern.</p>
+        <p>Menu links are a <code>links</code> array at the top of <code>src/components/Navbar.astro</code>; footer link columns, social links, and the bottom &ldquo;template&rdquo; links are arrays at the top of <code>src/components/Footer.astro</code>. Edit the label and URL once there rather than hunting through every page. See <a href="#navigation">Navigation</a> for the full pattern.</p>
 
         <h3 id="edit-cards-testimonials">Cards, Testimonials &amp; Pricing</h3>
-        <p>Repeating content blocks are driven by a data array at the top of their component rather than hand-written per card, so adding or removing an item is a matter of editing the list. Reviews are in <code>Reviews.astro</code> (<code>reviews</code>), FAQs in <code>Faq.astro</code> (<code>faqs</code>), feature cards in <code>MoreFeatures.astro</code> (<code>features</code>), and pricing in <code>Pricing.astro</code>:</p>
+        <p>Repeating content blocks are driven by a data array at the top of each component rather than hand-written per card, so adding or removing an item is a matter of editing the list. Reviews live in <code>Reviews.astro</code>, pricing plans in <code>Pricing.astro</code>, FAQs in <code>Faq.astro</code>, and feature lists in <code>Benefits.astro</code>, <code>UseCases.astro</code>, <code>MoreFeatures.astro</code>, and <code>Cta.astro</code>:</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/components/Pricing.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> plans = [
   { name: <span class="c-string">'Starter'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 19, yearly: 59 },
-  { name: <span class="c-string">'Agency'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 59, yearly: 99, recommended: <span class="c-key">true</span> },
+  { name: <span class="c-string">'Agency'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 59, yearly: 99, recommended: true },
   { name: <span class="c-string">'Ultimate'</span>, caption: <span class="c-string">'For the professionals'</span>, monthly: 99, yearly: 199 },
 ];</code></pre>
         </div>
+        <p>Review avatars are imported images at the top of <code>Reviews.astro</code>; customer logos for the marquee are in the <code>logos</code> array in <code>LogoMarquee.astro</code>.</p>
 
         <h3 id="edit-blog-contact">Blog Content &amp; Contact Information</h3>
-        <p>Paydesk doesn&rsquo;t include a blog. Contact details live in <code>src/components/Footer.astro</code>: the placeholder company name and address in the <code>&lt;address&gt;</code> element, the copyright line, and the footer logo&rsquo;s <code>alt</code> text. The FAQ&rsquo;s &ldquo;Support Team&rdquo; link (<code>mailto:support@example.com</code>) is in <code>src/components/Faq.astro</code>, and the announcement text is a prop default in <code>src/components/AnnouncementBar.astro</code>. The Changelog entries are a <code>releases</code> array in <code>src/pages/changelog.astro</code>.</p>
+        <p>Paydesk doesn&rsquo;t include a blog. Contact details appear in a few places, each edited directly in its component: the company address, social links, and copyright line in <code>src/components/Footer.astro</code>, and the &ldquo;Support Team&rdquo; email link (<code>mailto:support@example.com</code>) in <code>src/components/Faq.astro</code>. The changelog entries are an array in <code>src/pages/changelog.astro</code>, and image/font credits are in <code>src/pages/license.astro</code>.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#fonts-icons"><span class="pager-label">Previous</span><span class="pager-title">&larr; Fonts &amp; Icons</span></a>
@@ -1344,7 +1347,7 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
         <p class="section-lede">Header, mobile menu, and footer links, in one predictable place.</p>
 
         <h3 id="header-nav">Header Navigation</h3>
-        <p>Primary nav links are a small array in <code>Navbar.astro</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. Each <code>id</code> is the <code>id</code> of a home page section: on the home page the link is <code>#Pricing</code>, on other pages it becomes <code>/#Pricing</code>. The Login and Signup buttons are separate, after the list.</p>
+        <p>Primary nav links are defined as a small array at the top of <code>src/components/Navbar.astro</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. Each <code>id</code> is the anchor of a home page section; on other pages the links automatically become <code>/#id</code> so they jump back to the home page:</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/components/Navbar.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">const</span> links = [
@@ -1355,12 +1358,13 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
   { id: <span class="c-string">'Reviews'</span>, label: <span class="c-string">'Reviews'</span> },
 ];</code></pre>
         </div>
+        <p>The Login and Signup buttons are written directly in the navbar markup. The navbar also highlights the link of the section currently in view (scroll-spy). On the home page a second, <code>variant="fixed"</code> copy of the navbar slides down once you start scrolling; the login and signup pages pass <code>showLinks={false}</code> to hide the section links.</p>
 
         <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The mobile menu is a vanilla <code>&lt;script&gt;</code> inside <code>src/components/Navbar.astro</code> (no React island). Below 991px the links collapse behind a menu button; the drawer slides in from the right with GSAP and closes on link click, overlay click, or <kbd>Esc</kbd>. The same script slides in the sticky <code>variant="fixed"</code> navbar once the home page is scrolled, and highlights the link for the section in view (scroll-spy). There are no dropdown menus.</p>
+        <p>Below 991px the links collapse into a drawer that slides in from the right. It&rsquo;s driven by a vanilla <code>&lt;script&gt;</code> (using GSAP) inside <code>src/components/Navbar.astro</code> &mdash; there is no React island. The drawer closes on link click, overlay click, or the <code>Escape</code> key, and the menu button keeps <code>aria-expanded</code> in sync. Paydesk has no dropdown menus.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
-        <p>Footer link groups follow the same data-driven pattern in <code>Footer.astro</code>: a <code>columns</code> array (&ldquo;Quick links&rdquo; to home page sections, and &ldquo;Products&rdquo; &mdash; whose links are <code>#</code> placeholders for you to point somewhere real), <code>templateLinks</code> (Changelog, License Info) and <code>socials</code>.</p>
+        <p>Footer link groups follow the same data-driven pattern in <code>src/components/Footer.astro</code>: a <code>columns</code> array (&ldquo;Quick links&rdquo; and &ldquo;Products&rdquo;), a <code>socials</code> array, and a <code>templateLinks</code> array for the Changelog and License Info links in the bottom row. The &ldquo;Products&rdquo; links point to <code>#</code> as placeholders &mdash; replace them with your own URLs.</p>
 
         <h3 id="internal-external-links">Internal vs. External Links</h3>
         <p>Internal links should be root-relative (<code>/about</code>, not the full domain) so they keep working across environments. External links should open safely in a new tab:</p>
@@ -1384,26 +1388,26 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
 
         <div class="callout warning">
           <span class="callout-title">Forms need somewhere to go</span>
-          <p>Every form in Paydesk is front-end only and is <strong>not</strong> wired to any service. Forms carry a <code>data-demo-form</code> attribute; <code>src/scripts/forms.js</code> intercepts their submit, hides the form and shows its &ldquo;Thank you&rdquo; message without sending data anywhere. To collect real submissions you need a backend endpoint or a third-party service.</p>
+          <p>Every form in Paydesk is front-end only: on submit it shows its &ldquo;Thank you!&rdquo; success message without sending data anywhere. No form service, email provider, or backend is wired up &mdash; you need to connect your own before going live.</p>
         </div>
 
-        <h3 id="contact-forms">Signup &amp; Login Forms</h3>
-        <p>Paydesk has no contact form. Its forms are: <code>SignupForm.astro</code> (email capture in the hero and the call-to-action section), <code>AuthForm.astro</code> (name + email on <code>/login</code> and <code>/signup</code>), and the newsletter form in <code>Footer.astro</code>. To make one submit for real, set its <code>action</code> to your endpoint and remove <code>data-demo-form</code>:</p>
-        <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><span class="code-filename">src/components/Footer.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-comment">&lt;!-- before: demo only --&gt;</span>
-&lt;form name=<span class="c-string">"newsletter-form"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"#"</span> class=<span class="c-string">"footer-form"</span> data-demo-form&gt;
+        <h3 id="contact-forms">Contact Forms</h3>
+        <p>Paydesk has no dedicated contact form. Its forms are the email signup form (<code>SignupForm.astro</code>, used in the hero and CTA), the login and signup forms (<code>AuthForm.astro</code>), and the footer newsletter form (<code>Footer.astro</code>). All of them use the same demo pattern: <code>action="#"</code> plus a <code>data-demo-form</code> attribute, which <code>src/scripts/forms.js</code> intercepts to show the success message instead of submitting:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/SignupForm.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-comment">&lt;!-- before: demo mode --&gt;</span>
+&lt;form name={<span class="c-string">`${id}-form`</span>} method=<span class="c-string">"post"</span> action=<span class="c-string">"#"</span> class=<span class="c-string">"form"</span> data-demo-form&gt;
 
-<span class="c-comment">&lt;!-- after: posts to your service --&gt;</span>
-&lt;form name=<span class="c-string">"newsletter-form"</span> method=<span class="c-string">"post"</span> action=<span class="c-string">"https://example.com/your-form-endpoint"</span> class=<span class="c-string">"footer-form"</span>&gt;</code></pre>
+<span class="c-comment">&lt;!-- after: submits to your endpoint --&gt;</span>
+&lt;form name={<span class="c-string">`${id}-form`</span>} method=<span class="c-string">"post"</span> action=<span class="c-string">"https://formspree.io/f/your-form-id"</span> class=<span class="c-string">"form"</span>&gt;</code></pre>
         </div>
-        <p>The &ldquo;Continue with Google&rdquo; button on the login/signup pages is a placeholder link (<code>href="#"</code>) &mdash; real authentication isn&rsquo;t included.</p>
+        <p>To connect a real backend, set each form&rsquo;s <code>action</code> to your endpoint (Formspree, Netlify Forms, an API route, &hellip;) and remove the <code>data-demo-form</code> attribute. The &ldquo;Continue with Google&rdquo; button on the login/signup pages is a placeholder link (<code>href="#"</code>) with no authentication behind it.</p>
 
         <h3 id="newsletter-forms">Newsletter Forms</h3>
-        <p>The footer&rsquo;s &ldquo;Subscribe Newsletter&rdquo; form isn&rsquo;t pre-wired for any email provider. To connect Mailchimp, ConvertKit or similar, copy the form <code>action</code> URL from your provider&rsquo;s embedded-form code, rename the input&rsquo;s <code>name</code> if the provider expects a specific field name, and remove <code>data-demo-form</code>.</p>
+        <p>The footer &ldquo;Subscribe Newsletter&rdquo; form in <code>src/components/Footer.astro</code> isn&rsquo;t pre-wired to any email provider. Point its <code>action</code> at your provider&rsquo;s form endpoint (e.g. a Mailchimp or ConvertKit embed URL) and remove <code>data-demo-form</code>; you may also need to rename the <code>email</code> input to match the field name your provider expects.</p>
 
         <h3 id="form-validation">Form Validation</h3>
-        <p>Required fields and email format are checked in the browser before submission using standard HTML attributes only (<code>required</code>, <code>type="email"</code>, <code>maxlength="256"</code>) &mdash; there&rsquo;s no custom validation script &mdash; giving users immediate feedback without a round trip to a server.</p>
+        <p>Required fields and email format are checked in the browser before submission using standard HTML attributes (<code>required</code>, <code>type="email"</code>, <code>maxlength="256"</code>), giving users immediate feedback without a round trip to a server. There is no custom validation script.</p>
 
         <h3 id="third-party-forms">Third-Party Form Services</h3>
         <p>If you&rsquo;d rather not run your own backend, services like Formspree, Getform, or Basin accept form submissions directly from static HTML and forward them to your email &mdash; typically a one-line change to the form&rsquo;s <code>action</code> attribute.</p>
@@ -1418,14 +1422,15 @@ src/pages/license.astro    <span class="c-comment">&rarr;  /license</span></code
       <section class="doc-section" id="api-data" aria-labelledby="api-data-h">
         <span class="section-eyebrow">13 &middot; Guide</span>
         <h2 id="api-data-h">API &amp; Data</h2>
-        <p class="section-lede">Paydesk fetches no external data &mdash; this section only matters if you add an API.</p>
+        <p class="section-lede">Only relevant if your template fetches data from an external source &mdash; skip this section otherwise.</p>
+
         <div class="callout info">
-          <span class="callout-title">No API out of the box</span>
-          <p>All content is static: it&rsquo;s written in the markup or in small arrays at the top of each component (see <a href="#content-editing">Content Editing</a>), and there are no <code>fetch</code> calls or environment variables. The examples below show the recommended pattern if you connect one.</p>
+          <span class="callout-title">Paydesk fetches no external data</span>
+          <p>Paydesk makes no API calls and uses no environment variables. All content &mdash; pricing, FAQs, reviews, features &mdash; is static data written in arrays at the top of each component and rendered to HTML at build time. The examples below are only a starting point if you decide to add an API yourself.</p>
         </div>
 
         <h3 id="api-configuration">API Configuration</h3>
-        <p>API URLs and keys are read from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coded, so the same code can point at a staging or production API depending on environment:</p>
+        <p>If you add an API, read its URLs and keys from environment variables (see <a href="#config-env">Configuration</a>) rather than hard-coding them, so the same code can point at a staging or production API depending on environment:</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>PUBLIC_API_URL=https://example.com/api
@@ -1446,21 +1451,7 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="data-structures">Data Structures</h3>
-        <p>The in-component arrays use these shapes &mdash; if you move content to an API or CMS, return the same fields so the components keep working unchanged:</p>
-        <div class="code-block" data-lang="javascript">
-          <div class="code-block-bar"><span class="code-lang">javascript</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code><span class="c-comment">// Pricing.astro → plans</span>
-{ name, caption, monthly, yearly, recommended? }
-
-<span class="c-comment">// Reviews.astro → reviews  (avatar is an imported image)</span>
-{ title, text, name, avatar }
-
-<span class="c-comment">// Accordion items (Faq.astro → faqs, WhyPaydesk.astro → items)</span>
-{ title, text, icon? }   <span class="c-comment">// icon: an Astro component</span>
-
-<span class="c-comment">// CheckList → items</span>
-[<span class="c-string">'Group Chat'</span>, <span class="c-string">'Quick Report'</span>, ...]   <span class="c-comment">// array of strings</span></code></pre>
-        </div>
+        <p>Paydesk&rsquo;s content data is plain JavaScript arrays of objects inside each component. If you replace one with API data, keep the same shape so the markup keeps working &mdash; for example, each entry in the <code>reviews</code> array in <code>Reviews.astro</code> has <code>title</code>, <code>text</code>, <code>name</code>, and <code>avatar</code> (an imported image), and each plan in <code>Pricing.astro</code> has <code>name</code>, <code>caption</code>, <code>monthly</code>, <code>yearly</code>, and an optional <code>recommended</code> flag.</p>
 
         <h3 id="error-handling">Error Handling</h3>
         <div class="code-block" data-lang="javascript">
@@ -1488,9 +1479,9 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <p class="section-lede">Per-page metadata, social previews, and the machine-readable files search engines expect.</p>
 
         <h3 id="page-title-meta">Page Title &amp; Meta Description</h3>
-        <p>Pass a unique <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results. The home page uses the layout&rsquo;s defaults; the other pages pass their own:</p>
+        <p>Pass a unique <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page &mdash; these drive both the browser tab and the snippet shown in search results. The home page uses the layout&rsquo;s defaults; the other pages set their own, for example:</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/login.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;BaseLayout
   title=<span class="c-string">"Login | Paydesk"</span>
   description=<span class="c-string">"Register an account to start your free trial"</span>
@@ -1499,21 +1490,22 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         </div>
 
         <h3 id="canonical-og-twitter">Canonical URL, Open Graph &amp; Twitter/X Cards</h3>
-        <p>Already set inside <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The Open Graph image is generated from the <code>ogImage</code> prop as a 1200px PNG:</p>
-        <div class="code-block" data-lang="html">
-          <div class="code-block-bar"><span class="code-lang">html</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>&lt;link rel=<span class="c-string">"canonical"</span> href={canonical} /&gt;
-&lt;meta property=<span class="c-string">"og:type"</span> content=<span class="c-string">"website"</span> /&gt;
+        <p>Set inside <code>BaseLayout.astro</code>&rsquo;s <code>&lt;head&gt;</code>, using the <code>site</code> value from <code>astro.config.mjs</code> to build absolute URLs. The social image is generated at build time from the page&rsquo;s <code>ogImage</code> prop (a 1200px-wide PNG), defaulting to <code>src/assets/images/Hero-Image.webp</code>:</p>
+        <div class="code-block" data-lang="astro">
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/BaseLayout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <pre><code><span class="c-key">const</span> canonical = <span class="c-key">new</span> URL(Astro.url.pathname, Astro.site);
+<span class="c-key">const</span> ogImage = <span class="c-key">await</span> getImage({ src: ogImageAsset, format: <span class="c-string">'png'</span>, width: 1200 });
+<span class="c-key">const</span> ogImageUrl = <span class="c-key">new</span> URL(ogImage.src, Astro.site);
+<span class="c-comment">---</span>
+&lt;link rel=<span class="c-string">"canonical"</span> href={canonical} /&gt;
 &lt;meta property=<span class="c-string">"og:title"</span> content={title} /&gt;
 &lt;meta property=<span class="c-string">"og:description"</span> content={description} /&gt;
-&lt;meta property=<span class="c-string">"og:url"</span> content={canonical} /&gt;
 &lt;meta property=<span class="c-string">"og:image"</span> content={ogImageUrl} /&gt;
-&lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;
-&lt;meta name=<span class="c-string">"twitter:image"</span> content={ogImageUrl} /&gt;</code></pre>
+&lt;meta name=<span class="c-string">"twitter:card"</span> content=<span class="c-string">"summary_large_image"</span> /&gt;</code></pre>
         </div>
 
         <h3 id="sitemap-robots">Sitemap &amp; Robots.txt</h3>
-        <p>Paydesk includes Astro&rsquo;s official sitemap integration (<code>@astrojs/sitemap</code>), which generates <code>sitemap-index.xml</code> at build time from the <code>site</code> value, and <code>BaseLayout</code> links to it. No <code>robots.txt</code> ships with the template &mdash; create <code>public/robots.txt</code> to control crawler access and point it at your sitemap:</p>
+        <p>Paydesk includes Astro&rsquo;s official sitemap integration (<code>@astrojs/sitemap</code>), which generates <code>sitemap-index.xml</code> automatically at build time from the <code>site</code> value, and <code>BaseLayout</code> links to it. No <code>robots.txt</code> ships with the template &mdash; to add one, create <code>public/robots.txt</code> pointing at your sitemap:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><span class="code-filename">public/robots.txt</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>User-agent: *
@@ -1522,7 +1514,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         </div>
 
         <h3 id="structured-data-semantic">Structured Data &amp; Semantic HTML</h3>
-        <p>Use landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse the page&rsquo;s structure. Paydesk&rsquo;s pages already follow this pattern. No JSON-LD is included, so add structured data to <code>BaseLayout</code>&rsquo;s <code>&lt;head&gt;</code> yourself for rich results (e.g. <code>Organization</code> or <code>Article</code> schema) where relevant to your content.</p>
+        <p>Paydesk already uses landmark elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>) and a single <code>&lt;h1&gt;</code> per page so both search engines and screen readers can parse each page&rsquo;s structure &mdash; keep that pattern when you add sections. No JSON-LD structured data is included; add it in <code>BaseLayout</code>&rsquo;s <code>&lt;head&gt;</code> for rich results (e.g. <code>Organization</code> or <code>SoftwareApplication</code> schema) where relevant to your product.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#api-data"><span class="pager-label">Previous</span><span class="pager-title">&larr; API &amp; Data</span></a>
@@ -1538,7 +1530,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="callout info">
           <span class="callout-title">Static vs. SSR &mdash; check this first</span>
-          <p>Paydesk is a fully static Astro build (no adapter): it produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. Only follow the SSR notes below if you later add an adapter for server-side rendering &mdash; using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
+          <p>Paydesk is a <strong>fully static</strong> Astro build: <code>npm run build</code> produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve, and no adapter is installed. An Astro site using server-side rendering (SSR via an adapter) would instead need a Node-capable host or the platform&rsquo;s matching adapter &mdash; only relevant if you later add SSR yourself. Using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
         </div>
 
         <h3 id="deploy-vercel">Vercel</h3>
@@ -1546,7 +1538,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
           <li>Push the project to a GitHub, GitLab, or Bitbucket repository.</li>
           <li>In Vercel, choose <strong>Add New &rarr; Project</strong> and import that repository.</li>
           <li>Build command: <code>npm run build</code> &middot; Output directory: <code>dist</code> (Astro static) &mdash; Vercel&rsquo;s Astro preset detects this automatically in most cases.</li>
-          <li>Paydesk needs no environment variables; if you&rsquo;ve added any in a <code>.env</code> file, set them under Project Settings &rarr; Environment Variables.</li>
+          <li>Paydesk needs no environment variables; if you&rsquo;ve added any to a <code>.env</code> file, set them under Project Settings &rarr; Environment Variables.</li>
           <li>Click <strong>Deploy</strong>.</li>
         </ol>
 
@@ -1557,7 +1549,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
   command = <span class="c-string">"npm run build"</span>
   publish = <span class="c-string">"dist"</span></code></pre>
         </div>
-        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add any environment variables you&rsquo;ve introduced under Site configuration &rarr; Environment variables, and deploy. (Paydesk doesn&rsquo;t ship a <code>netlify.toml</code>; create one with the contents above if you want the settings in code.)</p>
+        <p>Connect the repository in the Netlify dashboard, confirm these build settings, add environment variables under Site configuration &rarr; Environment variables, and deploy.</p>
 
         <h3 id="deploy-cloudflare">Cloudflare Pages</h3>
         <p>Connect the repository, set the build command to <code>npm run build</code> and the output directory to <code>dist</code>. For SSR Astro sites, use the official <code>@astrojs/cloudflare</code> adapter instead of the static preset.</p>
@@ -1566,7 +1558,7 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
         <p>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match your repository URL, then build and publish the <code>dist/</code> folder to the <code>gh-pages</code> branch (via the official <code>astro build</code> + a deploy action, or manually). GitHub Pages only serves static output &mdash; it cannot run an SSR adapter.</p>
 
         <h3 id="deploy-traditional">Traditional Hosting</h3>
-        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. If you later switch to an SSR build that needs a Node process, the host must support running <code>node</code> continuously (a VPS or a Node-compatible host) &mdash; plain shared hosting without Node support cannot run it.</p>
+        <p>Because Paydesk is static, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager &mdash; any plain shared host works. Only if you later switch to an SSR build would the host need to run <code>node</code> continuously (a VPS or a Node-compatible host).</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#seo"><span class="pager-label">Previous</span><span class="pager-title">&larr; SEO</span></a>
@@ -1582,25 +1574,25 @@ Sitemap: https://example.com/sitemap-index.xml</code></pre>
 
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
-          <pre><code>npm run build     <span class="c-comment"># render pages, bundle CSS/JS, optimize images, write dist/</span>
+          <pre><code>npm run build     <span class="c-comment"># render pages, bundle assets, and write dist/</span>
 npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it will run in production</span></code></pre>
         </div>
 
         <h3 id="build-output">Build Output</h3>
-        <p>The build writes static HTML for all five pages, hashed CSS/JS bundles, optimized responsive images and <code>sitemap-index.xml</code> to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; Paydesk&rsquo;s <code>.gitignore</code> already excludes it, and it isn&rsquo;t included in the downloaded package.</p>
+        <p>The build writes one static HTML file per route, hashed CSS/JS bundles (including GSAP), optimized responsive images, the social-share PNGs, and <code>sitemap-index.xml</code> to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; Paydesk&rsquo;s <code>.gitignore</code> already keeps it out of Git.</p>
 
         <h3 id="build-env-vars">Environment Variables in Production</h3>
-        <p>Paydesk itself needs none. If you add some, note that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
+        <p>Paydesk itself needs no environment variables. If you add some, remember that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
 
         <h3 id="production-checklist">Production Checklist</h3>
         <ul>
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
           <li>Run <code>npm run preview</code> and click through the main pages.</li>
           <li>Confirm the <code>site</code> URL in <code>astro.config.mjs</code> matches your real domain.</li>
-          <li>If you&rsquo;ve added environment variables, set each one in your hosting platform&rsquo;s dashboard.</li>
-          <li>Point each form&rsquo;s <code>action</code> at a real endpoint and remove <code>data-demo-form</code> (see <a href="#forms">Forms</a>).</li>
-          <li>Replace the placeholder address, copyright name and <code>#</code> &ldquo;Products&rdquo; links in <code>Footer.astro</code>, and the <code>support@example.com</code> link in <code>Faq.astro</code>.</li>
-          <li>Verify <code>public/favicon.svg</code>/<code>favicon.ico</code>, the default Open Graph image (<code>Hero-Image.webp</code>), and the <code>BaseLayout</code> default title/description are your own.</li>
+          <li>If you added environment variables, set each one in your hosting platform&rsquo;s dashboard.</li>
+          <li>Point every form&rsquo;s <code>action</code> at a real endpoint and remove <code>data-demo-form</code> (see <a href="#forms">Forms</a>).</li>
+          <li>Replace the placeholder address and social links in <code>Footer.astro</code>, the <code>support@example.com</code> link in <code>Faq.astro</code>, and the <code>#</code> &ldquo;Products&rdquo; footer links.</li>
+          <li>Verify favicon, Open Graph image, and meta descriptions are your own, not the template defaults.</li>
         </ul>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1627,38 +1619,43 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </div>
         <div class="trouble-item">
           <h4>Module not found</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency, or a typo or wrong relative depth in an import path (Paydesk uses relative imports only &mdash; no path aliases).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the import path casing matches the file exactly (e.g. <code>Hero-Image.webp</code>, not <code>hero-image.webp</code> &mdash; case matters on Linux hosts); count the <code>../</code> segments from the importing file.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A missing dependency (such as <code>gsap</code>), or a typo or wrong relative depth in an import path. Paydesk uses relative imports only &mdash; no path aliases are configured.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-run <code>npm install</code>; check the import path casing matches the file exactly (e.g. <code>Hero-Image.webp</code>, not <code>hero-image.webp</code> &mdash; case matters on Linux hosts); count the <code>../</code> segments relative to the importing file.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Images not loading</h4>
           <dl class="trouble-row"><dt>Cause</dt><dd>An incorrect relative path, or an image placed in <code>src/assets/</code> but referenced with a <code>public/</code>-style absolute path (or vice versa).</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; imported assets need an <code>import</code> statement; <code>public/</code> files need a root-relative URL like <code>/images/Logo.svg</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Review <a href="#images-assets">Images &amp; Assets</a> &mdash; imported assets need an <code>import</code> statement; <code>public/</code> files need a root-relative URL like <code>/logo.svg</code>.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Styles not loading</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>A stylesheet import was removed from the layout, or a new page doesn&rsquo;t render inside <code>BaseLayout</code>.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Confirm <code>BaseLayout.astro</code> still imports <code>normalize.css</code>, <code>base-framework.css</code>, <code>paydesk.css</code> and <code>site.css</code> in that order, and that your page wraps its content in <code>&lt;BaseLayout&gt;</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>A new page doesn&rsquo;t render inside <code>BaseLayout</code> (which imports all four stylesheets), the stylesheet order was changed, or a class name was mistyped.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Wrap the page in <code>&lt;BaseLayout&gt;</code>; keep the imports in <code>BaseLayout.astro</code> in their original order (<code>normalize</code> &rarr; <code>base-framework</code> &rarr; <code>paydesk</code> &rarr; <code>site</code>); check the class exists in <code>paydesk.css</code>.</dd></dl>
         </div>
         <div class="trouble-item">
-          <h4>Sections stay invisible or don&rsquo;t animate</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Elements with <code>data-reveal</code> start hidden until GSAP animates them in. A new section that uses <code>data-reveal</code> but never calls <code>initReveals()</code> from <code>src/scripts/reveal.js</code> won&rsquo;t animate; a 3-second safety net in <code>BaseLayout</code> then simply reveals everything.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Add a <code>&lt;script&gt;</code> to your component that imports <code>initReveals</code> and calls it for your section, as <code>Benefits.astro</code> does. If nothing animates at all, check whether your OS has &ldquo;reduce motion&rdquo; enabled &mdash; Paydesk deliberately skips animations then.</dd></dl>
+          <h4>A prop or content change has no effect</h4>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Paydesk is plain JavaScript with no type checking, so a misspelled prop name (e.g. <code>showlinks</code> instead of <code>showLinks</code>) or a misspelled field in a data array is silently ignored.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Compare against the prop list in the comment at the top of the component (see <a href="#props">Props</a>) or against the other entries in the same data array, and fix the spelling.</dd></dl>
+        </div>
+        <div class="trouble-item">
+          <h4>Animations don&rsquo;t play, or content stays hidden</h4>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Animations are switched off by the operating system&rsquo;s &ldquo;reduce motion&rdquo; setting (by design), or a new <code>data-reveal</code> element is in a section whose script never calls <code>initReveals()</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Check your OS motion setting; for new sections, import <code>initReveals</code> from <code>src/scripts/reveal.js</code> in the component&rsquo;s <code>&lt;script&gt;</code> and call it on the section element, as <code>Hero.astro</code> does.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Build fails (but dev server works)</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server only renders the page you&rsquo;re viewing, while <code>build</code> renders every page and processes every imported image &mdash; a missing image file or a broken import on another page only shows up at build time.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>The dev server is more forgiving than <code>build</code>, which renders and bundles every page and processes every imported image &mdash; an issue tolerated in dev (such as a missing image file) can fail the build.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Read the full terminal output for the first error (later errors are often side effects of it); fix issues top to bottom and re-run.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Environment variables not working</h4>
-          <dl class="trouble-row"><dt>Cause</dt><dd>Only applies if you&rsquo;ve added variables (Paydesk uses none by default): missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
+          <dl class="trouble-row"><dt>Cause</dt><dd>Only relevant if you&rsquo;ve added your own variables: missing the <code>PUBLIC_</code> prefix for a client-side value, or the dev server wasn&rsquo;t restarted after editing <code>.env</code>.</dd></dl>
           <dl class="trouble-row"><dt>Solution</dt><dd>Rename the variable with the <code>PUBLIC_</code> prefix if it&rsquo;s used in browser code, then stop and restart <code>npm run dev</code> &mdash; env changes aren&rsquo;t hot-reloaded.</dd></dl>
         </div>
         <div class="trouble-item">
           <h4>Deployment problems</h4>
           <dl class="trouble-row"><dt>Cause</dt><dd>Wrong output directory configured on the host, or environment variables set locally but not in the platform&rsquo;s dashboard.</dd></dl>
-          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command and output folder against <a href="#deployment">Deployment</a> for your platform, and confirm every variable from <code>.env</code> is duplicated there.</dd></dl>
+          <dl class="trouble-row"><dt>Solution</dt><dd>Re-check the build command (<code>npm run build</code>) and output folder (<code>dist</code>) against <a href="#deployment">Deployment</a> for your platform, confirm the host uses Node 22.12 or later, and duplicate any variables from <code>.env</code> there. If canonical or social-image URLs point at <code>example.com</code>, update <code>site</code> in <code>astro.config.mjs</code>.</dd></dl>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -1679,19 +1676,19 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Which Node.js version should I use?</summary>
-          <p>Node 22.12.0 or later, as required by Astro 7 &mdash; see <a href="#requirements">Requirements</a>. The current Node 22+ LTS release is a safe default.</p>
+          <p>Node 22.12.0 or later &mdash; see <a href="#requirements">Requirements</a>. This is the minimum set in <code>package.json</code> and required by Astro 7.</p>
         </details>
         <details class="faq-item">
           <summary>Can I use JavaScript instead of TypeScript?</summary>
-          <p>Paydesk already uses plain JavaScript &mdash; no TypeScript is required. If you&rsquo;d like type checking, you can add a <code>tsconfig.json</code> (extending <code>astro/tsconfigs/strict</code>) in place of <code>jsconfig.json</code> and rename <code>.js</code> files to <code>.ts</code> as you go.</p>
+          <p>Paydesk is already plain JavaScript &mdash; there are no <code>.ts</code> files and no TypeScript knowledge is needed. If you&rsquo;d like type checking, Astro supports adding TypeScript to <code>.astro</code> files at any time; rename <code>jsconfig.json</code> to <code>tsconfig.json</code> to get started.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change colors?</summary>
-          <p>Update the CSS custom properties in <code>:root</code> at the top of <code>src/styles/paydesk.css</code> &mdash; see <a href="#global-styles">Styling</a>.</p>
+          <p>Update the CSS custom properties in <code>:root</code> at the top of <code>src/styles/paydesk.css</code> &mdash; the brand green is <code>--green</code> &mdash; see <a href="#global-styles">Styling</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change fonts?</summary>
-          <p>Add the new font file to <code>public/fonts/</code>, update the <code>@font-face</code> rules and <code>font-family</code> declarations in <code>paydesk.css</code>, and the font preloads in <code>BaseLayout.astro</code> &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
+          <p>Replace the files in <code>public/fonts/</code>, update the <code>@font-face</code> rules and <code>font-family</code> references in <code>paydesk.css</code>, and the preload tags in <code>BaseLayout.astro</code> &mdash; see <a href="#fonts-icons">Fonts &amp; Icons</a>.</p>
         </details>
         <details class="faq-item">
           <summary>How do I replace images?</summary>
@@ -1703,11 +1700,11 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>How do I deploy the template?</summary>
-          <p>Platform-specific steps for Vercel, Netlify, Cloudflare Pages, GitHub Pages, and traditional hosts are in <a href="#deployment">Deployment</a>.</p>
+          <p>Paydesk builds to a static site, so it runs on any static host. Platform-specific steps for Vercel, Netlify, Cloudflare Pages, GitHub Pages, and traditional hosts are in <a href="#deployment">Deployment</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Can I use the template commercially?</summary>
-          <p>[State your license terms here &mdash; e.g. standard vs. extended license &mdash; and link to the full license text.] The template&rsquo;s <code>/license</code> page lists the licenses for the bundled images (Unsplash, Pexels) and fonts (Onest, Satoshi).</p>
+          <p>Yes. Paydesk is sold under a commercial license from RNN studio that lets you build an unlimited number of websites, for yourself or for clients, including commercial ones, and modify the template freely. You may not resell, redistribute, or publicly share the template itself (including in a public GitHub repository). The full terms are in the <code>LICENSE</code> file in the project root. Images, fonts, and npm packages keep their own licenses &mdash; see the template&rsquo;s <code>/license</code> page.</p>
         </details>
         <details class="faq-item">
           <summary>Where can I get support?</summary>
@@ -1727,9 +1724,9 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <p class="section-lede">Every notable change, newest first. Add a new entry above the last one for each release.</p>
 
         <div class="changelog-entry">
-          <span class="changelog-version">Version 0.0.1</span>
+          <span class="changelog-version">Version 0.0.1</span><span class="changelog-date">[Release date]</span>
           <ul>
-            <li><span class="tag-added">Added</span>Initial release of the Paydesk Astro template.</li>
+            <li><span class="tag-added">Added</span>Initial release of the Paydesk Astro template: home, login, signup, changelog, and license pages, GSAP scroll animations, monthly/yearly pricing switch, and automatic sitemap.</li>
           </ul>
         </div>
 

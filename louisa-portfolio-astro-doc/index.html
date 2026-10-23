@@ -865,6 +865,7 @@ npm run preview</code></pre>
 ├── astro.config.mjs      <span class="cmt"># Site URL and the sitemap integration</span>
 ├── package.json          <span class="cmt"># Scripts and dependencies</span>
 ├── tsconfig.json         <span class="cmt"># Astro&rsquo;s base preset, for editor support only</span>
+├── LICENSE               <span class="cmt"># Commercial license terms</span>
 └── README.md</div>
 
         <div class="kv-table-wrap">
@@ -875,7 +876,7 @@ npm run preview</code></pre>
               <tr><td><code>src/components/</code></td><td>Shared UI (<code>Navbar</code>, <code>SmartNavbar</code>, <code>Footer</code>, <code>AnimatedLink</code>, <code>CtaLink</code>, <code>ContactLinks</code>, <code>ProfileComponent</code>) at the top level, and page sections grouped into <code>about/</code>, <code>contact/</code>, <code>home/</code> and <code>project/</code>.</td></tr>
               <tr><td><code>src/layouts/</code></td><td><code>BaseLayout.astro</code> defines the common page shell &mdash; stylesheets, <code>&lt;head&gt;</code> and SEO tags, the hide-on-scroll navbar and the footer &mdash; so individual pages only supply their unique content.</td></tr>
               <tr><td><code>src/pages/</code></td><td>Every file here becomes a route automatically. See <a href="#pages">Pages</a> for details.</td></tr>
-              <tr><td><code>src/scripts/</code></td><td><code>animation.js</code> registers GSAP and ScrollTrigger and exports shared helpers; <code>interactions.js</code> runs the site-wide scroll reveals and link hover effects; <code>nav.js</code> works out the current page for nav links.</td></tr>
+              <tr><td><code>src/scripts/</code></td><td><code>animation.js</code> registers GSAP and ScrollTrigger and exports shared helpers; <code>interactions.js</code> runs the site-wide scroll reveals and link hover effects; <code>nav.js</code> works out the current page for nav links; <code>arrowLink.js</code> drives the round-arrow hover on the project Prev/Next and &ldquo;Back to all work&rdquo; links.</td></tr>
               <tr><td><code>src/styles/</code></td><td>Four plain-CSS stylesheets &mdash; <code>normalize.css</code>, <code>base-framework.css</code>, <code>global.css</code> (the template&rsquo;s styles and design tokens) and <code>motion.css</code>. See <a href="#styling">Styling</a>.</td></tr>
               <tr><td><code>src/data/</code></td><td><code>site.js</code> (name, contact details, default SEO text, nav and social links) and <code>projects.js</code> (the project collection), kept separate from markup so they&rsquo;re easy to edit without touching Astro templates.</td></tr>
             </tbody>
@@ -884,7 +885,7 @@ npm run preview</code></pre>
 
         <div class="callout">
           <span class="callout-title">Files not shown above</span>
-          <p><code>package-lock.json</code> (npm lockfile), <code>.gitignore</code>, and <code>.vscode/</code> (recommended Astro extension and a launch config). Generated folders &mdash; <code>node_modules/</code>, <code>.astro/</code> and <code>dist/</code> &mdash; appear after you install and build, and are ignored by Git.</p>
+          <p><code>LICENSE</code> (the commercial license), <code>package-lock.json</code> (npm lockfile), <code>.gitignore</code>, and <code>.vscode/</code> (recommended Astro extension and a launch config). Generated folders &mdash; <code>node_modules/</code>, <code>.astro/</code> and <code>dist/</code> &mdash; appear after you install and build, and are ignored by Git.</p>
         </div>
 
         <nav class="pager" aria-label="Section pagination">
@@ -985,7 +986,7 @@ src/pages/contact.astro        <span class="c-comment">&rarr;  /contact</span>
 src/pages/project/[slug].astro <span class="c-comment">&rarr;  /project/:slug  (one page per project)</span>
 src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unmatched URL</span></code></pre>
         </div>
-        <p>To add a page, create a new file in <code>src/pages/</code> using an existing, similar page as a starting point. The Home, Contact and Project pages also render <code>&lt;Navbar /&gt;</code>, the large static header shown on desktop:</p>
+        <p>To add a page, create a new file in <code>src/pages/</code> using an existing, similar page as a starting point. The Home and Contact pages also render <code>&lt;Navbar /&gt;</code>, the large static header shown on desktop (project pages use <code>&lt;ProjectNavbar /&gt;</code> instead):</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/pages/services.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1036,11 +1037,12 @@ src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unm
   image = site.ogImage,      <span class="c-comment">// Open Graph / Twitter image</span>
   showFooter = <span class="c-key">true</span>,
   showSmartNav = <span class="c-key">true</span>,
+  bodyClass,                 <span class="c-comment">// e.g. "dark-body" on project pages</span>
 } = Astro.props;
 <span class="c-comment">---</span>
 &lt;html lang=<span class="c-string">"en"</span>&gt;
   &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt; &hellip;&lt;/head&gt;
-  &lt;body&gt;
+  &lt;body class={bodyClass}&gt;
     {showSmartNav &amp;&amp; &lt;SmartNavbar /&gt;}
     &lt;slot /&gt; <span class="c-comment">&lt;!-- page content is injected here --&gt;</span>
     {showFooter &amp;&amp; &lt;Footer /&gt;}
@@ -1049,7 +1051,7 @@ src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unm
         </div>
 
         <h3 id="page-metadata">Page Metadata &amp; the 404 Page</h3>
-        <p>Pass a <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>); the Home page uses the defaults from <code>site.js</code>. <code>src/pages/404.astro</code> is served automatically whenever no route matches &mdash; it passes <code>showFooter={false}</code> and <code>showSmartNav={false}</code> for a clean, centred error page.</p>
+        <p>Pass a <code>title</code> and <code>description</code> into <code>BaseLayout</code> on every page for correct browser tabs and search results (see also <a href="#seo">SEO</a>); the Home page uses the defaults from <code>site.js</code>. <code>src/pages/404.astro</code> is served automatically whenever no route matches &mdash; it passes <code>showFooter={false}</code> and <code>showSmartNav={false}</code> for a clean, centred error page. Project pages pass <code>bodyClass="dark-body"</code>, which switches the page to the dark background and keeps the mobile header&rsquo;s logo and menu light until you scroll.</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#configuration"><span class="pager-label">Previous</span><span class="pager-title">&larr; Configuration</span></a>
@@ -1070,16 +1072,16 @@ src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unm
             <thead><tr><th>Component</th><th>Purpose</th></tr></thead>
             <tbody>
               <tr><td><code>Navbar.astro</code></td><td>Large static header with the name and nav links (desktop only; hidden at &le;991px)</td></tr>
-              <tr><td><code>SmartNavbar.astro</code></td><td>Hide-on-scroll header with the slide-in menu, on every page via <code>BaseLayout</code></td></tr>
+              <tr><td><code>SmartNavbar.astro</code></td><td>Hide-on-scroll header with the slide-in menu, on every page except the 404 via <code>BaseLayout</code></td></tr>
               <tr><td><code>Footer.astro</code></td><td>Socials, contact links, &ldquo;Get in touch&rdquo; button, name, copyright and Work/About links</td></tr>
               <tr><td><code>AnimatedLink.astro</code></td><td>A link with the hover underline that sweeps in and out</td></tr>
               <tr><td><code>CtaLink.astro</code></td><td>&ldquo;Browse all work&rdquo;-style link: a dot that grows into an arrow button on hover</td></tr>
-              <tr><td><code>ContactLinks.astro</code></td><td>Phone and email links from <code>site.js</code>, in a dark or white variant</td></tr>
+              <tr><td><code>ContactLinks.astro</code></td><td>Phone and email links from <code>site.js</code>, in a <code>white</code> (menu, footer), <code>dark</code> (header) or <code>lite</code> (dark project-page header) variant</td></tr>
               <tr><td><code>ProfileComponent.astro</code></td><td>Portrait with the social icon links, used in the Home, About and Contact heroes</td></tr>
               <tr><td><code>home/</code></td><td><code>HomeHero</code>, <code>SelectedWork</code> (the project grid), <code>Testimonials</code></td></tr>
               <tr><td><code>about/</code></td><td><code>AboutHero</code>, <code>Services</code>, <code>Approach</code> (marquee), <code>Cta</code></td></tr>
               <tr><td><code>contact/</code></td><td><code>ContactSection</code> (the contact form)</td></tr>
-              <tr><td><code>project/</code></td><td><code>LiveSiteLink</code> (magnetic &ldquo;Live site&rdquo; button), <code>ProjectNav</code> (prev/next links)</td></tr>
+              <tr><td><code>project/</code></td><td><code>ProjectNavbar</code> (desktop header with &ldquo;Back to all work&rdquo; and light nav links), <code>LiveSiteLink</code> (magnetic &ldquo;Live site&rdquo; button), <code>ProjectNav</code> (prev/next links)</td></tr>
             </tbody>
           </table>
         </div>
@@ -1156,9 +1158,13 @@ src/pages/404.astro            <span class="c-comment">&rarr;  shown for any unm
         <h3 id="component-styles">Component Styles</h3>
         <p>Most styling lives in <code>global.css</code>, but Astro components also support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. Louisa uses them for small, component-only tweaks (for example the slider arrows in <code>Testimonials.astro</code>).</p>
         <div class="code-block" data-lang="astro">
-          <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
+          <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/home/Testimonials.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style&gt;
-  .card { padding: <span class="c-key">var</span>(<span class="c-key">--space-md</span>); border-radius: 0.5rem; }
+  .slider-arrow-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 &lt;/style&gt;</code></pre>
         </div>
 
@@ -1343,7 +1349,7 @@ email: { label: <span class="c-string">'hell@site.com'</span>, href: <span class
         <p class="section-lede">Header, mobile menu, and footer links, in one predictable place.</p>
 
         <h3 id="header-nav">Header Navigation</h3>
-        <p>Primary nav links are a small array in <code>src/data/site.js</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. Both the desktop <code>Navbar</code> and the <code>SmartNavbar</code> menu read it, and the link for the current page is marked automatically:</p>
+        <p>Primary nav links are a small array in <code>src/data/site.js</code>, so adding, removing, or reordering a link doesn&rsquo;t require touching markup. The desktop <code>Navbar</code>, the project pages&rsquo; <code>ProjectNavbar</code> and the <code>SmartNavbar</code> menu all read it, and the link for the current page is marked automatically:</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/data/site.js</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">export const</span> navLinks = [
@@ -1355,7 +1361,7 @@ email: { label: <span class="c-string">'hell@site.com'</span>, href: <span class
         </div>
 
         <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The menu is <code>src/components/SmartNavbar.astro</code>: a vanilla <code>&lt;script&gt;</code> inside the component, animated with GSAP. On desktop it stays hidden at the top of the page, slides down when you scroll up and away when you scroll down; at 991px and below it&rsquo;s always visible, and its white bar fades in as soon as the page scrolls. The &ldquo;Menu&rdquo; button opens a full-height panel with the nav links and contact details, sets <code>aria-expanded</code>, moves focus into the menu and closes on Escape. The large static <code>Navbar.astro</code> header appears at the top of the Home, Contact and Project pages on desktop only. There are no dropdown menus.</p>
+        <p>The menu is <code>src/components/SmartNavbar.astro</code>: a vanilla <code>&lt;script&gt;</code> inside the component, animated with GSAP. On desktop it stays hidden at the top of the page, slides down when you scroll up and away when you scroll down; at 991px and below it&rsquo;s always visible, and its white bar fades in as soon as the page scrolls (on the dark project pages the logo and menu stay light until then). The &ldquo;Menu&rdquo; button opens a full-height panel with the nav links and contact details, sets <code>aria-expanded</code>, moves focus into the menu and closes on Escape. On desktop, the large static <code>Navbar.astro</code> header appears at the top of the Home and Contact pages, and project pages use <code>src/components/project/ProjectNavbar.astro</code> &mdash; a &ldquo;Back to all work&rdquo; link plus light contact and nav links, reading the same <code>navLinks</code>. There are no dropdown menus.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
         <p>The footer (<code>src/components/Footer.astro</code>) reuses <code>socialLinks</code> and the phone/email from <code>site.js</code>, links the &ldquo;Get in touch&rdquo; button to <code>/contact</code>, and has two links in its bottom row &mdash; Work (<code>/#work</code>) and About (<code>/about</code>) &mdash; written directly in the component.</p>
@@ -1689,7 +1695,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Can I use the template commercially?</summary>
-          <p>The demo photos come from Unsplash and Pexels, Plus Jakarta Sans is from Google Fonts, and General Sans is from Fontshare. Replace the placeholder content with your own work before publishing. [State your license terms here &mdash; e.g. standard vs. extended license &mdash; and link to the full license text.]</p>
+          <p>The demo photos come from Unsplash and Pexels, Plus Jakarta Sans is from Google Fonts, and General Sans is from Fontshare. Yes. The commercial license in the <code>LICENSE</code> file lets you build an unlimited number of websites with Louisa, for yourself or for clients (including commercial sites), modify it freely, charge clients for your work, and hand finished sites over to them. You may not resell, redistribute or give away the template itself (or a modified version) as a template, theme or starter, list it on a marketplace or public repository, or share your license or download link. The demo photos come from Unsplash and Pexels, Plus Jakarta Sans is from Google Fonts, and General Sans is from Fontshare &mdash; these are covered by their own licenses, so replace the placeholder content with your own work before publishing. See <code>LICENSE</code> for the full terms.</p>
         </details>
         <details class="faq-item">
           <summary>Where can I get support?</summary>
@@ -1709,7 +1715,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <p class="section-lede">Every notable change, newest first. Add a new entry above the last one for each release.</p>
 
         <div class="changelog-entry">
-          <span class="changelog-version">Version 1.0.0</span>
+          <span class="changelog-version">Version 1.0.0</span><span class="changelog-date">[Release date]</span>
           <ul>
             <li><span class="tag-added">Added</span>Initial release: Home, About, Contact, Project detail and 404 pages, the project collection, GSAP motion and the Swiper testimonials slider.</li>
           </ul>
@@ -1810,7 +1816,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
     companyName: "RNN Studio",
     supportUrl: "https://rnnstudio.com/contact",
     supportEmail: "hello@rnnstudio.com",
-    githubUrl: "https://github.com/krunalprogrammer/louisa-portfolio-astro"
+    githubUrl: "#"
   };
 
   /* ---- Apply DOC_CONFIG to the DOM ---- */
