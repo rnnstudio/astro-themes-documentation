@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support Desk — Documentation</title>
+<title>Techwave — Documentation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -612,7 +612,7 @@
   </button>
   <a href="#top" class="header-brand" id="brand-link">
     <span class="header-brand-text">
-      <span id="brand-name">Support Desk Astro Documentation</span>
+      <span id="brand-name">Techwave Astro Documentation</span>
     </span>
   </a>
   <button class="search-trigger" id="search-trigger" aria-label="Search documentation">
@@ -676,7 +676,7 @@
   <!-- ============================= CONTENT ============================= -->
   <div class="content-wrap">
     <main id="main-content">
-      <h1 class="visually-hidden" id="top">Support Desk Documentation</h1>
+      <h1 class="visually-hidden" id="top">Techwave Documentation</h1>
 
       <!-- ======================= 01 INTRODUCTION ======================= -->
       <section class="doc-section" id="introduction" aria-labelledby="introduction-h">
@@ -685,7 +685,7 @@
         <p class="section-lede">Everything you need to know before you open your editor &mdash; what&rsquo;s in the box, what it&rsquo;s built with, and what it expects from your machine.</p>
 
         <h3 id="welcome">Welcome</h3>
-        <p>Thanks for picking up <strong id="welcome-product-name">Support Desk</strong>, a multi-page Astro theme for IT service companies, help desks, and SaaS support teams. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
+        <p>Thanks for picking up <strong id="welcome-product-name">Techwave</strong>, a multi-page Astro theme for IT service companies, help desks, and SaaS support teams. This guide walks through installing the template, understanding how the project is organized, customizing content and styling, and shipping it to production. It&rsquo;s written for developers who are comfortable with the command line but new to this specific codebase &mdash; if you already know Astro well, feel free to skip ahead using the sidebar.</p>
 
         <h3 id="whats-included">What&rsquo;s Included</h3>
         <div class="card-grid">
@@ -720,7 +720,7 @@
         </ul>
 
         <h3 id="tech-stack">Technology Stack</h3>
-        <p>Support Desk is built with <code>.astro</code> components, plain CSS, and vanilla JavaScript &mdash; no UI framework, no CSS framework, and no TypeScript source files.</p>
+        <p>Techwave is built with <code>.astro</code> components, plain CSS, and vanilla JavaScript &mdash; no UI framework, no CSS framework, and no TypeScript source files.</p>
         <div class="pill-row">
           <span class="pill"><span class="dot"></span>Astro 7</span>
           <span class="pill"><span class="dot"></span>Vite</span>
@@ -777,8 +777,8 @@
         <div class="code-block" data-lang="bash">
           <div class="code-block-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Extract on macOS / Linux</span>
-unzip support-desk-astro-package.zip
-<span class="c-key">cd</span> support-desk-astro-package/support-desk-astro</code></pre>
+unzip techwave-astro-package.zip
+<span class="c-key">cd</span> techwave-astro-package/techwave-astro</code></pre>
         </div>
 
         <h3 id="node-setup">Node.js Setup</h3>
@@ -850,7 +850,7 @@ npm run preview</code></pre>
         <h2 id="project-structure-h">Project Structure</h2>
         <p class="section-lede">A tour of the folders you&rsquo;ll actually touch, and the ones you generally shouldn&rsquo;t.</p>
 
-        <div class="file-tree" role="img" aria-label="Project directory structure">support-desk-astro/
+        <div class="file-tree" role="img" aria-label="Project directory structure">techwave-astro/
 ├── <span class="dir">public/</span>                <span class="cmt"># Static files copied as-is</span>
 │   ├── <span class="dir">fonts/satoshi/</span>     <span class="cmt"># Self-hosted Satoshi .woff2 files</span>
 │   ├── <span class="dir">images/</span>            <span class="cmt"># All site images and logos, grouped by page</span>
@@ -914,7 +914,7 @@ npm run preview</code></pre>
         <div class="code-block" data-lang="json">
           <div class="code-block-bar"><span class="code-lang">json</span><span class="code-filename">package.json</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>{
-  <span class="c-key">"name"</span>: <span class="c-string">"support-desk-astro"</span>,
+  <span class="c-key">"name"</span>: <span class="c-string">"techwave-astro"</span>,
   <span class="c-key">"type"</span>: <span class="c-string">"module"</span>,
   <span class="c-key">"version"</span>: <span class="c-string">"0.0.1"</span>,
   <span class="c-key">"engines"</span>: { <span class="c-key">"node"</span>: <span class="c-string">"&gt;=22.12.0"</span> },
@@ -938,7 +938,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-astro">astro.config.mjs</h3>
-        <p>Controls integrations, the deployed site URL, and build behavior. Support Desk registers only the sitemap integration (the 404 page is left out of the sitemap) and turns off Astro&rsquo;s dev toolbar. <strong>Replace the <code>site</code> value with your real domain</strong> before deploying &mdash; it is used for canonical URLs, Open Graph image URLs, and the sitemap.</p>
+        <p>Controls integrations, the deployed site URL, and build behavior. Techwave registers only the sitemap integration (the 404 page is left out of the sitemap) and turns off Astro&rsquo;s dev toolbar. <strong>Replace the <code>site</code> value with your real domain</strong> before deploying &mdash; it is used for canonical URLs, Open Graph image URLs, and the sitemap.</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">astro.config.mjs</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">// @ts-check</span>
@@ -948,7 +948,7 @@ npm run preview</code></pre>
 <span class="c-comment">// https://astro.build/config</span>
 <span class="c-key">export default</span> defineConfig({
   <span class="c-comment">// Replace with the production domain; used for canonical URLs, OG images and the sitemap.</span>
-  site: <span class="c-string">'https://support-desk.example.com'</span>,
+  site: <span class="c-string">'https://techwave.example.com'</span>,
   integrations: [sitemap({ filter: (page) =&gt; !page.endsWith(<span class="c-string">'/404/'</span>) })],
   devToolbar: { enabled: <span class="c-key">false</span> },
 });</code></pre>
@@ -966,7 +966,7 @@ npm run preview</code></pre>
         </div>
 
         <h3 id="config-env">Environment Variables (.env)</h3>
-        <p>Support Desk doesn&rsquo;t read any environment variables out of the box, so no <code>.env</code> file is needed. If you add one later (for example for a form service key), create it in the project root. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
+        <p>Techwave doesn&rsquo;t read any environment variables out of the box, so no <code>.env</code> file is needed. If you add one later (for example for a form service key), create it in the project root. Variables must be prefixed <code>PUBLIC_</code> to be readable in client-side code.</p>
         <div class="code-block" data-lang="env">
           <div class="code-block-bar"><span class="code-lang">env</span><span class="code-filename">.env</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment"># Exposed to the browser &mdash; never put secrets here</span>
@@ -993,7 +993,7 @@ API_SECRET_KEY=<span class="c-string">your_secret_key</span></code></pre>
         <p class="section-lede">How routes are created, which pages ship with the template, and how the blog routes are generated.</p>
 
         <h3 id="creating-pages">Creating a New Page</h3>
-        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Support Desk ships these routes:</p>
+        <p>Astro uses file-based routing: any <code>.astro</code> or <code>.md</code> file placed in <code>src/pages/</code> automatically becomes a route matching its file path. Techwave ships these routes:</p>
         <div class="code-block" data-lang="text">
           <div class="code-block-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>src/pages/index.astro                    <span class="c-comment">&rarr;  /</span>
@@ -1026,7 +1026,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
 <span class="c-key">import</span> CtaBand <span class="c-key">from</span> <span class="c-string">'../components/sections/shared/CtaBand.astro'</span>;
 <span class="c-key">import</span> { cta } <span class="c-key">from</span> <span class="c-string">'../data/home.js'</span>;
 <span class="c-comment">---</span>
-&lt;Layout title=<span class="c-string">"Services – Support Desk"</span> description=<span class="c-string">"Managed IT services for growing teams."</span>&gt;
+&lt;Layout title=<span class="c-string">"Services – Techwave"</span> description=<span class="c-string">"Managed IT services for growing teams."</span>&gt;
   &lt;SectionIntro heading=<span class="c-string">"Our Services"</span> text=<span class="c-string">"Everything your team needs, in one place."</span> /&gt;
   &lt;CtaBand {...cta} /&gt;
 &lt;/Layout&gt;</code></pre>
@@ -1063,8 +1063,8 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
           <pre><code><span class="c-comment">---</span>
 <span class="c-key">import</span> <span class="c-string">'../styles/global.css'</span>;
 <span class="c-key">const</span> {
-  title = <span class="c-string">'Support Desk – IT Solutions &amp; Help Desk'</span>,
-  description = <span class="c-string">'Support Desk helps businesses grow with managed IT, &hellip;'</span>,
+  title = <span class="c-string">'Techwave – IT Solutions &amp; Help Desk'</span>,
+  description = <span class="c-string">'Techwave helps businesses grow with managed IT, &hellip;'</span>,
   image = <span class="c-string">'/images/logo-dark.svg'</span>,
   header = {}, <span class="c-comment">// Header variant props: { topbar, scheme, position, size }</span>
   footer = <span class="c-key">true</span>, <span class="c-comment">// false on pages with their own minimal footer</span>
@@ -1097,7 +1097,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         <p class="section-lede">The building blocks pages are assembled from, and how data flows into them.</p>
 
         <h3 id="reusable-components">Reusable Components</h3>
-        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a button, a post card, a navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Every component in Support Desk is an <code>.astro</code> file, organized in three groups:</p>
+        <p>Components live in <code>src/components/</code> and encapsulate one piece of UI &mdash; a button, a post card, a navigation bar &mdash; so it can be reused across pages without copy-pasting markup. Every component in Techwave is an <code>.astro</code> file, organized in three groups:</p>
         <div class="kv-table-wrap">
           <table class="kv-table">
             <thead><tr><th>Folder</th><th>Contents</th></tr></thead>
@@ -1110,7 +1110,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         </div>
 
         <h3 id="props">Props</h3>
-        <p>Props are the inputs a component accepts, similar to HTML attributes. Support Desk components are written in plain JavaScript, so props are read by destructuring <code>Astro.props</code>, with defaults set right there and a comment at the top of the file describing the options. For example, the pill-shaped button used across the site:</p>
+        <p>Props are the inputs a component accepts, similar to HTML attributes. Techwave components are written in plain JavaScript, so props are read by destructuring <code>Astro.props</code>, with defaults set right there and a comment at the top of the file describing the options. For example, the pill-shaped button used across the site:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/ui/PillButton.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">---</span>
@@ -1175,7 +1175,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         <p class="section-lede">Where to change colors, type, and spacing without fighting the build.</p>
 
         <h3 id="global-styles">Global Styles &amp; CSS Variables</h3>
-        <p>Support Desk is styled with plain CSS &mdash; no Tailwind or Sass. Site-wide values (color palette and font families) are defined once as CSS custom properties in <code>src/styles/global.css</code>, which <code>Layout.astro</code> imports on every page. Change a value here and it updates across the whole site:</p>
+        <p>Techwave is styled with plain CSS &mdash; no Tailwind or Sass. Site-wide values (color palette and font families) are defined once as CSS custom properties in <code>src/styles/global.css</code>, which <code>Layout.astro</code> imports on every page. Change a value here and it updates across the whole site:</p>
         <div class="code-block" data-lang="css">
           <div class="code-block-bar"><span class="code-lang">css</span><span class="code-filename">src/styles/global.css</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">:root</span> {
@@ -1198,7 +1198,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         </div>
 
         <h3 id="component-styles">Component Styles</h3>
-        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. Almost all of Support Desk&rsquo;s layout CSS lives this way, at the bottom of each component file, and reads the shared variables:</p>
+        <p>Astro components support scoped <code>&lt;style&gt;</code> blocks &mdash; CSS written there only applies to that component, so class names never collide across files. Almost all of Techwave&rsquo;s layout CSS lives this way, at the bottom of each component file, and reads the shared variables:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/components/ui/PillButton.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;style&gt;
@@ -1280,7 +1280,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         <p class="section-lede">Swapping typefaces and icon sets without touching every component.</p>
 
         <h3 id="google-fonts">Fontsource Fonts (Manrope, Inter, Outfit)</h3>
-        <p>Support Desk loads no fonts from Google Fonts or any other CDN &mdash; every font is self-hosted. Manrope (headings), Inter (buttons), and Outfit (the About page&rsquo;s story tabs) come from the <a href="https://fontsource.org" target="_blank" rel="noopener noreferrer">Fontsource</a> npm packages and are imported per weight. Manrope and Inter are imported in the shared layout:</p>
+        <p>Techwave loads no fonts from Google Fonts or any other CDN &mdash; every font is self-hosted. Manrope (headings), Inter (buttons), and Outfit (the About page&rsquo;s story tabs) come from the <a href="https://fontsource.org" target="_blank" rel="noopener noreferrer">Fontsource</a> npm packages and are imported per weight. Manrope and Inter are imported in the shared layout:</p>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><span class="code-filename">src/layouts/Layout.astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-key">import</span> <span class="c-string">'@fontsource/manrope/400.css'</span>;
@@ -1334,7 +1334,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         </div>
 
         <h3 id="edit-headings-text">Headings, Paragraphs &amp; Buttons</h3>
-        <p>Page text in Support Desk lives in data files, not in the page markup. Open the file in <code>src/data/</code> named after the page (<code>home.js</code>, <code>features.js</code>, <code>solutions.js</code>, <code>why-choose-us.js</code>, <code>pricing-page.js</code>, <code>about.js</code>, <code>careers.js</code>, <code>contact.js</code>, <code>forms.js</code> for demo/sign-in/sign-up), find the section, and edit the text between the quotes:</p>
+        <p>Page text in Techwave lives in data files, not in the page markup. Open the file in <code>src/data/</code> named after the page (<code>home.js</code>, <code>features.js</code>, <code>solutions.js</code>, <code>why-choose-us.js</code>, <code>pricing-page.js</code>, <code>about.js</code>, <code>careers.js</code>, <code>contact.js</code>, <code>forms.js</code> for demo/sign-in/sign-up), find the section, and edit the text between the quotes:</p>
         <div class="code-block" data-lang="javascript">
           <div class="code-block-bar"><span class="code-lang">javascript</span><span class="code-filename">src/data/home.js</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code><span class="c-comment">// before</span>
@@ -1384,7 +1384,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
 <span class="c-key">slug</span>: <span class="c-string">"a-closer-look-at-connected-living"</span>
 <span class="c-key">date</span>: <span class="c-string">"2022-05-20T12:24:49"</span>
 <span class="c-key">excerpt</span>: <span class="c-string">"Our most successful engagements have been &hellip;"</span>
-<span class="c-key">author</span>: <span class="c-string">"support-desk"</span>        <span class="c-comment"># key in src/data/authors.js</span>
+<span class="c-key">author</span>: <span class="c-string">"techwave"</span>        <span class="c-comment"># key in src/data/authors.js</span>
 <span class="c-key">categories</span>: [<span class="c-string">"Article"</span>, <span class="c-string">"Digital"</span>, <span class="c-string">"Technology"</span>]
 <span class="c-comment"># also: updated, tags, image, listImage, likes,</span>
 <span class="c-comment"># headerStyle ('hero' | 'classic'), format ('standard' | 'gallery' | 'audio' | 'video' | 'quote'), media</span>
@@ -1429,7 +1429,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         <p>The same file also holds the announcement bar text (<code>announcement</code>), the header&rsquo;s Login and &ldquo;Book a Demo&rdquo; buttons (<code>headerButtons</code>), and the mobile drawer&rsquo;s buttons (<code>drawerButtons</code>). Badge tones map to <code>.badge--&lt;tone&gt;</code> colors in <code>src/styles/global.css</code>.</p>
 
         <h3 id="mobile-menu-dropdowns">Mobile Menu &amp; Dropdown Menus</h3>
-        <p>The mobile menu toggle and dropdown behavior require client-side JavaScript, which Support Desk handles with small vanilla <code>&lt;script&gt;</code> blocks &mdash; there are no React islands. Desktop mega menus are rendered by <code>src/components/MegaMenu.astro</code> and open on hover or keyboard focus; the script in <code>src/components/Header.astro</code> keeps <code>aria-expanded</code> in sync and lets <kbd>Esc</kbd> close an open panel. At 1024px and below, the header&rsquo;s menu button opens the off-canvas drawer in <code>src/components/MobileMenu.astro</code>, which reads the same <code>primaryMenu</code> data, so both menus always stay in sync.</p>
+        <p>The mobile menu toggle and dropdown behavior require client-side JavaScript, which Techwave handles with small vanilla <code>&lt;script&gt;</code> blocks &mdash; there are no React islands. Desktop mega menus are rendered by <code>src/components/MegaMenu.astro</code> and open on hover or keyboard focus; the script in <code>src/components/Header.astro</code> keeps <code>aria-expanded</code> in sync and lets <kbd>Esc</kbd> close an open panel. At 1024px and below, the header&rsquo;s menu button opens the off-canvas drawer in <code>src/components/MobileMenu.astro</code>, which reads the same <code>primaryMenu</code> data, so both menus always stay in sync.</p>
 
         <h3 id="footer-nav">Footer Navigation</h3>
         <p>Footer link groups follow the same data-driven pattern as the header, in <code>src/data/footer.js</code>: <code>footerColumns</code> (the Company, Useful, Links, and Community columns), <code>bottomLinks</code> (the bottom bar), <code>brand.socials</code> (social icons), and <code>miniFooterLinks</code> (the minimal footer on the demo, sign-in, and sign-up pages).</p>
@@ -1456,7 +1456,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
 
         <div class="callout warning">
           <span class="callout-title">Forms need somewhere to go</span>
-          <p>A contact or newsletter form in this template captures input in the browser, but submitting it to an email inbox, database, or mailing list requires a backend endpoint or a third-party service &mdash; this is not included by default. Support Desk is not wired to any service: every form ships with <code>action: '#'</code>, so submissions go nowhere until you set a real endpoint.</p>
+          <p>A contact or newsletter form in this template captures input in the browser, but submitting it to an email inbox, database, or mailing list requires a backend endpoint or a third-party service &mdash; this is not included by default. Techwave is not wired to any service: every form ships with <code>action: '#'</code>, so submissions go nowhere until you set a real endpoint.</p>
         </div>
 
         <h3 id="contact-forms">Contact Forms</h3>
@@ -1509,7 +1509,7 @@ src/pages/type/[slug]/[...page].astro    <span class="c-comment">&rarr;  /type/&
         <p class="section-lede">Only relevant if your template fetches data from an external source &mdash; skip this section otherwise.</p>
 
         <div class="callout info">
-          <span class="callout-title">Support Desk fetches no external data</span>
+          <span class="callout-title">Techwave fetches no external data</span>
           <p>The template calls no APIs and needs no API keys. All content is local: page copy and settings in <code>src/data/*.js</code>, and blog posts and legal pages in the Markdown content collections under <code>src/content/</code>, read at build time with Astro&rsquo;s <code>getCollection()</code>. Everything below is general guidance in case you connect an API or headless CMS later.</p>
         </div>
 
@@ -1537,7 +1537,7 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <h3 id="data-structures">Data Structures</h3>
         <p>The only structured data the template defines is its two content collections, validated with Zod schemas in <code>src/content.config.js</code>:</p>
         <ul>
-          <li><strong><code>blog</code></strong> &mdash; <code>title</code>, <code>slug</code>, <code>date</code> (required); optional <code>updated</code>, <code>excerpt</code>, <code>image</code>, <code>listImage</code>; <code>author</code> (default <code>'support-desk'</code>), <code>likes</code>, <code>categories</code>, <code>tags</code>, <code>headerStyle</code> (<code>'hero'</code> | <code>'classic'</code>), <code>format</code> (<code>'standard'</code> | <code>'gallery'</code> | <code>'audio'</code> | <code>'video'</code> | <code>'quote'</code>), and a <code>media</code> object (<code>image</code>, <code>gallery</code>, <code>galleryNav</code>, <code>audio</code>, <code>video</code> as a YouTube id, <code>quote</code>).</li>
+          <li><strong><code>blog</code></strong> &mdash; <code>title</code>, <code>slug</code>, <code>date</code> (required); optional <code>updated</code>, <code>excerpt</code>, <code>image</code>, <code>listImage</code>; <code>author</code> (default <code>'techwave'</code>), <code>likes</code>, <code>categories</code>, <code>tags</code>, <code>headerStyle</code> (<code>'hero'</code> | <code>'classic'</code>), <code>format</code> (<code>'standard'</code> | <code>'gallery'</code> | <code>'audio'</code> | <code>'video'</code> | <code>'quote'</code>), and a <code>media</code> object (<code>image</code>, <code>gallery</code>, <code>galleryNav</code>, <code>audio</code>, <code>video</code> as a YouTube id, <code>quote</code>).</li>
           <li><strong><code>legal</code></strong> &mdash; <code>title</code>, <code>updated</code>, and <code>variant</code> (<code>'privacy'</code> | <code>'terms'</code>).</li>
         </ul>
         <p>If you move posts to an external CMS, map its response onto these same fields so the existing layouts and listing pages keep working. A front-matter value that doesn&rsquo;t match the schema fails the build with a message naming the file and field.</p>
@@ -1572,7 +1572,7 @@ PUBLIC_API_KEY=your_api_key</code></pre>
         <div class="code-block" data-lang="astro">
           <div class="code-block-bar"><span class="code-lang">astro</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>&lt;Layout
-  title=<span class="c-string">"Services – Support Desk"</span>
+  title=<span class="c-string">"Services – Techwave"</span>
   description=<span class="c-string">"Managed IT services and help desk support for growing teams."</span>
   image=<span class="c-string">"/images/og/services.jpg"</span>  <span class="c-comment">&lt;!-- optional: Open Graph image path --&gt;</span>
 &gt;</code></pre>
@@ -1598,7 +1598,7 @@ PUBLIC_API_KEY=your_api_key</code></pre>
           <div class="code-block-bar"><span class="code-lang">text</span><span class="code-filename">public/robots.txt</span><button class="copy-btn" type="button" aria-label="Copy code">Copy</button></div>
           <pre><code>User-agent: *
 Allow: /
-Sitemap: https://support-desk.example.com/sitemap-index.xml</code></pre>
+Sitemap: https://techwave.example.com/sitemap-index.xml</code></pre>
         </div>
 
         <h3 id="structured-data-semantic">Structured Data &amp; Semantic HTML</h3>
@@ -1618,7 +1618,7 @@ Sitemap: https://support-desk.example.com/sitemap-index.xml</code></pre>
 
         <div class="callout info">
           <span class="callout-title">Static vs. SSR &mdash; check this first</span>
-          <p>Support Desk is a fully static Astro build (no adapter is installed): it produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. Only follow the SSR notes below if you later add a server adapter yourself &mdash; using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
+          <p>Techwave is a fully static Astro build (no adapter is installed): it produces plain HTML/CSS/JS in <code>dist/</code> that any static host can serve. Only follow the SSR notes below if you later add a server adapter yourself &mdash; using the wrong instructions for your rendering mode is the most common deployment mistake.</p>
         </div>
 
         <h3 id="deploy-vercel">Vercel</h3>
@@ -1646,7 +1646,7 @@ Sitemap: https://support-desk.example.com/sitemap-index.xml</code></pre>
         <p>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match your repository URL, then build and publish the <code>dist/</code> folder to the <code>gh-pages</code> branch (via the official <code>astro build</code> + a deploy action, or manually). GitHub Pages only serves static output &mdash; it cannot run an SSR adapter.</p>
 
         <h3 id="deploy-traditional">Traditional Hosting</h3>
-        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. Because Support Desk is static, ordinary shared hosting works &mdash; no Node.js is needed on the server. (Only if you later switch to SSR with an adapter would the host need to run <code>node</code> continuously.)</p>
+        <p>For a static build, upload the contents of <code>dist/</code> to your host&rsquo;s public web root via FTP/SFTP or your host&rsquo;s file manager. Because Techwave is static, ordinary shared hosting works &mdash; no Node.js is needed on the server. (Only if you later switch to SSR with an adapter would the host need to run <code>node</code> continuously.)</p>
 
         <nav class="pager" aria-label="Section pagination">
           <a href="#seo"><span class="pager-label">Previous</span><span class="pager-title">&larr; SEO</span></a>
@@ -1670,13 +1670,13 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <p>The build writes one static HTML page per route (including every blog post, listing page, and archive page), hashed CSS/JS bundles, the files from <code>public/</code>, and <code>sitemap-index.xml</code> to <code>dist/</code>. This folder is disposable and regenerated by every build &mdash; the template&rsquo;s <code>.gitignore</code> already keeps it out of Git.</p>
 
         <h3 id="build-env-vars">Environment Variables in Production</h3>
-        <p>Support Desk needs no environment variables out of the box. If you add some, note that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
+        <p>Techwave needs no environment variables out of the box. If you add some, note that variables from your local <code>.env</code> are not deployed automatically &mdash; each hosting platform requires you to set them again in its dashboard (see <a href="#deployment">Deployment</a>). A missing production variable is one of the most common causes of a build that works locally but fails, or behaves unexpectedly, once deployed.</p>
 
         <h3 id="production-checklist">Production Checklist</h3>
         <ul>
           <li>Run <code>npm run build</code> locally and confirm it completes with no errors.</li>
           <li>Run <code>npm run preview</code> and click through the main pages.</li>
-          <li>Replace <code>https://support-desk.example.com</code> in <code>astro.config.mjs</code> with your real domain.</li>
+          <li>Replace <code>https://techwave.example.com</code> in <code>astro.config.mjs</code> with your real domain.</li>
           <li>If you added a <code>.env</code> file, set every variable from it in your hosting platform&rsquo;s dashboard.</li>
           <li>Point every form <code>action</code> (<code>contact.js</code>, <code>forms.js</code>, <code>footer.js</code>) at a real endpoint instead of <code>'#'</code>.</li>
           <li>Replace the placeholder contact email and phone in <code>src/data/contact.js</code>, the <code>'#'</code> social links in <code>src/data/footer.js</code>, and the copyright line.</li>
@@ -1756,7 +1756,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
 
         <details class="faq-item">
           <summary>How do I install the template?</summary>
-          <p>Extract <code>support-desk-astro-package.zip</code>, open the <code>support-desk-astro</code> folder inside it, run <code>npm install</code>, then start the dev server with <code>npm run dev</code>. The full walkthrough is in <a href="#getting-started">Getting Started</a>.</p>
+          <p>Extract <code>techwave-astro-package.zip</code>, open the <code>techwave-astro</code> folder inside it, run <code>npm install</code>, then start the dev server with <code>npm run dev</code>. The full walkthrough is in <a href="#getting-started">Getting Started</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Which Node.js version should I use?</summary>
@@ -1764,7 +1764,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         </details>
         <details class="faq-item">
           <summary>Do I need to know TypeScript or React?</summary>
-          <p>No. Support Desk is written in plain JavaScript and <code>.astro</code> components, with no React or other UI framework. The <code>tsconfig.json</code> only helps your editor understand Astro&rsquo;s types. Most everyday edits are text changes in <code>src/data/</code> and Markdown files.</p>
+          <p>No. Techwave is written in plain JavaScript and <code>.astro</code> components, with no React or other UI framework. The <code>tsconfig.json</code> only helps your editor understand Astro&rsquo;s types. Most everyday edits are text changes in <code>src/data/</code> and Markdown files.</p>
         </details>
         <details class="faq-item">
           <summary>How do I change colors?</summary>
@@ -1810,7 +1810,7 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
         <div class="changelog-entry">
           <span class="changelog-version">Version 0.0.1</span><span class="changelog-date">[Release date]</span>
           <ul>
-            <li><span class="tag-added">Added</span>Initial release of the Support Desk Astro template: home, features, solutions, why choose us, pricing, about, careers, contact, demo, sign-in, sign-up, legal, and 404 pages; a Markdown blog with 12 listing styles, five post formats, and author/category/tag/format archives; mega menu and mobile drawer; GSAP scroll animations, Swiper sliders, and an automatic sitemap.</li>
+            <li><span class="tag-added">Added</span>Initial release of the Techwave Astro template: home, features, solutions, why choose us, pricing, about, careers, contact, demo, sign-in, sign-up, legal, and 404 pages; a Markdown blog with 12 listing styles, five post formats, and author/category/tag/format archives; mega menu and mobile drawer; GSAP scroll animations, Swiper sliders, and an automatic sitemap.</li>
           </ul>
         </div>
 
@@ -1903,13 +1903,13 @@ npm run preview   <span class="c-comment"># serve dist/ locally, exactly as it w
      template. The UI below reads from this object wherever possible.
      ==================================================================== */
   var DOC_CONFIG = {
-    productName: "Support Desk",
+    productName: "Techwave",
     productVersion: "0.0.1",
     framework: "Astro",
     companyName: "RNN Studio",
     supportUrl: "https://rnnstudio.com/contact",
     supportEmail: "hello@rnnstudio.com",
-    githubUrl: "https://github.com/krunalprogrammer/support-desk-astro"
+    githubUrl: "https://github.com/krunalprogrammer/techwave-astro"
   };
 
   /* ---- Apply DOC_CONFIG to the DOM ---- */
